@@ -18,7 +18,7 @@ const Home = () => {
             <p className="font-thin text-center text-[40px]">Innovation</p>
           </div>
 
-          <p className="font-jsans text-gray-200 mt-4 text-center w-[80%] sm:w-[50%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
+          <p className="font-jsans text-gray-200 mt-4 text-center w-[80%] sm:w-[50%] lg:w-[30%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
           <button className="btn-wine py-3 px-6 flex-center gap-2 mt-6">
             <span>Explore Now</span>
