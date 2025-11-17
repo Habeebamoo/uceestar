@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "playfair";
+  src: url("../fonts/Playfair/static/Playfair_144pt-Medium.ttf");
+}
+
+@font-face {
+  font-family: "playfair-bold";
+  src: url("../fonts/Playfair/static/Playfair_144pt-Bold.ttf");
+}
+
+@font-face {
+  font-family: "jsans";
+  src: url("../fonts/jsans/static/PlusJakartaSans-Medium.ttf");
+}
+
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@utility flex-between {
+  @apply flex justify-between items-center;
+}
+
+@utility btn-wine {
+  @apply bg-red-800 font-jsans border-1 text-white border-red-800 hover:bg-transparent active:bg-transparent cursor-pointer;
+}
+
+.hero-section {
+  background-image: url("../assets/heroimg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@theme {
+  --font-playfair: "playfair";
+  --font-playfair-bold: "playfair-bold";
+  --font-jsans: "jsans";
+}
