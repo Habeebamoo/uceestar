@@ -6,8 +6,8 @@ const Home = () => {
       {/* Hero Section */}
       <section className="mt-20 hero-section">
         <div className="bg-black/80 py-20 flex-center flex-col">
-          <div className="py-2 px-4 rounded-xl bg-gray-200/20 text-sm flex-center gap-2 border-1 border-gray-500">
-            <div className="h-2 w-2 rounded-full bg-red-900">
+          <div className="py-2 px-4 rounded-full bg-gray-200/20 text-sm flex-center gap-2 border-1 border-gray-500">
+            <div className="h-2 w-2 rounded-full bg-red-800">
 
             </div>
             <p className="font-jsans text-white">Discover Curated Collections</p>
