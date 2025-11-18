@@ -6,6 +6,10 @@ interface Props {
 }
 
 const ProductDisplay = ({ product }: Props) => {
+  const formatCurrency = (num: number) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
   return (
     <div className="bg-white border-1 border-gray-100">
       <div className="h-[250px] bg-gray-200">
@@ -17,7 +21,7 @@ const ProductDisplay = ({ product }: Props) => {
 
         <div className="mt-4 font-jsans-light flex-start gap-1">
           <span>&#x20A6;</span>
-          <p>{product.price}</p>
+          <p>{formatCurrency(product.price)}</p>
         </div>
 
         <button className="btn-blue py-2 px-4 text-sm mb-2">

@@ -1,7 +1,7 @@
 "use client";
 
 import CategoryTab from "@/components/CategoryTab"
-import ProductDisplay from "@/components/ProductDisplay";
+import ProductsSection from "@/components/ProductsSection";
 import { Product } from "@/types/Product";
 import { ArrowRight } from "lucide-react"
 import { useState } from "react"
@@ -23,11 +23,9 @@ const Home = () => {
     <main className="bg-gray-50">
       {/* Hero Section */}
       <section className="mt-20 hero-section">
-        <div className="bg-black/70 py-20 flex-center flex-col">
+        <div className="bg-black/90 py-20 flex-center flex-col">
           <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-500">
-            <div className="h-[7px] w-[7px] rounded-full bg-indigo-950">
-
-            </div>
+            <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
             <p className="font-jsans text-white text-[10px]">Discover Curated Collections</p>
           </div>
 
@@ -35,6 +33,8 @@ const Home = () => {
             <p className="font-jsans text-center text-[45px]">Style Meets</p>
             <p className="font-jsans-light text-center text-[40px]">Innovation</p>
           </div>
+
+          <div className="bg-gradient-to-r from-indigo-900 to-indingo-400 h-1 rounded-full mt-1 w-[200px]"></div>
 
           <p className="font-jsans-light text-gray-200 text-sm mt-6 text-center text-[17px] leading-relaxed w-[80%] sm:w-[50%] lg:w-[30%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
@@ -57,7 +57,7 @@ const Home = () => {
 
       {/* products */}
       <section className="mt-10 mb-40 w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredProducts.map(prod => <ProductDisplay product={prod} /> )}
+        {filteredProducts.length >= 1 && <ProductsSection products={filteredProducts} />}
       </section>
     </main>
   )
