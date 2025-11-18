@@ -24,12 +24,20 @@
   @apply flex justify-center items-center;
 }
 
+@utility flex-start {
+  @apply flex justify-start items-center;
+}
+
 @utility flex-between {
   @apply flex justify-between items-center;
 }
 
-@utility btn-wine {
-  @apply bg-red-800 font-jsans border-1 text-white border-red-800 hover:bg-transparent active:bg-transparent cursor-pointer;
+@utility btn-primary {
+  @apply bg-indigo-950 font-jsans border-1 text-white border-indigo-950 hover:bg-transparent active:bg-transparent cursor-pointer;
+}
+
+@utility btn-black {
+  @apply bg-black border-1 border-black font-jsans mt-4 cursor-pointer active:bg-transparent active:text-black hover:bg-transparent hover:text-black text-white;
 }
 
 .hero-section {
@@ -37,6 +45,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.category-tab {
+  @apply py-3 px-4 flex-none bg-gray-200 font-jsans text-sm text-center cursor-pointer;
+}
+
+.category-tab-active {
+  @apply py-3 px-4 flex-none bg-black text-white font-jsans text-sm text-center cursor-pointer;
 }
 
 @theme {
