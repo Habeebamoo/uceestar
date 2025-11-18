@@ -12,7 +12,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
   }
 
   return (
-    <div className="bg-gray-100 py-8 px-2 border-1 border-gray-200 flex overflow-x-auto space-x-4">
+    <div className="bg-gray-100 py-8 px-4 border-1 border-gray-200 flex overflow-x-auto space-x-4">
       <div 
       onClick={() => selectCategory("sneakers")}
         className={`${category === "sneakers" ? "category-tab-active" : "category-tab"}`}

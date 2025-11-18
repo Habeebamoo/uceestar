@@ -8,7 +8,7 @@ interface Props {
 const ProductDisplay = ({ product }: Props) => {
   return (
     <div className="bg-white border-1 border-gray-100">
-      <div className="h-[250px] bg-gray-100">
+      <div className="h-[250px] bg-gray-200">
 
       </div>
       <div className="py-3 px-4">
@@ -20,7 +20,7 @@ const ProductDisplay = ({ product }: Props) => {
           <p>{product.price}</p>
         </div>
 
-        <button className="btn-black py-2 px-4 text-sm mb-2">
+        <button className="btn-blue py-2 px-4 text-sm mb-2">
           View Product
         </button>
       </div>

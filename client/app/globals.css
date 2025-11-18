@@ -36,8 +36,8 @@
   @apply bg-indigo-950 font-jsans border-1 text-white border-indigo-950 hover:bg-transparent active:bg-transparent cursor-pointer;
 }
 
-@utility btn-black {
-  @apply bg-black border-1 border-black font-jsans mt-4 cursor-pointer active:bg-transparent active:text-black hover:bg-transparent hover:text-black text-white;
+@utility btn-blue {
+  @apply bg-indigo-950 border-1 border-indigo-950 font-jsans mt-4 cursor-pointer active:bg-transparent active:text-indigo-950 hover:bg-transparent hover:text-indigo-950 text-white;
 }
 
 .hero-section {
@@ -52,7 +52,7 @@
 }
 
 .category-tab-active {
-  @apply py-3 px-4 flex-none bg-black text-white font-jsans text-sm text-center cursor-pointer;
+  @apply py-3 px-4 flex-none bg-indigo-950 text-white font-jsans text-sm text-center cursor-pointer;
 }
 
 @theme {
