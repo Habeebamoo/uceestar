@@ -1,5 +1,5 @@
 import { Product } from "@/types/Product"
-import {} from "lucide-react"
+import Link from "next/link"
 
 interface Props {
   product: Product
@@ -25,7 +25,9 @@ const ProductDisplay = ({ product }: Props) => {
         </div>
 
         <button className="btn-blue py-2 px-4 text-sm mb-2">
-          View Product
+          <Link href={`/products/${product.id}`}>
+            View Product
+          </Link>
         </button>
       </div>
     </div>

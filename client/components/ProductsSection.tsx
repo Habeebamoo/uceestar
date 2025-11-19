@@ -4,7 +4,7 @@ import ProductDisplay from "./ProductDisplay";
 const ProductsSection = ({ products }: { products: Product[] }) => {
   return (
     <div>
-      {products.map(prod => <ProductDisplay product={prod} /> )}
+      {products.map((prod, i) => <ProductDisplay key={i} product={prod} /> )}
     </div>
   )
 }

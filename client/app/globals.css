@@ -55,6 +55,16 @@
   @apply py-3 px-4 flex-none bg-indigo-950 text-white font-jsans text-sm text-center cursor-pointer;
 }
 
+.no-spin::-webkit-inner-spin-button,
+.no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spin {
+  -moz-appearance: textfield;
+}
+
 @theme {
   --font-playfair: "playfair";
   --font-playfair-bold: "playfair-bold";

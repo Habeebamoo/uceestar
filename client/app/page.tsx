@@ -6,10 +6,10 @@ import { Product } from "@/types/Product";
 import { ArrowRight } from "lucide-react"
 import { useState } from "react"
 
-const products: Product[] = [
-  {name: "Nike Sneakers", price: 16000, category: "sneakers" },
-  {name: "Addidas", price: 85000, category: "sneakers" },
-  {name: "Nike", price: 19500, category: "loafers" },
+export const products: Product[] = [
+  {id: "sjsisissos", name: "Nike Sneakers", price: 16000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
+  {id: "j9ejdnidnkd", name: "Addidas", price: 85000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
+  {id: "ijwnixiwiwn", name: "Nike", price: 19500, category: "loafers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
 ]
 
 export type categories = "sneakers" | "loafers" | "huddies" | "phones" | "watches" | "limiters" | "trackers";
