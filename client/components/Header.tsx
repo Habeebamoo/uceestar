@@ -31,7 +31,7 @@ const Header = () => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className="fixed top-0 left-0 right-0 shadow">
+    <header className="fixed top-0 left-0 right-0 bg-white shadow">
       <nav className="p-6 flex-between">
         {/* logo */}
         <div
