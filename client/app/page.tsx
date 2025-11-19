@@ -25,7 +25,7 @@ const Home = () => {
   const filteredProducts = storeProducts.filter((prod) => prod.category === category)
 
   return (
-    <main className="bg-amber-50">
+    <main className="">
       {/* Hero Section */}
       <section className="mt-20 hero-section">
         <div className="bg-black/80 py-20 flex-center flex-col">

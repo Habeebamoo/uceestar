@@ -39,7 +39,7 @@ const Page = () => {
   }
 
   return (
-    <main className="pt-22 bg-amber-50 px-4">
+    <main className="pt-22 px-4">
       <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
         {/* image */}

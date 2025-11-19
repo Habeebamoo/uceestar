@@ -29,7 +29,7 @@ const Cart = () => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <main className="pt-26 bg-amber-50 px-4">
+    <main className="pt-26 px-4">
       {/* heading */}
       <div className="font-jsans flex-between">
          <h1 className="text-xl">Shopping Cart</h1>
