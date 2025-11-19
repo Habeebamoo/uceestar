@@ -1,9 +1,10 @@
 import { categories } from "@/app/page";
 
-export interface Product {
+export interface CartItem {
   id: string,
   name: string,
   category: categories,
   price: number,
-  description: string
+  description: string,
+  quantity: number
 }

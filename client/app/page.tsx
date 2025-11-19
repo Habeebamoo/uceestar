@@ -2,28 +2,33 @@
 
 import CategoryTab from "@/components/CategoryTab"
 import ProductsSection from "@/components/ProductsSection";
-import { Product } from "@/types/Product";
+import { setProducts } from "@/redux/reducers/productSlice";
+import { products } from "@/types/product";
+import { type RootState } from "@/redux/store"
 import { ArrowRight } from "lucide-react"
-import { useState } from "react"
-
-export const products: Product[] = [
-  {id: "sjsisissos", name: "Nike Sneakers", price: 16000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
-  {id: "j9ejdnidnkd", name: "Addidas", price: 85000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
-  {id: "ijwnixiwiwn", name: "Nike", price: 19500, category: "loafers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
-]
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 
 export type categories = "sneakers" | "loafers" | "huddies" | "phones" | "watches" | "limiters" | "trackers";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setProducts(products));
+  }, [dispatch])
+
+  const storeProducts = useSelector((state: RootState) => state.products.products)
+
   const [category, setCategory] = useState<categories>("sneakers")
 
-  const filteredProducts = products.filter((prod) => prod.category === category)
+  const filteredProducts = storeProducts.filter((prod) => prod.category === category)
 
   return (
     <main className="bg-gray-50">
       {/* Hero Section */}
       <section className="mt-20 hero-section">
-        <div className="bg-black/90 py-20 flex-center flex-col">
+        <div className="bg-black/80 py-20 flex-center flex-col">
           <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-500">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
             <p className="font-jsans text-white text-[10px]">Discover Curated Collections</p>
@@ -56,7 +61,7 @@ const Home = () => {
       </section>
 
       {/* products */}
-      <section className="mt-10 mb-40 w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section className="mt-10 mb-40 w-[90%] mx-auto">
         {filteredProducts.length >= 1 && <ProductsSection products={filteredProducts} />}
       </section>
     </main>

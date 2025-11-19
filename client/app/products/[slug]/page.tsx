@@ -1,18 +1,36 @@
 "use client";
 
-import { products } from "@/app/page";
 import Counter from "@/components/Counter";
+import { addToCart } from "@/redux/reducers/cartSlice";
+import { RootState } from "@/redux/store";
+import { CartItem } from "@/types/cart";
 import { useParams } from "next/navigation";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 
 const Page = () => {
   const params = useParams();
   const slug = params.slug;
+  const dispatch = useDispatch()
   const [quantity, setQuantity] = useState<number>(1)
+
+  const products = useSelector((state: RootState) => state.products.products)
+
+  const cart = useSelector((state: RootState) => state.cart.cart)
+
+  console.log(cart)
 
   const product = products.find(prod => prod.id == slug)
 
   if (!product) return <p className="mt-20">Not Found</p>
+
+  const addProductToCart = () => {
+    const item: CartItem = { ...product!, quantity }
+    dispatch(addToCart(item))
+
+    toast.success("Added To Cart")
+  }
 
   const formerPrice = (product!.price) + (product!.price * 0.15)
 
@@ -20,9 +38,9 @@ const Page = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-
   return (
     <main className="mt-22 px-4">
+      <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
         {/* image */}
       </div>
@@ -61,7 +79,12 @@ const Page = () => {
       <div className="mt-4 mb-60 grid grid-cols-2 gap-4 lg:w-[60%] mx-auto">
         <Counter count={quantity} setCount={setQuantity} />
 
-        <button className="btn-primary text-sm py-3 w-full hover:text-indigo-950 active:text-indigo-950 rounded-lg">Add To Cart</button>
+        <button 
+          onClick={addProductToCart} 
+          className="btn-primary text-sm py-3 w-full hover:text-indigo-950 active:text-indigo-950 rounded-lg"
+        >
+          Add To Cart
+        </button>
       </div>
     </main>
   )
