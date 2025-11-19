@@ -16,12 +16,24 @@ const Cart = () => {
     )
   }
 
+  const getCartItemsQuantity = (): number => {
+    let quantity: number = 0;
+
+    cart.forEach(item => {
+      quantity += item.quantity;
+    })
+
+    return quantity
+  }
+
+  const itemsAmount = getCartItemsQuantity();
+
   return (
     <main className="mt-26 px-4">
       {/* heading */}
       <div className="font-jsans flex-between">
          <h1 className="text-xl">Shopping Cart</h1>
-         <p className="font-bold">3 Items</p>
+         <p className="font-bold">{itemsAmount} Items</p>
       </div>
       <hr className="text-gray-200 mt-6" />
 

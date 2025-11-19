@@ -31,7 +31,7 @@ const Header = () => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow">
+    <header className="fixed top-0 left-0 right-0 bg-amber-50 shadow">
       <nav className="p-6 flex-between">
         {/* logo */}
         <div
@@ -51,7 +51,7 @@ const Header = () => {
             onClick={toCart}
             className="cursor-pointer relative"
           >
-            <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[12px] font-jsans right-[-10] top-[-10]">
+            <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
               {itemsAmount}
             </p>
             <ShoppingCart />
