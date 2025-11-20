@@ -33,6 +33,8 @@ const Cart = () => {
       router.push("/signin")
       return
     }
+
+    alert("ok")
   }
 
   const deleteCart = () => {
@@ -80,9 +82,8 @@ const Cart = () => {
   const deliveryCost = getDeliveryCost();
   const totalCost = cost + deliveryCost;
   
-
   return (
-    <main className="bg-gray-50 pt-24 pb-20 px-4 min-h-screen">
+    <main className="bg-gray-50 pt-24 pb-30 px-4 min-h-screen">
       {/* heading */}
       <div className="font-jsans flex-between">
          <h1 className="text-xl">Shopping Cart</h1>

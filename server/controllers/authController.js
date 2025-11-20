@@ -14,7 +14,7 @@ export const SignIn = async (req, res) => {
       message: "Missing Fields",
     })
   }
-
+  
   //checks if user exists
   const foundUser = await User.findOne({ email: email })
 

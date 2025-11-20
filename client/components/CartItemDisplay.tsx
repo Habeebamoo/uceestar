@@ -25,7 +25,7 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
         </div>
       </div>
 
-      <div className="flex-between mt-6 px-4">
+      <div className="flex-between mt-6 px-2">
         {/* price */}
         <div>
           <p className="font-jsans-light text-[12px]">Price</p>

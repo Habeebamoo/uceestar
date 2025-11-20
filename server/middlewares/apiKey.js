@@ -1,6 +1,14 @@
 export const RequireApiKey = (req, res, next) => {
   const authHeader = req.header("Authorization")
 
+  if (!authHeader) {
+     return res.status(401).json({
+      status: "error",
+      statusCode: 401,
+      message: "Authorization Header Missing"
+    })
+  }
+
   const parts = authHeader.split(" ");
 
   if (parts.length !== 2 || parts[0] !== "Bearer") {
