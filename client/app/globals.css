@@ -32,6 +32,10 @@
   @apply flex justify-between items-center;
 }
 
+@utility flex-end {
+  @apply flex justify-end items-center;
+}
+
 @utility btn-primary {
   @apply bg-indigo-950 font-jsans border-1 text-white border-indigo-950 hover:bg-transparent active:bg-transparent cursor-pointer;
 }

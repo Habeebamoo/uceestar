@@ -1,5 +1,17 @@
 export const RequireApiKey = (req, res, next) => {
-  const apiKey = req.header("X-API-KEY")
+  const authHeader = req.header("Authorization")
+
+  const parts = authHeader.split(" ");
+
+  if (parts.length !== 2 || parts[0] !== "Bearer") {
+    return res.status(401).json({
+      status: "error",
+      statusCode: 401,
+      message: "Invalid Authorization Format"
+    })
+  }
+
+  const apiKey = parts[1];
 
   if (!apiKey) {
     return res.status(401).json({

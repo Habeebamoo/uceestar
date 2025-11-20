@@ -32,18 +32,18 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow">
-      <nav className="p-6 flex-between">
+      <nav className="p-4 flex-between">
         {/* logo */}
         <div
           onClick={toHome} 
           className="flex-start font-playfair-bold cursor-pointer"
         >
-          <Image src="/logo.png" alt="logo" height={30} width={30} />
+          <Image src="/logo.png" alt="logo" height={35} width={35} />
           <span className="mt-2 text-indigo-950">ceestar</span>
         </div>
 
         {/* icons */}
-        <div className="flex-between gap-8">
+        <div className="flex-between gap-8 px-2">
           <div className="cursor-pointer">
             <Search />
           </div>
@@ -55,9 +55,6 @@ const Header = () => {
               {itemsAmount}
             </p>
             <ShoppingCart />
-          </div>
-          <div className="cursor-pointer">
-            <Menu />
           </div>
         </div>
       </nav>
