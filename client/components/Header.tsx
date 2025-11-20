@@ -32,14 +32,13 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow">
-      <nav className="p-4 flex-between">
+      <nav className="p-4 flex-between lg:w-[70%] mx-auto">
         {/* logo */}
         <div
           onClick={toHome} 
-          className="flex-start font-playfair-bold cursor-pointer"
+          className="cursor-pointer"
         >
           <Image src="/logo.png" alt="logo" height={35} width={35} />
-          <span className="mt-2 text-indigo-950">ceestar</span>
         </div>
 
         {/* search */}
