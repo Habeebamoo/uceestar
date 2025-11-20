@@ -42,12 +42,12 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-50 flex-center flex-col">
+    <main className="pt-50 flex-center flex-col min-h-[calc(100vh-4rem)]">
       <Toaster position="top-center" />
 
       <h1 className="font-jsans text-3xl">Hi friend!</h1>
 
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">Sign in to your Uceestar account to complete your purchase</p>
+      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
 
       <GoogleLogin 
         onSuccess={handleSuccess} 

@@ -39,7 +39,7 @@ const Page = () => {
   }
 
   return (
-    <main className="pt-18 px-4">
+    <main className="pt-18 px-4 min-h-[calc(100vh-4rem)]">
       <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
         {/* image */}
@@ -76,7 +76,7 @@ const Page = () => {
 
       <p className="font-jsans text-sm mt-4">Quantity</p>
 
-      <div className="mt-4 mb-60 grid grid-cols-2 gap-4 lg:w-[60%] mx-auto">
+      <div className="mt-4 mb-60 grid grid-cols-2 gap-4 sm:w-[500px] mx-auto">
         <Counter count={quantity} setCount={setQuantity} />
 
         <button 

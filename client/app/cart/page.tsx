@@ -82,7 +82,7 @@ const Cart = () => {
   
 
   return (
-    <main className="bg-gray-50 pt-24 px-4">
+    <main className="bg-gray-50 pt-24 pb-20 px-4 min-h-screen">
       {/* heading */}
       <div className="font-jsans flex-between">
          <h1 className="text-xl">Shopping Cart</h1>
@@ -90,38 +90,23 @@ const Cart = () => {
       </div>
       <hr className="text-gray-200 mt-6" />
 
-      {/* table */}
-      <table className="mt-6 w-full">
-        <thead className="text-gray-500 text-[12px] font-jsans-light text-left">
-          <tr>
-            <th className="w-1/3 p-1">
-              DETAILS
-            </th>
-            <th className="w-30 p-1">
-              PRICE
-            </th>
-            <th className="w-20 p-1">
-              QUANTITY
-            </th>
-            <th className="w-30 p-1">
-              TOTAL
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item: CartItem) => <CartItemDisplay key={item.id} item={item} />)}
-        </tbody>
-      </table>
+      {/* products */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+        {cart.map((item: CartItem) => <CartItemDisplay key={item.id} item={item} />)}
+      </section>
 
-      <button 
-        onClick={deleteCart}
-        className="btn-primary bg-red-500 border-red-500 hover:text-red-500 active:text-red-500 py-1 px-3 text-sm font-jsans mt-10"
-      >
-        Empty Cart
-      </button>
+
+      <div className="flex-center mt-10">
+        <button 
+          onClick={deleteCart}
+          className="btn-primary bg-red-500 border-red-500 hover:text-red-500 active:text-red-500 py-2 px-4 text-[12px] font-jsans"
+        >
+          Empty Cart
+        </button>
+      </div>
 
       {/* checkout */}
-      <div className="w-[90%] sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-100 rounded-lg mt-10 mb-30">
+      <div className="w-full sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-100 rounded-lg mt-10">
         <div className="flex-start gap-2">
           <ShoppingCart />
           <h1 className="font-jsans">Checkout</h1>
@@ -132,12 +117,12 @@ const Cart = () => {
           <p className="font-jsans-light">{itemsAmount}</p>
         </div>
 
-        <div className="flex-between mt-3 text-sm">
+        <div className="flex-between mt-4 text-sm">
           <p className="font-jsans">Cost</p>
           <p className="font-jsans-light">&#x20A6; {formatCurrency(cost)}</p>
         </div>
 
-        <div className="text-sm mt-3 flex-between">
+        <div className="text-sm mt-4 flex-between">
           <p className="font-jsans">Your Location</p>
           <select 
             value={location}
@@ -149,7 +134,7 @@ const Cart = () => {
           </select>
         </div>
 
-        <div className="flex-between text-sm mt-3">
+        <div className="flex-between text-sm mt-4">
           <p className="font-jsans">Delivery</p>
           <p className="font-jsans-light">&#x20A6; {formatCurrency(deliveryCost)}</p>
         </div>

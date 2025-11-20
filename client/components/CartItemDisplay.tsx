@@ -12,22 +12,50 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
   }
 
   return (
-    <tr>
-      <td className="flex-start gap-3 px-2 py-3 border-b border-gray-200">
-        <div className="h-10 w-15 bg-gray-200"></div>
-        <p className="font-jsans text-[12px]">{truncate(item.name, 15)}</p>
-      </td>
+    <div className="bg-white p-4 border-1 border-gray-100 rounded-md">
+      <div className="flex-start gap-3">
+        {/* image */}
+        <div className="bg-gray-100 h-20 w-25">
 
-      <td className="font-jsans-light text-sm px-2 py-3 border-b border-gray-200">
-        &#x20A6; {formatCurrency(item.price)}
-      </td>
+        </div>
 
-      <td className="font-jsans text-[12px] px-2 py-3 border-b border-gray-200">{item.quantity}</td>
+        <div>
+          <p className="font-jsans-light text-[12px]">{item.category.toUpperCase()}</p>
+          <h1 className="font-jsans mt-1">{item.name}</h1>
+        </div>
+      </div>
 
-      <td className="font-jsans-light text-[12px] px-2 py-3 border-b border-gray-200">
-        &#x20A6; {formatCurrency(item.price * item.quantity)}
-      </td>
-    </tr>
+      <div className="flex-between mt-6 px-4">
+        {/* price */}
+        <div>
+          <p className="font-jsans-light text-[12px]">Price</p>
+          <p className="text-sm font-jsans">
+            &#x20A6; {formatCurrency(item.price)}
+          </p> 
+        </div>
+
+        <div className="flex-end gap-6">
+          {/* quantity */}
+          <div>
+            <p className="font-jsans-light text-[12px]">Quantity</p>
+            <p className="font-jsans text-sm">
+              {item.quantity}
+            </p>
+          </div>
+
+          {/* total */}
+          <div>
+            <p className="font-jsans-light text-[12px]">Total</p>
+            <p className="font-jsans text-sm">
+              &#x20A6; {formatCurrency(item.price * item.quantity)}
+            </p> 
+          </div>
+
+        </div>
+      </div>
+
+      
+    </div>
   )
 }
 

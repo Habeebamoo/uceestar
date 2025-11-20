@@ -1,7 +1,7 @@
 "use client";
 
 import { RootState } from "@/redux/store"
-import { Menu, Search, ShoppingCart} from "lucide-react"
+import { Search, ShoppingCart} from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux"
@@ -42,21 +42,30 @@ const Header = () => {
           <span className="mt-2 text-indigo-950">ceestar</span>
         </div>
 
-        {/* icons */}
-        <div className="flex-between gap-8 px-2">
-          <div className="cursor-pointer">
-            <Search />
+        {/* search */}
+        <div className="cursor-pointer relative">
+          <div className="absolute top-[12px] left-3">
+            <Search size={15} />
           </div>
-          <div 
-            onClick={toCart}
-            className="cursor-pointer relative"
-          >
-            <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
-              {itemsAmount}
-            </p>
-            <ShoppingCart />
-          </div>
+
+          <input 
+            type="search" 
+            className="bg-gray-100 w-full p-2 text-sm font-jsans pl-9 focus:outline-none rounded-full border-1 border-gray-200"
+            placeholder="Find Products"
+          />
         </div>
+
+        {/* cart */}
+        <div 
+          onClick={toCart}
+          className="cursor-pointer relative"
+        >
+          <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
+            {itemsAmount}
+          </p>
+          <ShoppingCart />
+        </div>
+
       </nav>
     </header>
   )
