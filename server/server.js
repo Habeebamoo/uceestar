@@ -7,6 +7,7 @@ import { RequireApiKey } from "./middlewares/apiKey.js";
 import { verifyUser } from "./middlewares/verifyUser.js"
 import authRouter from "./Routes/authRouter.js"
 import userRouter from "./Routes/userRouter.js"
+import productRouter from "./Routes/productRouter.js";
 
 const app = express();
 dotenv.config();
@@ -15,7 +16,7 @@ connectDB();
 
 //middlewares
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: process.env.CLIENT_URL,
   credentials: true
 }))
 app.use(express.json())
@@ -33,6 +34,7 @@ app.get("/api/status", (req, res) => {
 
 app.use("/api/auth", authRouter)
 app.use("/api/user", verifyUser, userRouter)
+app.use("/api/products", productRouter)
 
 const PORT = process.env.PORT || 5000;
 
