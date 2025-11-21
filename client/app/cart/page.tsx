@@ -9,6 +9,7 @@ import { useState } from "react";
 import { clearCart } from "@/redux/reducers/cartSlice";
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { useRouter } from "next/navigation";
+import Header from "@/components/Header";
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -84,6 +85,7 @@ const Cart = () => {
   
   return (
     <main className="bg-gray-50 pt-24 pb-30 px-4 min-h-screen">
+      <Header />
       {/* heading */}
       <div className="font-jsans flex-between">
          <h1 className="text-xl">Shopping Cart</h1>
@@ -93,7 +95,7 @@ const Cart = () => {
 
       {/* products */}
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-        {cart.map((item: CartItem) => <CartItemDisplay key={item.id} item={item} />)}
+        {cart.map((item: CartItem) => <CartItemDisplay key={item._id} item={item} />)}
       </section>
 
 
@@ -107,7 +109,7 @@ const Cart = () => {
       </div>
 
       {/* checkout */}
-      <div className="w-full sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-100 rounded-lg mt-10">
+      <div className="w-full sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-200 rounded-lg mt-10">
         <div className="flex-start gap-2">
           <ShoppingCart />
           <h1 className="font-jsans">Checkout</h1>

@@ -1,6 +1,7 @@
 "use client";
 
 import Counter from "@/components/Counter";
+import Header from "@/components/Header";
 import { addToCart } from "@/redux/reducers/cartSlice";
 import { RootState } from "@/redux/store";
 import { CartItem } from "@/types/cart";
@@ -21,7 +22,7 @@ const Page = () => {
 
   console.log(cart)
 
-  const product = products.find(prod => prod.id == slug)
+  const product = products.find(prod => prod._id == slug)
 
   if (!product) return <p className="mt-20">Not Found</p>
 
@@ -39,7 +40,8 @@ const Page = () => {
   }
 
   return (
-    <main className="pt-18 px-4 min-h-[calc(100vh-4rem)]">
+    <main className="pt-20 px-4">
+      <Header />
       <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
         {/* image */}

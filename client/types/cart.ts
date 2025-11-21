@@ -1,7 +1,7 @@
 import { categories } from "@/app/page";
 
 export interface CartItem {
-  id: string,
+  _id: string,
   name: string,
   category: categories,
   price: number,

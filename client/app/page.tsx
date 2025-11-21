@@ -8,6 +8,7 @@ import { type RootState } from "@/redux/store"
 import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
+import Header from "@/components/Header";
 
 export type categories = "sneakers" | "loafers" | "huddies" | "phones" | "watches" | "limiters" | "trackers";
 
@@ -26,6 +27,7 @@ const Home = () => {
 
   return (
     <main className="bg-gray-50 min-h-screen pb-40">
+      <Header />
       {/* Hero Section */}
       <section className="mt-16 hero-section">
         <div className="bg-black/80 py-20 flex-center flex-col">

@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header";
 import Loading from "@/components/Loading";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google"
 import { useRouter } from "next/navigation";
@@ -54,6 +55,7 @@ const SignIn = () => {
 
   return (
     <main className="pt-30 flex-center flex-col min-h-[calc(100vh-4rem)]">
+      <Header />
       {loading && <Loading />}
       <Toaster position="top-center" />
 

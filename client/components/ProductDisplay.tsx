@@ -25,7 +25,7 @@ const ProductDisplay = ({ product }: Props) => {
         </div>
 
         <button className="btn-blue py-2 px-4 text-sm mb-2">
-          <Link href={`/products/${product.id}`}>
+          <Link href={`/products/${product._id}`}>
             View Product
           </Link>
         </button>

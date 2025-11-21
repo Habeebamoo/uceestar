@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import Providers from "./Providers";
 import CartLoader from "@/components/CartLoader";
 import GoogleProviderWrapper from "@/components/GoogleProviderWrapper";
@@ -34,7 +33,6 @@ export default function RootLayout({
       >
         <Providers>
          <GoogleProviderWrapper>
-            <Header />
             <CartLoader />
             {children}
          </GoogleProviderWrapper>

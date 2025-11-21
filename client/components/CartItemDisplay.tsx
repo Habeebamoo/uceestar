@@ -12,7 +12,7 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
   }
 
   return (
-    <div className="bg-white p-4 border-1 border-gray-100 rounded-md">
+    <div className="bg-white p-4 border-1 border-gray-200 rounded-md">
       <div className="flex-start gap-3">
         {/* image */}
         <div className="bg-gray-100 h-20 w-25">
