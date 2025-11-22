@@ -12,17 +12,15 @@ const Payment = () => {
   const [msg, setMsg] = useState<string>("")
   const router = useRouter();
 
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get("reference");
+  useEffect(() => {  
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("reference");
 
-  useEffect(() => {
     if (!ref) {
       toast.error("Something went wrong");
       router.push("/cart")
     }
-  }, [])
 
-  useEffect(() => {
     const verifyPayment = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/order/payment/verify?reference=${ref}`, {
