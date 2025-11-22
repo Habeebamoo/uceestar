@@ -32,7 +32,7 @@ export const initializePayment = async (req, res) => {
   if (amount < 10 || !details || cart.length == 0 || !email ||!userId) {
     return res.status(400).json({
       status: "error",
-      statusCoe: 400,
+      statusCode: 400,
       message: "Missing fields"
     })
   }
@@ -47,7 +47,7 @@ export const initializePayment = async (req, res) => {
       body: JSON.stringify({
         email,
         amount: amount * 100,
-        callback_url: "http://localhost:3000/payment",
+        callback_url: `${process.env.CLIENT_URL}/payment`,
         metadata: {
           cart,
           details,
@@ -68,13 +68,13 @@ export const initializePayment = async (req, res) => {
 
     return res.status(200).json({
       status: "success",
-      statusCoe: 200,
+      statusCode: 200,
       authorizationURL: data.data.authorization_url
     })
   } catch (error) {
     return res.status(500).json({
       status: "error",
-      statusCoe: 500,
+      statusCode: 500,
       message: error.message
     })
   }
