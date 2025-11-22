@@ -2,7 +2,7 @@
 
 import Header from "@/components/Header"
 import { Check, LoaderCircle, X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -12,7 +12,7 @@ const Payment = () => {
   const [msg, setMsg] = useState<string>("")
   const router = useRouter();
 
-  const params = useSearchParams();
+  const params = new URLSearchParams(window.location.search);
   const ref = params.get("reference");
 
   useEffect(() => {
