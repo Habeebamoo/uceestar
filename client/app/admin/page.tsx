@@ -1,13 +1,13 @@
 "use client";
 
-import Header from "@/components/Header";
+import Header from "@/components/Header"
 import Loading from "@/components/Loading";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const SignIn = () => {
+const Admin = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const router = useRouter();
 
@@ -18,7 +18,7 @@ const SignIn = () => {
       const googleRes = await fetch("https://oauth2.googleapis.com/tokeninfo?id_token=" + googleResponse.credential)
       const user = await googleRes.json()
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/signin`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/admin/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,6 @@ const SignIn = () => {
         },
         credentials: "include",
         body: JSON.stringify({
-          name: user.name,
           email: user.email
         })
       })
@@ -40,7 +39,7 @@ const SignIn = () => {
 
       toast.success(response.message)
       setTimeout(() => {
-        router.push("/cart")
+        router.push("/admin/dashboard")
       }, 2500)
     } catch (error) {
       toast.error("Something went wrong")
@@ -54,22 +53,24 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-20 flex-center flex-col min-h-[calc(100vh-4rem)]">
+    <main className="bg-gray-50 pt-40 pb-30 px-4 flex-center flex-col min-h-screen">
       <Header />
+
       {loading && <Loading />}
       <Toaster position="top-center" />
 
-      <h1 className="font-jsans text-3xl">Hi friend!</h1>
+      <h1 className="font-jsans text-3xl">Admin Login</h1>
 
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
+      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">
+        <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
+      </p>
 
       <GoogleLogin 
         onSuccess={handleSuccess} 
         onError={handleError} 
       />
-
     </main>
   )
 }
 
-export default SignIn
+export default Admin

@@ -1,4 +1,5 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
+import { Admin } from "../models/Admin.js"
 
 export const connectDB = async () => {
   try {

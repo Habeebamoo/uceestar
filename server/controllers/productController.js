@@ -5,7 +5,7 @@ import cloudinary from "../config/cloudinary.js";
 // @access  admin only
 export const createProduct = async (req, res) => {
   //validate body
-  const { name, price, category } = req.body;
+  const { name, price, category, description } = req.body;
 
   if (!name || !price || !category) {
     return res.status(400).json({
@@ -36,7 +36,7 @@ export const createProduct = async (req, res) => {
       message: "Image must be 2MB or less"
     })
   }
-
+  
   //upload to cloudinary
   const result = await new Promise((resolve, reject) => {
     cloudinary.uploader.upload_stream(
@@ -62,7 +62,7 @@ export const createProduct = async (req, res) => {
   console.log(name)
   console.log(price)
   console.log(category)
-  console.log(optimizedUrl)
+  console.log(description)
 
   return res.status(201).json({
     status: "success",

@@ -8,19 +8,19 @@ type Props = {
   setNavbarActive: Dispatch<SetStateAction<boolean>>
 }
 
-const Navbar = ({ setNavbarActive }: Props) => {
+const AdminNavbar = ({ setNavbarActive }: Props) => {
   const router = useRouter()
 
   const close = () => {
     setNavbarActive(false)
   }
 
-  const toOrders = () => {
-    router.push("/orders")
+  const toProducts = () => {
+    router.push("/admin/products")
   }
 
   const toHome = () => {
-    router.push("/")
+    router.push("/admin/dashboard")
   }
 
   return (
@@ -41,29 +41,20 @@ const Navbar = ({ setNavbarActive }: Props) => {
             className="flex-start gap-2 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <Home size={18} />
-            <p className="font-jsans-light">Home</p>
+            <p className="font-jsans-light">Dashboard</p>
           </div>
 
           <div
-            onClick={toOrders} 
+            onClick={toProducts} 
             className="flex-start gap-2 px-4 mt-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <ShoppingBag size={18} />
-            <p className="font-jsans-light">Orders</p>
+            <p className="font-jsans-light">Products</p>
           </div>
-        </div>
-
-        <div 
-          onClick={() => router.push("/signin")}
-          className="absolute bottom-[20px] right-0 left-0 px-2"
-        >
-          <button className="btn-primary text-sm font-jsans py-2 w-full rounded-full hover:text-indigo-950 active:text-indigo-950">
-            Sign In
-          </button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Navbar
+export default AdminNavbar
