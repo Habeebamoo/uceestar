@@ -5,12 +5,12 @@ import ProductsSection from "@/components/ProductsSection";
 import { setProducts } from "@/redux/reducers/productSlice";
 import { products } from "@/types/product";
 import { type RootState } from "@/redux/store"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Bike, PhoneCall } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
 
-export type categories = "sneakers" | "loafers" | "huddies" | "phones" | "watches" | "limiters" | "trackers";
+export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Home = () => {
 
   const storeProducts = useSelector((state: RootState) => state.products.products)
 
-  const [category, setCategory] = useState<categories>("sneakers")
+  const [category, setCategory] = useState<categories>("footwears")
 
   const filteredProducts = storeProducts.filter((prod) => prod.category === category)
 
@@ -54,7 +54,7 @@ const Home = () => {
 
       {/* category tab */}
       <section className="mt-12">
-        <h1 className="font-jsans text-2xl text-center mb-8">Categories</h1>
+        <h1 className="font-jsans text-xl text-center mb-8">Shop By Categories</h1>
 
         <CategoryTab 
           category={category} 
@@ -63,8 +63,34 @@ const Home = () => {
       </section>
 
       {/* products */}
-      <section className="mt-10 w-[90%] mx-auto">
+      <section className="mt-10 w-[95%] mx-auto">
         {filteredProducts.length >= 1 && <ProductsSection products={filteredProducts} />}
+      </section>
+
+      <section className="mt-40 grid grid-cols-1 md:grid-cols-3 gap-8 md:w-[700px] mx-auto">
+        <div className="flex-center flex-col">
+          <div className="bg-indigo-950 h-12 w-12 rounded-full flex-center text-white">
+            <Bike />
+          </div>
+          <h1 className="font-outfit text-xl text-center mt-2">Fast Delivery</h1>
+          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">Delivery of goods typically takes 2-3 days to complete.</p>
+        </div>
+
+        <div className="flex-center flex-col">
+          <div className="bg-indigo-950 h-12 w-12 rounded-full flex-center text-white">
+            <PhoneCall />
+          </div>
+          <h1 className="font-outfit text-xl text-center mt-2">24/7 Customer Support</h1>
+          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">Reach our outline anytime of the day for your complains and info.</p>
+        </div>
+
+        <div className="flex-center flex-col">
+          <div className="bg-indigo-950 h-12 w-12 rounded-full flex-center text-white">
+            <PhoneCall />
+          </div>
+          <h1 className="font-outfit text-xl text-center mt-2">Refund Guarantee</h1>
+          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">We will refund your money back if you have an complains or disatisfaction.</p>
+        </div>
       </section>
     </main>
   )

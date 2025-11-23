@@ -12,7 +12,7 @@ const ProductDisplay = ({ product }: Props) => {
 
   return (
     <div className="bg-white border-1 border-gray-100">
-      <div className="h-[250px] bg-gray-200">
+      <div className="h-[200px] bg-gray-200">
 
       </div>
       <div className="py-3 px-4">

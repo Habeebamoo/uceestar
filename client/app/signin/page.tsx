@@ -53,6 +53,10 @@ const SignIn = () => {
     toast.error("Something went wrong")
   }
 
+  const toAdmin = () => {
+    router.push("/admin")
+  }
+
   return (
     <main className="pt-20 flex-center flex-col min-h-[calc(100vh-4rem)]">
       <Header />
@@ -61,12 +65,21 @@ const SignIn = () => {
 
       <h1 className="font-jsans text-3xl">Hi friend!</h1>
 
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
+      <p className="text-center mt-4 font-outfit w-[85%] text-sm text-gray-400 mb-6">Sign in to your account to complete your purchase</p>
 
       <GoogleLogin 
         onSuccess={handleSuccess} 
         onError={handleError} 
       />
+
+      <p className="text-center mt-4 font-outfit w-[85%] text-sm text-gray-400">Want to sign in as admin,
+        <span 
+          onClick={toAdmin}
+          className="text-indigo-950 cursor-pointer ml-1"
+        >
+          Click here
+        </span>
+      </p>
 
     </main>
   )

@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "playfair";
-  src: url("../fonts/Playfair/static/Playfair_144pt-Medium.ttf");
-}
-
-@font-face {
-  font-family: "playfair-bold";
-  src: url("../fonts/Playfair/static/Playfair_144pt-Bold.ttf");
-}
-
-@font-face {
   font-family: "jsans";
   src: url("../fonts/jsans/static/PlusJakartaSans-Medium.ttf");
 }
@@ -18,6 +8,11 @@
 @font-face {
   font-family: "jsans-light";
   src: url("../fonts/jsans/static/PlusJakartaSans-Light.ttf");
+}
+
+@font-face {
+  font-family: "outfit";
+  src: url("../fonts//DMSans-Medium.ttf");
 }
 
 @utility flex-center {
@@ -51,12 +46,39 @@
   background-position: center;
 }
 
-.category-tab {
-  @apply py-3 px-4 flex-none bg-gray-200 font-jsans text-sm text-center cursor-pointer;
+.footwears {
+  background-image: url("/sneaker.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.category-tab-active {
-  @apply py-3 px-4 flex-none bg-indigo-950 text-white font-jsans text-sm text-center cursor-pointer;
+.watches {
+  background-image: url("/s-watch.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.phones {
+  background-image: url("/phone.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.laptops {
+  background-image: url("/laptop.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gadgets {
+  background-image: url("/gadgets.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .no-spin::-webkit-inner-spin-button,
@@ -70,8 +92,7 @@
 }
 
 @theme {
-  --font-playfair: "playfair";
-  --font-playfair-bold: "playfair-bold";
+  --font-outfit: "outfit";
   --font-jsans: "jsans";
   --font-jsans-light: "jsans-light";
 }

@@ -14,52 +14,48 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
   return (
     <div className="bg-gray-100 py-8 px-4 border-1 border-gray-200 flex overflow-x-auto space-x-4">
       <div 
-      onClick={() => selectCategory("sneakers")}
-        className={`${category === "sneakers" ? "category-tab-active" : "category-tab"}`}
+        onClick={() => selectCategory("footwears")}
+        className="h-40 w-50 footwears flex-none cursor-pointer"
       >
-        Sneakers
-      </div>
-
-      <div 
-      onClick={() => selectCategory("loafers")}
-        className={`${category === "loafers" ? "category-tab-active" : "category-tab"}`}
-      >
-        Loafers
-      </div>
-
-      <div
-      onClick={() => selectCategory("huddies")} 
-        className={`${category === "huddies" ? "category-tab-active" : "category-tab"}`}
-      >
-        Huddies
-      </div>
-
-      <div
-        onClick={() => selectCategory("phones")} 
-        className={`${category === "phones" ? "category-tab-active" : "category-tab"}`}
-      >
-        Phones
+        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
+          <p>Footwears</p>
+        </div>
       </div>
 
       <div
         onClick={() => selectCategory("watches")} 
-        className={`${category === "watches" ? "category-tab-active" : "category-tab"}`}
+        className="watches h-40 w-50 flex-none cursor-pointer"
       >
-        Smart Watches
+        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
+          <p>Watches</p>
+        </div>
       </div>
 
       <div
-        onClick={() => selectCategory("limiters")} 
-        className={`${category === "limiters" ? "category-tab-active" : "category-tab"}`}
+        onClick={() => selectCategory("phones")} 
+        className="phones h-40 w-50 flex-none cursor-pointer"
       >
-        Speed Limiters
+        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
+          <p>Phones</p>
+        </div>
       </div>
 
       <div
-        onClick={() => selectCategory("trackers")} 
-        className={`${category === "trackers" ? "category-tab-active" : "category-tab"}`}
+        onClick={() => selectCategory("laptops")} 
+        className="laptops h-40 w-50 flex-none cursor-pointer"
       >
-        GPS Trackers
+        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
+          <p>Laptops</p>
+        </div>
+      </div>
+
+      <div
+        onClick={() => selectCategory("gadgets")} 
+        className="gadgets h-40 w-50 flex-none cursor-pointer"
+      >
+        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
+          <p>Car Gadgets</p>
+        </div>
       </div>
     </div>
   )

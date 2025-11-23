@@ -7,11 +7,13 @@ export interface User {
 }
 
 type stateType = {
-  profile: User | null
+  profile: User | null,
+  admin: User | null,
 }
 
 const initialState: stateType = {
-  profile: null
+  profile: null,
+  admin: null
 }
 const userSlice = createSlice({
   name: "user",
@@ -19,9 +21,12 @@ const userSlice = createSlice({
   reducers: {
     setProfile: (state, action: PayloadAction<User>) => {
       state.profile = action.payload;
+    },
+    setAdmin: (state, action: PayloadAction<User>) => {
+      state.admin = action.payload;
     }
   }
 })
 
-export const { setProfile } = userSlice.actions;
+export const { setProfile, setAdmin } = userSlice.actions;
 export default userSlice.reducer;

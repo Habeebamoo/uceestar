@@ -1,11 +1,24 @@
 "use client";
 
 import AdminHeader from "@/components/AdminHeader"
+import { useFetchAdmin } from "@/hooks/useFetchAdmin";
+import { RootState } from "@/redux/store";
 import { Plus } from "lucide-react"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Products = () => {
+  const {} = useFetchAdmin();
   const router = useRouter();
+
+  const admin = useSelector((state: RootState) => state.user.admin);
+
+  useEffect(() => {
+    if (!admin) {
+      router.push("/admin")
+    }
+  }, [])
 
   const toCreate = () => {
     router.push("/admin/products/create")

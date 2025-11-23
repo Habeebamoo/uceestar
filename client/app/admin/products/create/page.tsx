@@ -2,12 +2,20 @@
 
 import AdminHeader from '@/components/AdminHeader'
 import Loading from '@/components/Loading';
+import { useFetchAdmin } from '@/hooks/useFetchAdmin';
+import { RootState } from '@/redux/store';
 import { Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
 const CreateProduct = () => {
+  const {} = useFetchAdmin();
+  const router = useRouter();
+
+  const admin = useSelector((state: RootState) => state.user.admin);
+
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
@@ -17,7 +25,12 @@ const CreateProduct = () => {
     price: 1000,
     category: "sneakers"
   });
-  const router = useRouter();
+
+  useEffect(() => {
+    if (!admin) {
+      router.push("/admin")
+    }
+  }, [])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({...prev, [e.target.name]: e.target.value}))

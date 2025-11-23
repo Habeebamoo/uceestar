@@ -4,7 +4,7 @@ import CartItemDisplay from "@/components/CartItemDisplay";
 import { type RootState } from "@/redux/store"
 import { CartItem } from "@/types/cart";
 import { useDispatch, useSelector } from "react-redux";
-import { ShoppingCart } from "lucide-react"
+import { Binoculars, FileQuestion, ShoppingCart } from "lucide-react"
 import { ChangeEvent, useState } from "react";
 import { clearCart } from "@/redux/reducers/cartSlice";
 import { useFetchUser } from "@/hooks/useFetchUser";
@@ -30,8 +30,13 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="mt-20">
-        <p>Empty</p>
+      <div className="pt-40">
+        <Header />
+        
+        <div className="flex-center flex-col">
+          <Binoculars />
+          <p className="font-outfit text-sm mt-2 text-center text-gray-800 w-[80%]">Nothing here yet, Go back and browse our vast collection of products</p>
+        </div>
       </div>
     )
   }

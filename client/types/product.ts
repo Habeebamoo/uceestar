@@ -10,7 +10,7 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  {_id: "sjsisissos", image: "", name: "Nike Sneakers Jorgas", price: 16000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
-  {_id: "j9ejdnidnkd", image: "", name: "Addidas", price: 85000, category: "sneakers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
-  {_id: "ijwnixiwiwn", image: "", name: "Nike", price: 19500, category: "loafers", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
+  {_id: "sjsisissos", image: "", name: "Nike Sneakers Jorgas", price: 16000, category: "footwears", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
+  {_id: "j9ejdnidnkd", image: "", name: "Addidas", price: 85000, category: "footwears", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
+  {_id: "ijwnixiwiwn", image: "", name: "Roles", price: 19500, category: "watches", description: "Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world" },
 ]
