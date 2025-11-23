@@ -1,13 +1,13 @@
-import cloudinary from "../config/cloudinary.js";
+import { Product } from "../models/Product.js";
 
 // @desc  add/create product
 // @route   POST - /api/products
 // @access  admin only
 export const createProduct = async (req, res) => {
   //validate body
-  const { name, price, category, description } = req.body;
+  const { name, price, category, description, image } = req.body;
 
-  if (!name || !price || !category) {
+  if (!name || !price || !category || !image) {
     return res.status(400).json({
       status: "error",
       statusCode: 400,
@@ -15,6 +15,7 @@ export const createProduct = async (req, res) => {
     })
   }
 
+  /*
   //validate product file
   const file = req.file;
 
@@ -38,39 +39,70 @@ export const createProduct = async (req, res) => {
   }
   
   //upload to cloudinary
-  const result = await new Promise((resolve, reject) => {
-    cloudinary.uploader.upload_stream(
-      { folder: "my_uploads" },
-      (err, uploaded) => {
-        if (err) reject(err);
-        else resolve(uploaded)
-      }
-    ).end(file.buffer)
-  });
+  const result = await cloudinary.uploader.upload(file.path, {
+    folder: "my_uploads",
+    resource_type: "auto",
+    use_filename: true,
+    unique_filename: true
+  })
+
+  //delete local chunk
+  fs.unlink(file.path, (err) => {
+    if (err) console.log("Error deleting local file: ", err)
+  })
 
   //upload result
   const publicId = result.public_id;
 
   //create bandwidth-optimized url
   const optimizedUrl = cloudinary.url(publicId, {
-    transformation: [
-      { quality: "auto" },
-      { fetch_format: "auto" }
-    ]
-  });
+    quality: "auto",
+    secure: true,
+    fetch_format: "auto"
+  });*/
 
-  console.log(name)
-  console.log(price)
-  console.log(category)
-  console.log(description)
+  try {
+    await Product.create({ name, description, image, price, category })
 
-  return res.status(201).json({
-    status: "success",
-    statusCode: 201,
-    message: "Product Created"
-  })
+    return res.status(201).json({
+      status: "success",
+      statusCode: 201,
+      message: "Product Created"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: "error",
+      statusCode: 500,
+      message: "Failed to create Product"
+    })
+  }
 }
 
 // @desc  get products
 // @route   GET - /api/products
 // @access public
+export const getProducts = async (req, res) => {
+  try {
+    const products = await Product.find({})
+
+    if (!products) {
+      return res.status(200).json({
+        status: "success",
+        statusCode: 200,
+        data: []
+      })
+    }
+
+    return res.status(200).json({
+      status: "success",
+      statusCode: 200,
+      data: products
+    })
+  } catch (error) {
+    return res.status(500).json({
+      status: "error",
+      statusCode: 500,
+      message: "Internal Server Error"
+    })
+  }
+}

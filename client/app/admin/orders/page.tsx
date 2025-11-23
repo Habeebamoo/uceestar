@@ -1,0 +1,33 @@
+"use client";
+
+import AdminHeader from "@/components/AdminHeader"
+import AdminOrderItemDisplay from "@/components/AdminOrderItemDisplay"
+import { useFetchAdminOrders } from "@/hooks/useFetchAdminOrders"
+import { RootState } from "@/redux/store"
+import { Order } from "@/types/order"
+import { useSelector } from "react-redux"
+
+const Orders = () => {
+  const {} = useFetchAdminOrders()
+
+  const orders = useSelector((state: RootState) => state.orders.adminOrders);
+
+  return (
+    <main className="py-20 px-4 min-h-screen bg-gray-50">
+      <AdminHeader />
+
+      <h1 className="text-xl text-xl font-jsans">Recent Orders</h1>
+
+      <section className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {orders.map((order: Order) => {
+          return (
+            <AdminOrderItemDisplay key={order._id} order={order} />
+          )
+        })}
+      </section>
+
+    </main>
+  )
+}
+
+export default Orders

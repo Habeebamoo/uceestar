@@ -65,14 +65,16 @@ const SignIn = () => {
 
       <h1 className="font-jsans text-3xl">Hi friend!</h1>
 
-      <p className="text-center mt-4 font-outfit w-[85%] text-sm text-gray-400 mb-6">Sign in to your account to complete your purchase</p>
+      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-400 mb-6">Sign in to your account to complete your purchase</p>
 
-      <GoogleLogin 
-        onSuccess={handleSuccess} 
-        onError={handleError} 
-      />
+      <div className="relative z-10">
+        <GoogleLogin 
+          onSuccess={handleSuccess} 
+          onError={handleError} 
+        />
+      </div>
 
-      <p className="text-center mt-4 font-outfit w-[85%] text-sm text-gray-400">Want to sign in as admin,
+      <p className="text-center mt-4 font-jsans-light w-[85%] text-[12px] text-gray-400">Want to sign in as admin,
         <span 
           onClick={toAdmin}
           className="text-indigo-950 cursor-pointer ml-1"

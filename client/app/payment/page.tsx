@@ -28,7 +28,8 @@ const Payment = () => {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
-          }
+          },
+          credentials: "include"
         });
 
         const response = await res.json()

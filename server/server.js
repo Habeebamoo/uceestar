@@ -14,8 +14,6 @@ import adminRouter from "./Routes/adminRouter.js";
 const app = express();
 dotenv.config();
 
-connectDB();
-
 //middlewares
 app.use(cors({
   origin: process.env.CLIENT_URL,
@@ -42,6 +40,17 @@ app.use("/api/admin", express.json(), adminRouter)
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server Running On Port ${PORT}`)
-})
+const startApp = async () => {
+  try {
+    await connectDB()
+
+  app.listen(PORT, () => {
+    console.log(`Server Running On Port ${PORT}`)
+  })
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+}
+
+startApp()

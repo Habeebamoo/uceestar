@@ -22,7 +22,7 @@ const Cart = () => {
   const [form, setForm] = useState({
     city: "lagos",
     address: "",
-    phone: "234"
+    phone: "+234"
   })
 
   const cart = useSelector((state: RootState) => state.cart.cart);
@@ -33,9 +33,9 @@ const Cart = () => {
       <div className="pt-40">
         <Header />
         
-        <div className="flex-center flex-col">
-          <Binoculars />
-          <p className="font-outfit text-sm mt-2 text-center text-gray-800 w-[80%]">Nothing here yet, Go back and browse our vast collection of products</p>
+        <div className="flex-center flex-col text-gray-800">
+          <Binoculars size={40} />
+          <p className="font-outfit text-sm mt-4 text-center w-[80%]">Nothing here yet, Go back and browse our vast collection of products</p>
         </div>
       </div>
     )
@@ -105,7 +105,6 @@ const Cart = () => {
     setLoading(true)
 
     const data = {
-      userId: user._id,
       email: user.email,
       details: form,
       cart: cart,
@@ -119,7 +118,8 @@ const Cart = () => {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials: "include"
       });
 
       const response = await res.json()
@@ -130,6 +130,7 @@ const Cart = () => {
       }
 
       window.location.href = response.authorizationURL;
+      deleteCart();
     } catch (error) {
       toast.error("Something went wrong")
     } finally {

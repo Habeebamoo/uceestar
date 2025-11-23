@@ -48,13 +48,10 @@ const CreateProduct = () => {
   }
 
   const createProduct = async (e: React.FormEvent) => {
-    toast.error("Feature is not available yet")
+    toast.error("feature not available")
     return
     e.preventDefault()
     setLoading(true)
-
-
-    console.log(form)
 
     if (!file || !form.name || !form.price || !form.category) {
       toast.error("All Field are required")
@@ -69,7 +66,7 @@ const CreateProduct = () => {
     formData.append("category", form.category)
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/products`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/admin/products`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`

@@ -19,6 +19,8 @@ const Orders = () => {
   const user = useSelector((state: RootState) => state.user.profile);
   const orders = useSelector((state: RootState) => state.orders.orders);
 
+  console.log(orders)
+  
   useEffect(() => {
     if (!user) {
       router.push("/")
@@ -28,7 +30,7 @@ const Orders = () => {
   if (isLoading) {
     return (
       <div className="flex-center mt-20">
-        <LoaderCircle className="animat-spin" />
+        <LoaderCircle className="animate-spin" />
       </div>
     )
   }

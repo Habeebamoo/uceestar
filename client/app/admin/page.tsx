@@ -65,10 +65,12 @@ const Admin = () => {
         <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
       </p>
 
-      <GoogleLogin 
-        onSuccess={handleSuccess} 
-        onError={handleError} 
-      />
+      <div className="relative z-10">
+        <GoogleLogin 
+          onSuccess={handleSuccess} 
+          onError={handleError} 
+        />
+      </div>
     </main>
   )
 }

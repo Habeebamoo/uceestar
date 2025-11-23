@@ -16,7 +16,7 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
       <div className="flex-start gap-3">
         {/* image */}
         <div className="bg-gray-100 h-20 w-25">
-
+          <img src={item.image} className="w-full h-full object-cover object-center" />
         </div>
 
         <div>

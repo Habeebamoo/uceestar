@@ -3,17 +3,20 @@
 import CategoryTab from "@/components/CategoryTab"
 import ProductsSection from "@/components/ProductsSection";
 import { setProducts } from "@/redux/reducers/productSlice";
-import { products } from "@/types/product";
 import { type RootState } from "@/redux/store"
 import { ArrowRight, Bike, PhoneCall } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
+import { useFetchProducts } from "@/hooks/useFetchProducts";
 
 export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const {} = useFetchProducts();
+
+  const products = useSelector((state: RootState) => state.products.products);
 
   useEffect(() => {
     dispatch(setProducts(products));

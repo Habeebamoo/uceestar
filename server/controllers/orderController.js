@@ -27,7 +27,9 @@ export const getOrders = async (req, res) => {
 // @access Users only
 export const initializePayment = async (req, res) => {
   //validate request
-  const { amount, details, cart, email, userId } = req.body;
+  const { amount, details, cart, email } = req.body;
+
+  const { userId } = req.user;
 
   if (amount < 10 || !details || cart.length == 0 || !email ||!userId) {
     return res.status(400).json({
@@ -110,7 +112,7 @@ export const verifyPayment = async (req, res) => {
     for (const product of cart) {
       const orderData = {
         userId: userId,
-        image: product.image | "jdiddi",
+        image: product.image,
         name: product.name,
         category: product.category,
         price: product.price,
