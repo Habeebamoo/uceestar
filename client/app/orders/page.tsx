@@ -8,12 +8,13 @@ import { RootState } from "@/redux/store"
 import { Order } from "@/types/order"
 import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux"
 
 const Orders = () => {
   const {} = useFetchUser()
   const { isLoading } = useFetchOrders()
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
 
   const user = useSelector((state: RootState) => state.user.profile);
@@ -23,7 +24,7 @@ const Orders = () => {
   
   useEffect(() => {
     if (!user) {
-      router.push("/")
+      router.push("/signin")
     }
   }, [])
 
@@ -37,7 +38,7 @@ const Orders = () => {
 
   return (
     <main className="py-20 bg-gray-50 px-4 min-h-screen">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       <h1 className="font-jsans text-2xl mt-2">My Orders</h1>
 

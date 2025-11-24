@@ -2,15 +2,27 @@
 
 import AdminHeader from "@/components/AdminHeader"
 import AdminOrderItemDisplay from "@/components/AdminOrderItemDisplay"
+import { useFetchAdmin } from "@/hooks/useFetchAdmin";
 import { useFetchAdminOrders } from "@/hooks/useFetchAdminOrders"
 import { RootState } from "@/redux/store"
 import { Order } from "@/types/order"
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useSelector } from "react-redux"
 
 const Orders = () => {
+  const {} = useFetchAdmin()
   const {} = useFetchAdminOrders()
+  const router = useRouter()
 
+  const admin = useSelector((state: RootState) => state.user.admin)
   const orders = useSelector((state: RootState) => state.orders.adminOrders);
+
+  useEffect(() => {
+    if (!admin) {
+      router.push("/admin")
+    }
+  }, [])
 
   return (
     <main className="py-20 px-4 min-h-screen bg-gray-50">

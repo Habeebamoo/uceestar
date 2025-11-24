@@ -8,7 +8,9 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const SignIn = () => {
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
+  
   const router = useRouter();
 
   const handleSuccess = async (googleResponse: CredentialResponse) => {
@@ -59,7 +61,8 @@ const SignIn = () => {
 
   return (
     <main className="pt-20 flex-center flex-col min-h-[calc(100vh-4rem)]">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
+
       {loading && <Loading />}
       <Toaster position="top-center" />
 
@@ -67,7 +70,7 @@ const SignIn = () => {
 
       <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-400 mb-6">Sign in to your account to complete your purchase</p>
 
-      <div className="relative z-10">
+      <div className={navbarActive ? "z-[-1]" : ""}>
         <GoogleLogin 
           onSuccess={handleSuccess} 
           onError={handleError} 

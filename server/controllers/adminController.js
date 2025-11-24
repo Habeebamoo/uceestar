@@ -34,9 +34,6 @@ export const signIn = async (req, res) => {
     { expiresIn: "1d" }
   );
 
-  console.log(admin)
-  console.log(token)
-
   //set cookies
   res.cookie("auth_token", token, {
     httpOnly: true,

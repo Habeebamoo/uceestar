@@ -19,7 +19,7 @@ const orderSlice = createSlice({
       state.orders = action.payload;
     },
     setAdminOrders: (state, action: PayloadAction<Order[]>) => {
-      state.orders = action.payload;
+      state.adminOrders = action.payload;
     }
   }
 })

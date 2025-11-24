@@ -15,6 +15,7 @@ const Page = () => {
   const slug = params.slug;
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState<number>(1)
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
   const products = useSelector((state: RootState) => state.products.products)
 
@@ -41,7 +42,7 @@ const Page = () => {
 
   return (
     <main className="pt-20 px-4">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
         {/* image */}

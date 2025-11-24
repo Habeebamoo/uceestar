@@ -16,6 +16,7 @@ import Loading from "@/components/Loading";
 const Cart = () => {
   const dispatch = useDispatch()
   const {} = useFetchUser();
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
 
   const [loading, setLoading] = useState<boolean>(false)
@@ -31,7 +32,7 @@ const Cart = () => {
   if (cart.length === 0) {
     return (
       <div className="pt-40">
-        <Header />
+        <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
         
         <div className="flex-center flex-col text-gray-800">
           <Binoculars size={40} />
@@ -140,7 +141,7 @@ const Cart = () => {
   
   return (
     <main className="bg-gray-50 pt-24 pb-30 px-4 min-h-screen">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
       {loading && <Loading />}
 

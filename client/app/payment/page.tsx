@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const Payment = () => {
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const [modal, setModal] = useState<boolean>(false)
   const [status, setStatus] = useState<"success" | "error">("success");
   const [msg, setMsg] = useState<string>("")
@@ -60,7 +61,7 @@ const Payment = () => {
 
   return (
     <main className="pt-20 bg-gray-50 min-h-screen">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
       {modal && <Modal status={status} msg={msg} />}
 

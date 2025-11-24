@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, ShoppingBag, X } from "lucide-react"
+import { Home, ShoppingBag, ShoppingCart, X } from "lucide-react"
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
 
@@ -17,6 +17,10 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
 
   const toProducts = () => {
     router.push("/admin/products")
+  }
+
+  const toOrders = () => {
+    router.push("/admin/orders")
   }
 
   const toHome = () => {
@@ -50,6 +54,14 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
           >
             <ShoppingBag size={18} />
             <p className="font-jsans-light">Products</p>
+          </div>
+
+          <div
+            onClick={toOrders} 
+            className="flex-start gap-2 px-4 mt-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+          >
+            <ShoppingCart size={18} />
+            <p className="font-jsans-light">Orders</p>
           </div>
         </div>
       </div>

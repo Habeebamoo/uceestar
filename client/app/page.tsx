@@ -25,12 +25,13 @@ const Home = () => {
   const storeProducts = useSelector((state: RootState) => state.products.products)
 
   const [category, setCategory] = useState<categories>("footwears")
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
   const filteredProducts = storeProducts.filter((prod) => prod.category === category)
 
   return (
     <main className="bg-gray-50 min-h-screen pb-40">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       {/* Hero Section */}
       <section className="mt-16 hero-section">
         <div className="bg-black/80 py-20 flex-center flex-col">
@@ -84,15 +85,15 @@ const Home = () => {
             <PhoneCall />
           </div>
           <h1 className="font-outfit text-xl text-center mt-2">24/7 Customer Support</h1>
-          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">Reach our outline anytime of the day for your complains and info.</p>
+          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">Reach our hotline anytime of the day for your complains and info.</p>
         </div>
 
         <div className="flex-center flex-col">
           <div className="bg-indigo-950 h-12 w-12 rounded-full flex-center text-white">
             <PhoneCall />
           </div>
-          <h1 className="font-outfit text-xl text-center mt-2">Refund Guarantee</h1>
-          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">We will refund your money back if you have an complains or disatisfaction.</p>
+          <h1 className="font-outfit text-xl text-center mt-2">Money-Back Guarantee</h1>
+          <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">We are totally fine with refunds if any disatisfaction arise.</p>
         </div>
       </section>
     </main>

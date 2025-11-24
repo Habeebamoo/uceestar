@@ -6,12 +6,12 @@ import { useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 
 const AdminHeader = () => {
-  const [navbarActive, setNabarActive] = useState<boolean>(false)
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
   return (
     <header className="bg-white fixed top-0 left-0 right-0 shadow">
       <nav className="lg:w-[70%] mx-auto p-4 flex-between">
-        {navbarActive && <AdminNavbar setNavbarActive={setNabarActive} />}
+        {navbarActive && <AdminNavbar setNavbarActive={setNavbarActive} />}
 
         {/* logo */}
         <div>
@@ -20,7 +20,7 @@ const AdminHeader = () => {
 
         {/* menu */}
         <div
-          onClick={() => setNabarActive(true)} 
+          onClick={() => setNavbarActive(true)} 
           className="cursor-pointer"
         >
           <Menu />

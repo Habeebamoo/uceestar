@@ -4,13 +4,16 @@ import { RootState } from "@/redux/store"
 import { Menu, Search, ShoppingCart} from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useSelector } from "react-redux"
 import Navbar from "./Navbar";
 
-const Header = () => {
-  const [navbarActive, setNavbarActive] = useState<boolean>(false)
+interface Props {
+  navbarActive: boolean,
+  setNavbarActive: Dispatch<SetStateAction<boolean>>
+}
 
+const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const router = useRouter();
 

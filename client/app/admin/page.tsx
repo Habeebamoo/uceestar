@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Admin = () => {
   const [loading, setLoading] = useState<boolean>(false)
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
 
   const handleSuccess = async (googleResponse: CredentialResponse) => {
@@ -54,7 +55,7 @@ const Admin = () => {
 
   return (
     <main className="bg-gray-50 pt-40 pb-30 px-4 flex-center flex-col min-h-screen">
-      <Header />
+      <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
       <Toaster position="top-center" />
@@ -65,7 +66,7 @@ const Admin = () => {
         <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
       </p>
 
-      <div className="relative z-10">
+      <div className={navbarActive ? "z-[-1]" : ""}>
         <GoogleLogin 
           onSuccess={handleSuccess} 
           onError={handleError} 
