@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "@/components/Loading";
+import Footer from "@/components/Footer";
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -261,6 +262,9 @@ const Cart = () => {
           </button>
         </div>
       </form>
+
+      {/* footer */}
+      <Footer />
     </main>
   )
 }

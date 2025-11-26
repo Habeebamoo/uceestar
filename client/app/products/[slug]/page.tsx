@@ -1,10 +1,12 @@
 "use client";
 
 import Counter from "@/components/Counter";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { addToCart } from "@/redux/reducers/cartSlice";
 import { RootState } from "@/redux/store";
 import { CartItem } from "@/types/cart";
+import { Binoculars } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -25,7 +27,18 @@ const Page = () => {
 
   const product = products.find(prod => prod._id == slug)
 
-  if (!product) return <p className="mt-20">Not Found</p>
+  if (!product) {
+    return (
+      <div className="pt-40">
+        <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
+        
+        <div className="flex-center flex-col text-gray-800">
+          <Binoculars size={40} />
+          <p className="font-outfit text-sm mt-4 text-center w-[80%]">Product not found, Go back and browse our vast collection of products</p>
+        </div>
+      </div>
+    )
+  }
 
   const addProductToCart = () => {
     const item: CartItem = { ...product!, quantity }
@@ -89,6 +102,8 @@ const Page = () => {
           Add To Cart
         </button>
       </div>
+
+      <Footer />
     </main>
   )
 }

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
 import { useFetchProducts } from "@/hooks/useFetchProducts";
+import Footer from "@/components/Footer";
 
 export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
@@ -30,7 +31,7 @@ const Home = () => {
   const filteredProducts = storeProducts.filter((prod) => prod.category === category)
 
   return (
-    <main className="bg-gray-50 min-h-screen pb-40">
+    <main className="bg-gray-50 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       {/* Hero Section */}
       <section className="mt-16 hero-section">
@@ -96,6 +97,9 @@ const Home = () => {
           <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">We are totally fine with refunds if any disatisfaction arise.</p>
         </div>
       </section>
+
+      {/* footer */}
+      <Footer />
     </main>
   )
 }
