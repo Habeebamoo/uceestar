@@ -16,7 +16,9 @@ const Orders = () => {
   const router = useRouter()
 
   const admin = useSelector((state: RootState) => state.user.admin)
-  const orders = useSelector((state: RootState) => state.orders.adminOrders);
+  const ordersRaw = useSelector((state: RootState) => state.orders.adminOrders);
+
+  const orders = [...ordersRaw].reverse();
 
   useEffect(() => {
     if (!admin) {

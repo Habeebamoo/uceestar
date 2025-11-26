@@ -18,10 +18,10 @@ const Orders = () => {
   const router = useRouter();
 
   const user = useSelector((state: RootState) => state.user.profile);
-  const orders = useSelector((state: RootState) => state.orders.orders);
+  const ordersRaw = useSelector((state: RootState) => state.orders.orders);
 
-  console.log(orders)
-  
+  const orders = [...ordersRaw].reverse();
+
   useEffect(() => {
     if (!user) {
       router.push("/signin")

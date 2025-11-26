@@ -28,7 +28,7 @@ const Home = () => {
   const [category, setCategory] = useState<categories>("footwears")
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
-  const filteredProducts = storeProducts.filter((prod) => prod.category === category)
+  const filteredProducts = storeProducts.filter((prod) => prod.category === category).reverse()
 
   return (
     <main className="bg-gray-50 min-h-screen">

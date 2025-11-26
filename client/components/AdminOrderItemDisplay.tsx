@@ -1,6 +1,15 @@
+"use client";
+
 import { Order } from "@/types/order"
+import { useRouter } from "next/navigation"
 
 const AdminOrderItemDisplay = ({ order }: { order: Order }) => {
+  const router = useRouter()
+
+  const toOrder = () => {
+    router.push(`/admin/orders/${order._id}`)
+  }
+
   return (
     <div className="bg-white p-4 border-1 border-gray-200 rounded-lg">
 
@@ -49,7 +58,12 @@ const AdminOrderItemDisplay = ({ order }: { order: Order }) => {
         </div>
       </div>
 
-      <button className="btn-primary text-sm font-jsans py-2 w-full rounded-lg mt-6">View</button>
+      <button 
+        onClick={toOrder} 
+        className="btn-primary text-sm font-jsans py-2 w-full rounded-lg mt-6"
+      >
+        View
+      </button>
     </div>
   )
 }

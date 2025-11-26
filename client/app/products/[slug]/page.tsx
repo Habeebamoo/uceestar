@@ -54,7 +54,7 @@ const Page = () => {
   }
 
   return (
-    <main className="pt-20 px-4">
+    <main className="pt-20 px-4 sm:w-[400px] mx-auto">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster position="top-center" />
       <div className="h-60 bg-gray-100">
