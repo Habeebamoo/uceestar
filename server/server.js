@@ -34,7 +34,7 @@ app.get("/api/status", (req, res) => {
 //routes
 app.use("/api/auth", express.json(), authRouter)
 app.use("/api/user", express.json(), verifyUser, userRouter)
-app.use("/api/products", productRouter)
+app.use("/api/products", express.json(), productRouter)
 app.use("/api/order", express.json(), verifyUser, orderRouter)
 app.use("/api/admin", express.json(), adminRouter)
 
@@ -44,9 +44,9 @@ const startApp = async () => {
   try {
     await connectDB()
 
-  app.listen(PORT, () => {
-    console.log(`Server Running On Port ${PORT}`)
-  })
+    app.listen(PORT, () => {
+      console.log(`Server Running On Port ${PORT}`)
+    })
   } catch (error) {
     console.error(error)
     process.exit(1)
