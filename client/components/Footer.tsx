@@ -6,7 +6,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-indigo-950 p-8 pb-30 text-white mt-25">
+    <footer className="bg-indigo-950 p-8 pb-20 text-white mt-25">
       <div>
         <h1 className="font-jsans text-lg">UCEESTAR</h1>
         <p className="text-[12px] font-jsans-light mt-1">By PJ Star LTD.</p>
