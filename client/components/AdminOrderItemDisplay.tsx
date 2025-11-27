@@ -33,7 +33,7 @@ const AdminOrderItemDisplay = ({ order }: { order: Order }) => {
         <div>
           <p className="font-jsans-light text-[12px]">STATUS</p>
           <p 
-            className="font-jsans text-[12px] py-1 px-3 mt-1 bg-yellow-400 rounded-full"
+            className={`${order.status == "Processing" ? "bg-yellow-400" : "bg-green-400"} font-jsans text-[12px] py-1 px-3 mt-1 bg-yellow-400 rounded-full`}
           >
             {order.status}
           </p>

@@ -56,9 +56,10 @@ const Page = () => {
   return (
     <main className="pt-20 px-4 sm:w-[400px] mx-auto">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
-      <Toaster position="top-center" />
+      <Toaster />
       <div className="h-60 bg-gray-100">
         {/* image */}
+        <img src={product.image} className="h-full w-full object-center object-cover" />
       </div>
 
       {/* category */}

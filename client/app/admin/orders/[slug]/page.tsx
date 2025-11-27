@@ -84,10 +84,11 @@ const OrderPage = () => {
    <main className="pt-20 pb-30 px-4 sm:w-[500px] mx-auto">
     <AdminHeader />
     {loading && <Loading />}
-    <Toaster position="top-center" />
+    <Toaster />
 
     <div className="h-60 bg-gray-100">
         {/* image */}
+        <img src={order.image} className="h-full w-full object-center object-cover" />
       </div>
 
       {/* category */}

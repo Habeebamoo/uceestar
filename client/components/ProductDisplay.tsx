@@ -13,7 +13,7 @@ const ProductDisplay = ({ product }: Props) => {
   return (
     <div className="bg-white border-1 border-gray-100">
       <div className="h-[180px] bg-gray-200">
-        <img src={product.image} className="w-full h-full object-center object-cover" />
+        <img src={product.image} className="h-full w-full" />
       </div>
       <div className="py-3 px-4">
         <p className="font-jsans-light text-[12px] mb-1">{product.category.toUpperCase()}</p>
