@@ -34,7 +34,7 @@ app.get("/api/status", (req, res) => {
 //routes
 app.use("/api/auth", express.json(), authRouter)
 app.use("/api/user", express.json(), verifyUser, userRouter)
-app.use("/api/products", express.json(), productRouter)
+app.use("/api/products", productRouter)
 app.use("/api/order", express.json(), verifyUser, orderRouter)
 app.use("/api/admin", express.json(), adminRouter)
 

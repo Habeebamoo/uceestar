@@ -1,13 +1,15 @@
 import { Product } from "../models/Product.js";
+import imageKit from "../config/imagKit.js"
+import fs from "fs"
 
 // @desc  add/create product
 // @route   POST - /api/products
 // @access  admin only
 export const createProduct = async (req, res) => {
   //validate body
-  const { name, price, category, description, image } = req.body;
+  const { name, price, category, description } = req.body;
 
-  if (!name || !price || !category || !image) {
+  if (!name || !price || !category) {
     return res.status(400).json({
       status: "error",
       statusCode: 400,
@@ -15,7 +17,6 @@ export const createProduct = async (req, res) => {
     })
   }
 
-  /*
   //validate product file
   const file = req.file;
 
@@ -37,32 +38,34 @@ export const createProduct = async (req, res) => {
       message: "Image must be 2MB or less"
     })
   }
+
+  //covert file to 64 bits format
+  const fileBuffer = fs.readFileSync(file.path);
   
-  //upload to cloudinary
-  const result = await cloudinary.uploader.upload(file.path, {
-    folder: "my_uploads",
-    resource_type: "auto",
-    use_filename: true,
-    unique_filename: true
+  //upload to imagekit
+  const result = await imageKit.upload({
+    file: fileBuffer,
+    fileName: file.originalname,
+    folder: "/uceestar"
   })
 
-  //delete local chunk
-  fs.unlink(file.path, (err) => {
-    if (err) console.log("Error deleting local file: ", err)
-  })
-
-  //upload result
-  const publicId = result.public_id;
-
-  //create bandwidth-optimized url
-  const optimizedUrl = cloudinary.url(publicId, {
-    quality: "auto",
-    secure: true,
-    fetch_format: "auto"
-  });*/
+  //get optimized url
+  const optimizedUrl = imageKit.url({
+    path: result.filePath,
+    transformation: [
+      { quality: "auto" },
+      { format: "webp" }
+    ]
+  });
 
   try {
-    await Product.create({ name, description, image, price, category })
+    await Product.create({ 
+      name, 
+      description, 
+      image: optimizedUrl,
+      price, 
+      category 
+    })
 
     return res.status(201).json({
       status: "success",
