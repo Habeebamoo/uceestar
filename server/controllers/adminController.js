@@ -1,5 +1,7 @@
 import { Admin } from "../models/Admin.js";
-import { Order } from "../models/Order.js"
+import { Order } from "../models/Order.js";
+import { Product } from "../models/Product.js";
+import { User } from "../models/User.js"
 import jwt from "jsonwebtoken";
 
 // @desc admin sign in
@@ -69,6 +71,26 @@ export const getAdmin = async (req, res) => {
       message: error.message
     })
   }
+}
+
+// @desc Get admin dashboard
+// @route GET - /api/admin/dashboard
+// @access Admin only
+export const getDashboard = async (req, res) => {
+  //calculate totalIncome
+  const totalUsers = await User.estimatedDocumentCount();
+  const totalProducts = await Product.estimatedDocumentCount();
+  const totalOrders = await Order.estimatedDocumentCount();
+
+  let totalIncome = 0;
+
+  const orders = await Order.find({})
+
+  orders.forEach((ord) => {
+    totalIncome += ord.price * ord.quantity;
+  })
+  
+  return res.status(200).json({ success: true, data: { totalUsers, totalProducts, totalOrders, totalIncome }})
 }
 
 // @desc Get all orders
