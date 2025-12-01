@@ -23,7 +23,7 @@ const CreateProduct = () => {
     name: "",
     description: "",
     price: 1000,
-    category: "sneakers"
+    category: "footwears"
   });
 
   useEffect(() => {
@@ -48,8 +48,6 @@ const CreateProduct = () => {
   }
 
   const createProduct = async (e: React.FormEvent) => {
-    toast.error("feature not available")
-    return
     e.preventDefault()
     setLoading(true)
 
@@ -59,7 +57,7 @@ const CreateProduct = () => {
     }
 
     const formData = new FormData();
-    //formData.append("file", file)
+    formData.append("file", file)
     formData.append("name", form.name)
     formData.append("description", form.description)
     formData.append("price", String(form.price))
@@ -209,12 +207,11 @@ const CreateProduct = () => {
             onChange={handleInputChange}
             required
           >
-            <option value="sneakers">Sneakers</option>
-            <option value="loafers">Loafers</option>
-            <option value="huddies">Huddies</option>
+            <option value="footwears">Footwears</option>
+            <option value="phones">Phones</option>
+            <option value="laptops">Laptops</option>
             <option value="watches">Watches</option>
-            <option value="limiters">Limiters</option>
-            <option value="trackers">Trackers</option>
+            <option value="gadgets">Car Gadgets</option>
           </select>
         </div>
 

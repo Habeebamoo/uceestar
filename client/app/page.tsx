@@ -4,7 +4,7 @@ import CategoryTab from "@/components/CategoryTab"
 import ProductsSection from "@/components/ProductsSection";
 import { setProducts } from "@/redux/reducers/productSlice";
 import { type RootState } from "@/redux/store"
-import { ArrowRight, Bike, PhoneCall } from "lucide-react"
+import { ArrowRight, Bike, HandCoins, PhoneCall } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
@@ -91,7 +91,7 @@ const Home = () => {
 
         <div className="flex-center flex-col">
           <div className="bg-indigo-950 h-12 w-12 rounded-full flex-center text-white">
-            <PhoneCall />
+            <HandCoins />
           </div>
           <h1 className="font-outfit text-xl text-center mt-2">Money-Back Guarantee</h1>
           <p className="text-[12px] text-gray-500 font-outfit w-[60%] md:w-[80%] text-center mt-1">We are totally fine with refunds if any disatisfaction arise.</p>
