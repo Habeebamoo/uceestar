@@ -60,7 +60,7 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-50 min-h-[calc(100vh-4rem)]">
+    <main className="pt-60 min-h-[calc(100vh-4rem)]">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
@@ -71,7 +71,7 @@ const SignIn = () => {
 
         <h1 className="font-jsans text-2xl mt-3">Welcome to Uceestar</h1>
 
-        <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
+        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
 
         <div className={navbarActive ? "z-[-1]" : ""}>
           <GoogleLogin 
