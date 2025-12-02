@@ -65,7 +65,7 @@ const Admin = () => {
 
         <h1 className="font-jsans text-2xl mt-3">Admin Login</h1>
 
-        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">
+        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-600 mb-6">
           <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
         </p>
 
