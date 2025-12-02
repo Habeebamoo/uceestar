@@ -54,23 +54,27 @@ const Admin = () => {
   }
 
   return (
-    <main className="bg-gray-50 pt-40 pb-30 px-4 flex-center flex-col min-h-screen">
+    <main className="bg-gray-50 pt-60 pb-30 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
       <Toaster position="top-center" />
 
-      <h1 className="font-jsans text-3xl">Admin Login</h1>
+      <div className="flex-center flex-col">
+        <img src="/logo.png" className="h-8" />
 
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-500 mb-6">
-        <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
-      </p>
+        <h1 className="font-jsans text-2xl mt-3">Admin Login</h1>
 
-      <div className={navbarActive ? "z-[-1]" : ""}>
-        <GoogleLogin 
-          onSuccess={handleSuccess} 
-          onError={handleError} 
-        />
+        <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">
+          <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
+        </p>
+
+        <div className={navbarActive ? "z-[-1]" : ""}>
+          <GoogleLogin 
+            onSuccess={handleSuccess} 
+            onError={handleError} 
+          />
+        </div>
       </div>
     </main>
   )

@@ -60,31 +60,35 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-20 flex-center flex-col min-h-[calc(100vh-4rem)]">
+    <main className="pt-50 min-h-[calc(100vh-4rem)]">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
       <Toaster position="top-center" />
 
-      <h1 className="font-jsans text-3xl">Hi friend!</h1>
+      <div className="flex-center flex-col">
+        <img src="/logo.png" className="h-8" />
 
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-sm text-gray-400 mb-6">Sign in to your account to complete your purchase</p>
+        <h1 className="font-jsans text-2xl mt-3">Welcome to Uceestar</h1>
 
-      <div className={navbarActive ? "z-[-1]" : ""}>
-        <GoogleLogin 
-          onSuccess={handleSuccess} 
-          onError={handleError} 
-        />
+        <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p>
+
+        <div className={navbarActive ? "z-[-1]" : ""}>
+          <GoogleLogin 
+            onSuccess={handleSuccess} 
+            onError={handleError}
+          />
+        </div>
+
+        <p className="text-center mt-8 font-jsans w-[85%] text-[12px] text-gray-500">Want to sign in as admin,
+          <span 
+            onClick={toAdmin}
+            className="text-indigo-950 cursor-pointer ml-1"
+          >
+            Click here
+          </span>
+        </p>
       </div>
-
-      <p className="text-center mt-4 font-jsans-light w-[85%] text-[12px] text-gray-400">Want to sign in as admin,
-        <span 
-          onClick={toAdmin}
-          className="text-indigo-950 cursor-pointer ml-1"
-        >
-          Click here
-        </span>
-      </p>
 
     </main>
   )
