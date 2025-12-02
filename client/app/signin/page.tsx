@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google"
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -55,10 +56,6 @@ const SignIn = () => {
     toast.error("Something went wrong")
   }
 
-  const toAdmin = () => {
-    router.push("/admin")
-  }
-
   return (
     <main className="pt-60 min-h-[calc(100vh-4rem)]">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
@@ -71,7 +68,7 @@ const SignIn = () => {
 
         <h1 className="font-jsans text-2xl mt-3">Welcome to Uceestar</h1>
 
-        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-600 mb-6">Sign in to your account to complete your purchase</p>
+        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">Sign in to your account to complete your purchase</p>
 
         <div className={navbarActive ? "z-[-1]" : ""}>
           <GoogleLogin 
@@ -80,13 +77,10 @@ const SignIn = () => {
           />
         </div>
 
-        <p className="text-center mt-8 font-jsans w-[85%] text-[12px] text-gray-500">Want to sign in as admin,
-          <span 
-            onClick={toAdmin}
-            className="text-indigo-950 cursor-pointer ml-1"
-          >
-            Click here
-          </span>
+        <p className="text-center mt-8 font-jsans w-[85%] text-[12px] text-gray-500">Want to sign in as admin, 
+          <Link href="/admin">
+            <span className="text-indigo-950"> Click here</span>
+          </Link>
         </p>
       </div>
 

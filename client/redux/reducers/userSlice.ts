@@ -11,12 +11,7 @@ type stateType = {
 const initialState: stateType = {
   profile: null,
   admin: null,
-  adminDashboard: {
-    totalUsers: 50,
-    totalIncome: 650000,
-    totalOrders: 45,
-    totalProducts: 154
-  },
+  adminDashboard: null,
   users: null
 }
 

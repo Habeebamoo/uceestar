@@ -78,15 +78,17 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
-          <div className="bg-indigo-900 p-4 rounded-xl text-white">
-            <HandCoins />
+        {dashboard && 
+          <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
+            <div className="bg-indigo-900 p-4 rounded-xl text-white">
+              <HandCoins />
+            </div>
+            <div>
+              <p className="font-jsans text-sm text-gray-600">Total Income</p>
+              <h1 className="mt-2 text-xl font-jsans">&#x20A6; {formatCurrency(dashboard!.totalIncome)}</h1>
+            </div>
           </div>
-          <div>
-            <p className="font-jsans text-sm text-gray-600">Total Income</p>
-            <h1 className="mt-2 text-xl font-jsans">&#x20A6; {formatCurrency(dashboard!.totalIncome)}</h1>
-          </div>
-        </div>
+        }
       </section>
 
       {/* users & recent orders section */}
