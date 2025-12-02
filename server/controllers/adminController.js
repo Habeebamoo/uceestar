@@ -93,6 +93,14 @@ export const getDashboard = async (req, res) => {
   return res.status(200).json({ success: true, data: { totalUsers, totalProducts, totalOrders, totalIncome }})
 }
 
+// @desc Get all users
+// @route GET - /api/admin/users
+// @access Admin only
+export const getUsers = async (req, res) => {
+  const users = await User.find({})
+  return res.status(200).json({ success: true, data: users })
+}
+
 // @desc Get all orders
 // @route GET - /api/admin/orders
 // @access Admin only
