@@ -4,13 +4,20 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 type stateType = {
   profile: User | null,
   admin: User | null,
-  adminDashboard: AdminDashboard | null
+  adminDashboard: AdminDashboard | null,
+  users: User[] | null
 }
 
 const initialState: stateType = {
   profile: null,
   admin: null,
-  adminDashboard: null
+  adminDashboard: {
+    totalUsers: 50,
+    totalIncome: 650000,
+    totalOrders: 45,
+    totalProducts: 154
+  },
+  users: null
 }
 
 const userSlice = createSlice({
@@ -25,9 +32,12 @@ const userSlice = createSlice({
     },
     setAdminDashboard: (state, action: PayloadAction<AdminDashboard>) => {
       state.adminDashboard = action.payload;
+    },
+    setUsers: (state, action: PayloadAction<User[]>) => {
+      state.users = action.payload;
     }
   }
 })
 
-export const { setProfile, setAdmin, setAdminDashboard } = userSlice.actions;
+export const { setProfile, setAdmin, setAdminDashboard, setUsers } = userSlice.actions;
 export default userSlice.reducer;
