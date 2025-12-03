@@ -12,10 +12,10 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
   }
 
   return (
-    <div className="bg-gray-100 py-8 px-4 border-1 border-gray-200 flex overflow-x-auto space-x-4">
+    <div className="py-8 px-4 flex overflow-x-auto space-x-4">
       <div 
         onClick={() => selectCategory("footwears")}
-        className="h-40 w-50 footwears flex-none cursor-pointer"
+        className="h-40 w-50 footwears flex-none cursor-pointer rounded-xl overflow-hidden"
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Footwears</p>
@@ -24,7 +24,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("watches")} 
-        className="watches h-40 w-50 flex-none cursor-pointer"
+        className="watches h-40 w-50 flex-none cursor-pointer rounded-xl overflow-hidden"
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Watches</p>
@@ -33,7 +33,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("phones")} 
-        className="phones h-40 w-50 flex-none cursor-pointer"
+        className="phones h-40 w-50 flex-none cursor-pointer rounded-xl overflow-hidden"
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Phones</p>
@@ -42,7 +42,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("laptops")} 
-        className="laptops h-40 w-50 flex-none cursor-pointer"
+        className="laptops h-40 w-50 flex-none cursor-pointer rounded-xl overflow-hidden"
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Laptops</p>
@@ -51,7 +51,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("gadgets")} 
-        className="gadgets h-40 w-50 flex-none cursor-pointer"
+        className="gadgets h-40 w-50 flex-none cursor-pointer rounded-xl overflow-hidden"
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Car Gadgets</p>
