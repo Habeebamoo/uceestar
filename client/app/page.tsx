@@ -35,8 +35,8 @@ const Home = () => {
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       {/* Hero Section */}
       <section className="mt-16 hero-section">
-        <div className="bg-gradient-to-bl from-black/20 to-black py-20 flex-center flex-col">
-          <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-300">
+        <div className="bg-gradient-to-bl from-black/30 to-black py-20 flex-center flex-col">
+          <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-400">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
             <p className="font-jsans text-white text-[10px]">Discover Curated Collections</p>
           </div>
