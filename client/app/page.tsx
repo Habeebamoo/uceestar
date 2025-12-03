@@ -36,7 +36,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="mt-16 hero-section">
         <div className="bg-gradient-to-bl from-black/20 to-black py-20 flex-center flex-col">
-          <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-600">
+          <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-300">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
             <p className="font-jsans text-white text-[10px]">Discover Curated Collections</p>
           </div>
@@ -46,7 +46,7 @@ const Home = () => {
             <p className="font-jsans-light text-center text-[40px]">Innovation</p>
           </div>
 
-          <div className="bg-gradient-to-r from-indigo-800 to-indingo-400 h-1 rounded-full mt-1 w-[200px]"></div>
+          <div className="bg-gradient-to-r from-indigo-600 to-indingo-200 h-1 rounded-full mt-1 w-[200px]"></div>
 
           <p className="font-jsans-light text-gray-200 text-sm mt-6 text-center text-[17px] leading-relaxed w-[70%] sm:w-[40%] lg:w-[20%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
