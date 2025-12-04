@@ -99,7 +99,7 @@ const Dashboard = () => {
 
           {orders.map((ord: Order) => {
             return (
-              <div className="flex-between mb-6">
+              <div key={ord._id} className="flex-between mb-6">
                 <div className="font-jsans">
                   <p className="text-lg">{ord.name}</p>
                   <div className="flex-start gap-2 mt-1 text-gray-500 text-[12px]">
@@ -121,7 +121,7 @@ const Dashboard = () => {
 
           {users?.map((usr: User) => {
             return (
-              <div className="flex-start gap-4 mb-6">
+              <div key={usr._id} className="flex-start gap-4 mb-6">
                 <div className="bg-indigo-400 font-jsans text-white h-9 w-9 flex-center rounded-full">
                   {getFirstLetter(usr.name)}
                 </div>
