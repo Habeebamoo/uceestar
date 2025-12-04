@@ -10,7 +10,7 @@ const AdminHeader = () => {
 
   return (
     <header className="bg-white fixed top-0 left-0 right-0 shadow">
-      <nav className="lg:w-[70%] mx-auto p-4 flex-between">
+      <nav className="p-4 flex-between">
         {navbarActive && <AdminNavbar setNavbarActive={setNavbarActive} />}
 
         {/* logo */}

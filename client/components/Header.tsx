@@ -41,7 +41,7 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
     <header className="fixed top-0 left-0 right-0 bg-white shadow">
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
 
-      <nav className="p-4 flex-between lg:w-[70%] mx-auto">
+      <nav className="p-4 flex-between">
         {/* logo */}
         <div
           onClick={toHome} 
