@@ -19,11 +19,11 @@ const Products = () => {
   const admin = useSelector((state: RootState) => state.user.admin);
   const products = useSelector((state: RootState) => state.products.products)
 
-  // useEffect(() => {
-  //   if (!admin) {
-  //     router.push("/admin")
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (!admin) {
+      router.push("/admin")
+    }
+  }, [])
 
   const toCreate = () => {
     router.push("/admin/products/create")
