@@ -5,12 +5,6 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-  const truncate = (text: string, length: number): string => {
-    if (text.length <= length) return text;
-
-    return text.slice(0, length) + "..."
-  }
-
   return (
     <div className="bg-white p-4 border-1 border-gray-200 rounded-md">
       <div className="flex-start gap-3">

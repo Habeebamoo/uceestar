@@ -54,7 +54,7 @@ const Page = () => {
   }
 
   return (
-    <main className="pt-20 px-4 sm:w-[400px] mx-auto">
+    <main className="pt-20 px-4 sm:w-[500px] mx-auto">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
       <div className="h-60 bg-gray-100">
@@ -93,7 +93,7 @@ const Page = () => {
 
       <p className="font-jsans text-sm mt-4">Quantity</p>
 
-      <div className="mt-4 mb-60 grid grid-cols-2 gap-4 sm:w-[500px] mx-auto">
+      <div className="mt-4 mb-60 grid grid-cols-2 gap-4">
         <Counter count={quantity} setCount={setQuantity} />
 
         <button 
