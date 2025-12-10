@@ -25,7 +25,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
   return (
     <div className="z-[500] fixed top-0 bottom-0 left-0 right-0 bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[250px] bg-white">
+      <div className="fixed top-0 bottom-0 right-0 w-[60%] sm:w-[250px] bg-white">
         {/* cancel btn */}
         <div 
           onClick={close}
