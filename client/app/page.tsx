@@ -10,12 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
 import { useFetchProducts } from "@/hooks/useFetchProducts";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
 const Home = () => {
   const dispatch = useDispatch();
   const {} = useFetchProducts();
+  const router = useRouter();
 
   const products = useSelector((state: RootState) => state.products.products);
 
@@ -28,7 +30,11 @@ const Home = () => {
   const [category, setCategory] = useState<categories>("footwears")
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
-  const filteredProducts = storeProducts.filter((prod) => prod.category === category).reverse()
+  const filteredProducts = storeProducts.filter((prod) => prod.category === category).reverse();
+
+  const toSearch = () => {
+    router.push("/search")
+  }
 
   return (
     <main className="bg-gray-50 min-h-screen">
@@ -50,7 +56,7 @@ const Home = () => {
 
           <p className="font-jsans-light text-gray-200 text-sm mt-6 text-center text-[17px] leading-relaxed w-[70%] sm:w-[40%] lg:w-[20%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
-          <button className="btn-primary py-3 px-6 flex-center gap-2 mt-8">
+          <button onClick={toSearch} className="btn-primary py-3 px-6 flex-center gap-2 mt-8">
             <span>Explore Now</span>
             <ArrowRight size={14} />
           </button>

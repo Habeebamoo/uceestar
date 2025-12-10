@@ -6,21 +6,7 @@ type stateType = {
 }
 
 const initialState: stateType = {
-  products: [{
-      _id: "dkoefm",
-      image: "D",
-      name: "Nike",
-      category: "footwears",
-      price: 95000,
-      description: "Nike Sneakers"
-  }, {
-      _id: "dkhewunm",
-      image: "D",
-      name: "Prada",
-      category: "footwears",
-      price: 46000,
-      description: "Prada Sneakers"
-  }, ]
+  products: []
 }
 
 const productsSlice = createSlice({

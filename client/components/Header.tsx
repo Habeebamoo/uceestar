@@ -27,6 +27,10 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
     return quantity
   }
 
+  const toSearch = () => {
+    router.push("/search")
+  }
+
   const toCart = () => {
     router.push("/cart")
   }
@@ -53,7 +57,10 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
         {/* icons */}
         <div className="flex-between gap-8">
           {/* Search */}
-          <div className="cursor-pointer">
+          <div 
+            onClick={toSearch}
+            className="cursor-pointer"
+          >
             <Search />
           </div>
 

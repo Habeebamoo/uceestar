@@ -4,7 +4,7 @@ import CartItemDisplay from "@/components/CartItemDisplay";
 import { type RootState } from "@/redux/store"
 import { CartItem } from "@/types/cart";
 import { useDispatch, useSelector } from "react-redux";
-import { Binoculars, FileQuestion, ShoppingCart } from "lucide-react"
+import { Binoculars, ShoppingCart } from "lucide-react"
 import { ChangeEvent, useState } from "react";
 import { clearCart } from "@/redux/reducers/cartSlice";
 import { useFetchUser } from "@/hooks/useFetchUser";
