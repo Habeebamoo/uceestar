@@ -66,11 +66,11 @@ const SignIn = () => {
       <div className="flex-center flex-col">
         <img src="/logo.png" className="h-8" />
 
-        <h1 className="font-jsans text-2xl mt-3">Welcome to Uceestar</h1>
+        <h1 className="font-jsans text-2xl mt-4 mb-6">Welcome to Uceestar</h1>
 
-        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">Sign in to your account to complete your purchase</p>
+        {/* <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p> */}
 
-        <div className={navbarActive ? "z-[-1]" : ""}>
+        <div className={navbarActive ? "z-[-1] google-btn" : "google-btn"}>
           <GoogleLogin 
             onSuccess={handleSuccess} 
             onError={handleError}

@@ -81,6 +81,11 @@
   background-position: center;
 }
 
+.google-btn iframe {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
 .no-spin::-webkit-inner-spin-button,
 .no-spin::-webkit-outer-spin-button {
   -webkit-appearance: none;

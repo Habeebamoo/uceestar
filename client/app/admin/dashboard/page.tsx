@@ -3,6 +3,7 @@
 import AdminHeader from "@/components/AdminHeader"
 import { useFetchAdmin } from "@/hooks/useFetchAdmin"
 import { useFetchAdminDashboard } from "@/hooks/useFetchAdminDashboard";
+import { useFetchAdminOrders } from "@/hooks/useFetchAdminOrders";
 import { useFetchUsers } from "@/hooks/useFetchUsers";
 import { RootState } from "@/redux/store";
 import { Order } from "@/types/order";
@@ -15,6 +16,7 @@ import { useSelector } from "react-redux";
 const Dashboard = () => {
   const {} = useFetchAdmin();
   const {} = useFetchAdminDashboard();
+  const {} = useFetchAdminOrders();
   const {} = useFetchUsers();
   const router = useRouter();
 
