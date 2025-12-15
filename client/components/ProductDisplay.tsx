@@ -11,8 +11,8 @@ const ProductDisplay = ({ product }: Props) => {
   }
 
   return (
-    <div className="bg-white border-1 border-gray-100">
-      <div className="h-[180px] bg-gray-200">
+    <div className="bg-white border-1 border-gray-100 rounded-xl shadow">
+      <div className="h-[180px] bg-gray-200 rounded-t-xl overflow-hidden">
         <img src={product.image} className="h-full w-full" />
       </div>
       <div className="py-3 px-4">

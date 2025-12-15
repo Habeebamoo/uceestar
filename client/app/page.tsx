@@ -39,8 +39,9 @@ const Home = () => {
   return (
     <main className="bg-gray-50 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
+
       {/* Hero Section */}
-      <section className="mt-16 hero-section">
+      <section className="mt-16 hero-section rounded-b-xl overflow-hidden">
         <div className="bg-gradient-to-bl from-black/30 to-black/90 py-20 flex-center flex-col">
           <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-400">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>

@@ -1,6 +1,6 @@
 import express from "express";
 import { getAdmin, getDashboard, getOrders, getUsers, signIn, updateOrderStatus } from "../controllers/adminController.js";
-import { createProduct } from "../controllers/productController.js"
+import { createProduct, updateProduct } from "../controllers/productController.js"
 import { verifyAdmin } from "../middlewares/verifyAdmin.js";
 import upload from "../config/multer.js"
 
@@ -12,6 +12,7 @@ adminRouter.get("/orders", verifyAdmin, getOrders)
 adminRouter.get("/users", verifyAdmin, getUsers)
 adminRouter.get("/dashboard", verifyAdmin, getDashboard)
 adminRouter.post("/order/:id/status", verifyAdmin, updateOrderStatus)
+adminRouter.put("/products/:id/update", verifyAdmin, updateProduct)
 adminRouter.post("/products", verifyAdmin, upload.single("file"), createProduct)
 
 export default adminRouter

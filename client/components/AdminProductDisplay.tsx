@@ -1,10 +1,17 @@
 import { Product } from "@/types/product"
+import { useRouter } from "next/navigation";
 
 const AdminProductDisplay = ({ product }: { product: Product }) => {
+  const router = useRouter();
+
   const truncate = (text: string, length: number): string => {
     if (text.length <= length) return text;
 
     return text.slice(0, length) + "..."
+  }
+
+  const toProduct = () => {
+    router.push(`/admin/products/${product._id}`)
   }
 
   return (
@@ -19,7 +26,7 @@ const AdminProductDisplay = ({ product }: { product: Product }) => {
           <p className="font-jsans-light mt-4 text-[12px]">{truncate(product.description, 20)}</p>
         </div>
       </div>
-      <button className="btn-primary mt-6 py-3 px-4 font-jsans text-sm rounded-md">View Product</button>
+      <button onClick={toProduct} className="btn-primary mt-6 py-3 px-4 font-jsans text-sm rounded-md">View Product</button>
     </div>
   )
 }

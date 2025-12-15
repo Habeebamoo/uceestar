@@ -55,7 +55,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
         <div 
           onClick={() => router.push("/signin")}
-          className="absolute bottom-[20px] right-0 left-0 px-2"
+          className="absolute bottom-[10px] right-0 left-0 px-2"
         >
           <button className="btn-primary text-sm font-jsans py-2 w-full rounded-full hover:text-indigo-950 active:text-indigo-950">
             Sign In

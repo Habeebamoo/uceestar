@@ -64,9 +64,11 @@ const SignIn = () => {
       <Toaster position="top-center" />
 
       <div className="flex-center flex-col">
-        <img src="/logo.png" className="h-8" />
+        <div className="h-18 w-18 bg-gray-100 flex-center rounded-full shadow">
+          <img src="/logo.png" className="h-8" />
+        </div>
 
-        <h1 className="font-jsans text-2xl mt-4 mb-6">Welcome to Uceestar</h1>
+        <h1 className="font-outfit text-3xl mt-4 mb-6">Welcome to Uceestar</h1>
 
         {/* <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p> */}
 
@@ -77,7 +79,7 @@ const SignIn = () => {
           />
         </div>
 
-        <p className="text-center mt-8 font-jsans w-[85%] text-[12px] text-gray-500">Want to sign in as admin, 
+        <p className="text-center mt-16 font-outfit w-[85%] text-sm text-gray-500">Want to sign in as admin, 
           <Link href="/admin">
             <span className="text-indigo-950"> Click here</span>
           </Link>

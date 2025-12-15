@@ -109,3 +109,90 @@ export const getProducts = async (req, res) => {
     })
   }
 }
+
+// @desc  update products
+// @route   PUT - /api/admin/products/:id/update
+// @access public
+export const updateProduct = async (req, res) => {
+  //validate body
+  const { name, price, category, description } = req.body;
+  const { id } = req.params;
+
+  if (!name || !price || !category || !description) {
+    return res.status(400).json({
+      status: "error",
+      statusCode: 400,
+      message: "Missing Fields"
+    })
+  }
+
+  //validate product file
+  const file = req.file;
+
+  //update with new image
+  if (file) {
+    //validate size
+    const MAX_SIZE = 2 * 1024 * 1024;
+
+    if (file.size > MAX_SIZE) {
+      return res.status(400).json({
+        status: "error",
+        statusCode: 400,
+        message: "Image must be 2MB or less"
+      })
+    }
+
+    //covert file to 64 bits format
+    const fileBuffer = fs.readFileSync(file.path);
+    
+    //upload to imagekit
+    const result = await imageKit.upload({
+      file: fileBuffer,
+      fileName: file.originalname,
+      folder: "/uceestar"
+    })
+
+    //get optimized url
+    const optimizedUrl = imageKit.url({
+      path: result.filePath,
+      transformation: [
+        { quality: "auto" },
+        { format: "webp" }
+      ]
+    });
+
+    try {
+      //update product
+      await Product.findByIdAndUpdate(id, { name, price, description, category, image: optimizedUrl })
+
+      return res.status(201).json({
+        status: "success",
+        statusCode: 201,
+        message: "Product Updated"
+      })
+    } catch (error) {
+      return res.status(500).json({
+        status: "error",
+        statusCode: 500,
+        message: "Product Update Failed"
+      })
+    }
+  } else {
+    try {
+      //update product
+      await Product.findByIdAndUpdate(id, { name, price, description, category })
+
+      return res.status(201).json({
+        status: "success",
+        statusCode: 201,
+        message: "Product Updated"
+      })
+    } catch (error) {
+      return res.status(500).json({
+        status: "error",
+        statusCode: 500,
+        message: "Product Update Failed"
+      })
+    }
+  } 
+}

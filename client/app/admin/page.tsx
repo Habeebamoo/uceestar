@@ -54,16 +54,18 @@ const Admin = () => {
   }
 
   return (
-    <main className="bg-gray-50 pt-60 pb-30 px-4 min-h-screen">
+    <main className="pt-60 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
       <Toaster position="top-center" />
 
       <div className="flex-center flex-col">
-        <img src="/logo.png" className="h-8" />
+        <div className="h-18 w-18 bg-gray-100 flex-center rounded-full shadow">
+          <img src="/logo.png" className="h-8" />
+        </div>
 
-        <h1 className="font-jsans text-2xl mt-3">Admin Login</h1>
+        <h1 className="font-outfit text-3xl mt-4 mb-2">Admin Login</h1>
 
         <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">
           <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
