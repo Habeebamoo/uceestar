@@ -68,9 +68,9 @@ const SignIn = () => {
           <img src="/logo.png" className="h-8" />
         </div>
 
-        <h1 className="font-outfit text-3xl mt-4 mb-6">Welcome to Uceestar</h1>
+        <h1 className="font-outfit text-3xl mt-4">Welcome to Uceestar</h1>
 
-        {/* <p className="text-center mt-3 font-jsans w-[85%] text-sm text-gray-500 mb-6">Sign in to your account to complete your purchase</p> */}
+        <p className="text-center mt-2 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">Sign in to your account to view your profile</p>
 
         <div className={navbarActive ? "z-[-1] google-btn" : "google-btn"}>
           <GoogleLogin 
@@ -79,7 +79,7 @@ const SignIn = () => {
           />
         </div>
 
-        <p className="text-center mt-16 font-outfit w-[85%] text-sm text-gray-500">Want to sign in as admin, 
+        <p className="text-center mt-10 font-outfit w-[85%] text-sm text-gray-500">Want to sign in as admin, 
           <Link href="/admin">
             <span className="text-indigo-950"> Click here</span>
           </Link>

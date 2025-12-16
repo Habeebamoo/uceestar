@@ -11,7 +11,7 @@ const ProductDisplay = ({ product }: Props) => {
   }
 
   return (
-    <div className="bg-white border-1 border-gray-100 rounded-xl shadow">
+    <div className="bg-white border-1 border-gray-100 rounded-xl">
       <div className="h-[180px] bg-gray-200 rounded-t-xl overflow-hidden">
         <img src={product.image} className="h-full w-full" />
       </div>
@@ -24,7 +24,7 @@ const ProductDisplay = ({ product }: Props) => {
           <p>{formatCurrency(product.price)}</p>
         </div>
 
-        <button className="btn-blue py-2 px-4 text-sm mb-2">
+        <button className="btn-blue py-2 px-4 text-sm mb-2 w-full">
           <Link href={`/products/${product._id}`}>
             View Product
           </Link>

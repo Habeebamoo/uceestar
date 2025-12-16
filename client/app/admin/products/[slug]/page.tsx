@@ -21,21 +21,32 @@ const ProductPage = () => {
   console.log(products)
   const product = products.find(prd => prd._id === slug)
 
-  useEffect(() => {
-    if (!product) {
-      router.push("/admin/products")
-    }
-  }, [])
-
-  const [file, setFile] = useState<File | null>(null)
-  const [preview, setPreview] = useState<string>(product!.image)
   const [loading, setLoading] = useState<boolean>(false)
+  const [file, setFile] = useState<File | null>(null)
+  const [preview, setPreview] = useState<string | null>(null)
   const [form, setForm] = useState({
-    name: product!.name,
-    description: product!.description,
-    price: product!.price,
-    category: product!.category
+    name: "",
+    description: "",
+    price: 0,
+    category: ""
   });
+
+  useEffect(() => {
+    if (product) {
+      setPreview(product!.image)
+      setForm(prev => ({
+        ...prev,
+        name: product.name!,
+        description: product!.description,
+        price: product!.price,
+        category: product!.category
+      }))
+    }
+  }, [product])
+
+  if (!product) {
+    return <Loading />
+  }
 
   const updateProduct = async (e: React.FormEvent) => {
     e.preventDefault()

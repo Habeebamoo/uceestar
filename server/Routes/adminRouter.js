@@ -12,7 +12,7 @@ adminRouter.get("/orders", verifyAdmin, getOrders)
 adminRouter.get("/users", verifyAdmin, getUsers)
 adminRouter.get("/dashboard", verifyAdmin, getDashboard)
 adminRouter.post("/order/:id/status", verifyAdmin, updateOrderStatus)
-adminRouter.put("/products/:id/update", verifyAdmin, updateProduct)
+adminRouter.put("/products/:id/update", verifyAdmin, upload.single("file"), updateProduct)
 adminRouter.post("/products", verifyAdmin, upload.single("file"), createProduct)
 
 export default adminRouter

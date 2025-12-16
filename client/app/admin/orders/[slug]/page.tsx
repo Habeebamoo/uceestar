@@ -4,7 +4,7 @@ import AdminHeader from "@/components/AdminHeader";
 import Loading from "@/components/Loading";
 import { RootState } from "@/redux/store";
 import { Order } from "@/types/order";
-import { Binoculars } from "lucide-react";
+import { Binoculars, Copy } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -76,6 +76,12 @@ const OrderPage = () => {
     }
   }
 
+  const copyPhone = () => {
+    navigator.clipboard.writeText(order.phone).
+      then(() => toast.success("Phone Copied")).
+      catch(() => toast.error("Failed to copy"))
+  }
+
   const formatCurrency = (num: number) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
@@ -122,6 +128,14 @@ const OrderPage = () => {
           <p>City: {order.location.city}</p>
           <p className="mt-3">Address: {order.location.address}</p>
           <p className="mt-3">Phone: {order.phone}</p>
+
+          <div 
+            onClick={copyPhone} 
+            className="flex-start gap-2 bg-indigo-200 text-indigo-950 cursor-pointer w-[80px] rounded-xl py-2 px-3 text-[12px] mt-8"
+          >
+            <Copy size={14} />
+            <span>Copy</span>
+          </div>
         </div>
       </div>
 
