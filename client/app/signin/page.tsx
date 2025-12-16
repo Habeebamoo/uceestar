@@ -57,7 +57,7 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-60 min-h-[calc(100vh-4rem)]">
+    <main className="pt-50 min-h-[calc(100vh-4rem)]">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}

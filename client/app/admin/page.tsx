@@ -54,7 +54,7 @@ const Admin = () => {
   }
 
   return (
-    <main className="pt-60 px-4 min-h-screen">
+    <main className="pt-50 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
