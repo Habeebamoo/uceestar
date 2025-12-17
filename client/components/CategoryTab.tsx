@@ -15,7 +15,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
     <div className="py-8 px-4 flex overflow-x-auto space-x-4">
       <div 
         onClick={() => selectCategory("footwears")}
-        className={`${category === "footwears" && "border-8 border-indigo-950"} h-40 w-50 footwears flex-none cursor-pointer`}
+        className={`${category === "footwears" && "border-8 border-indigo-900"} h-40 w-50 footwears flex-none cursor-pointer`}
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Footwears</p>
@@ -24,7 +24,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("watches")} 
-        className={`${category === "watches" && "border-8 border-indigo-950"} watches h-40 w-50 flex-none cursor-pointer`}
+        className={`${category === "watches" && "border-8 border-indigo-900"} watches h-40 w-50 flex-none cursor-pointer`}
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Watches</p>
@@ -33,7 +33,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("phones")} 
-        className={`${category === "phones" && "border-8 border-indigo-950"} phones h-40 w-50 flex-none cursor-pointer`}
+        className={`${category === "phones" && "border-8 border-indigo-900"} phones h-40 w-50 flex-none cursor-pointer`}
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Phones</p>
@@ -42,7 +42,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("laptops")} 
-        className={`${category === "laptops" && "border-8 border-indigo-950"} laptops h-40 w-50 flex-none cursor-pointer`}
+        className={`${category === "laptops" && "border-8 border-indigo-900"} laptops h-40 w-50 flex-none cursor-pointer`}
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Laptops</p>
@@ -51,7 +51,7 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
 
       <div
         onClick={() => selectCategory("gadgets")} 
-        className={`${category === "gadgets" && "border-8 border-indigo-950"} gadgets h-40 w-50 flex-none cursor-pointer`}
+        className={`${category === "gadgets" && "border-8 border-indigo-900"} gadgets h-40 w-50 flex-none cursor-pointer`}
       >
         <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
           <p>Car Gadgets</p>
