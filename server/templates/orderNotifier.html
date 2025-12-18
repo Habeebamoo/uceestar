@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .head-cont {
+      background-color: rgb(16, 35, 122);
+      padding: 10px;
+      color: white;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 18px;
+    }
+
+    th, td {
+      border: 1;
+      border: 1px solid black;
+      padding: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-align: left;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="head-cont">
+    <h1>New Order</h1>
+  </div>
+  <p>You've received the following order from {{name}}</p>
+  <table width="100%" style="border-collapse: collapse; margin-top: 30px;">
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>{{productName}}</td>
+      <td>{{quantity}}</td>
+      <td>&#x20A6; {{price}}</td>
+    </tr>
+  </table>
+
+  <p style="color: rgb(16, 35, 122); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold; margin-top: 50px;">Customer Address</p>
+
+  <table width="100%" style="border-collapse: collapse; margin-top: 30px;">
+    <tr>
+      <th>State</th>
+      <th>Address</th>
+      <th>Phone</th>
+    </tr>
+    <tr>
+      <td>{{city}}</td>
+      <td>{{location}}</td>
+      <td>{{phone}}</td>
+    </tr>
+  </table>
+
+  <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-top: 60px; font-size: 16px;">Congratulations on the sale.</p>
+  <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 16px;">
+    <span>Process your orders on the </span>
+    <a href="{{url}}">website</a>
+  </p>
+</body>
+</html>
