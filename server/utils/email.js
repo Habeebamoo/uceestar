@@ -1,4 +1,7 @@
 import nodemailer from "nodemailer";
+import handlebars from "handlebars";
+import path from "path";
+import fs from "fs";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -27,8 +30,33 @@ export const NotifyNewUser = () => {
 
 }
 
-export const SendOrdersMail = () => {
+export const SendOrdersMail = (receiverName, receiverEmail) => {
+  //read templates
+  const templatesPath = path.join(process.cwd(), "templates", "orderMail.html")
+  let html = fs.readFileSync(templatesPath, "utf-8")
+  
 
+  //variables
+  const data = {
+    name: receiverName,
+    url: `${process.env.CLIENT_URL}/orders`
+  }
+
+  //manual replacement
+  for (const key in data) {
+    const regex = new RegExp(`{{${key}}}`, "g");
+    html = html.replace(regex, data[key])
+  }
+
+  //send mail
+  const mailOptions = {
+    from: `"Uceestar" <${process.env.EMAIL}>`,
+    to: receiverEmail,
+    subject: `Order Confirmed`,
+    html
+  }
+
+  transporter.sendMail(mailOptions)
 }
 
 export const NotifyNewOrders = () => {

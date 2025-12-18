@@ -1,4 +1,6 @@
 import { Order } from "../models/Order.js";
+import { User } from "../models/User.js";
+import { SendOrdersMail } from "../utils/email.js";
 
 // @desc get orders
 // @route GET - /api/order
@@ -129,6 +131,12 @@ export const verifyPayment = async (req, res) => {
 
       await Order.create(orderData)
     }
+
+    //get user
+    const user = await User.findById(userId)
+
+    //send email notification to user
+    SendOrdersMail(user.name, user.email)
 
     return res.status(200).json({
       status: "success",

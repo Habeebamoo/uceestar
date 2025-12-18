@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 15px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .img-cont {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .img {
+      height: 50px;
+    }
+
+    h1 {
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    p {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 18px;
+    }
+
+    .text-cont {
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+    button {
+      padding: 15px 20px;
+      background-color: rgb(16, 35, 122);
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="img-cont">
+    <img src="https://ik.imagekit.io/jeb0iwdbk/tr:q-auto:f-webp/uceestar/logo__iNcQ8EzP.png" class="img">
+  </div>
+  <h1>Your order has been confirmed.</h1>
+  <div class="text-cont">
+    <p>Hi {{name}},</p>
+    <p>Your Order has been confirmed.</p>
+    <p>We will pass the order to our delivery department and your packaged will depart soon</p>
+    <p>You will be notified by email or phone about your order.</p>
+  </div>
+  <button>
+    <a href="{{url}}">View My Orders</a>
+  </button>
+</body>
+</html>
