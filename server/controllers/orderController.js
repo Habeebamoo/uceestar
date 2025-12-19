@@ -1,6 +1,6 @@
 import { Order } from "../models/Order.js";
 import { User } from "../models/User.js";
-import { SendOrdersMail } from "../utils/email.js";
+import { NotifyNewOrders, SendOrdersMail } from "../utils/email.js";
 
 // @desc get orders
 // @route GET - /api/order
@@ -130,6 +130,11 @@ export const verifyPayment = async (req, res) => {
       };
 
       await Order.create(orderData)
+
+      const user = await User.findById(userId);
+
+      //notify admin
+      NotifyNewOrders(user.name, product.name, product.quantity, product.price, details.city, details.address, details.phone)
     }
 
     //get user
