@@ -5,13 +5,11 @@ import { type RootState } from "@/redux/store"
 import { CartItem } from "@/types/cart";
 import { useDispatch, useSelector } from "react-redux";
 import { Binoculars, ShoppingCart } from "lucide-react"
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { clearCart } from "@/redux/reducers/cartSlice";
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
-import toast, { Toaster } from "react-hot-toast";
-import Loading from "@/components/Loading";
 import Footer from "@/components/Footer";
 
 const Cart = () => {
@@ -19,13 +17,6 @@ const Cart = () => {
   const {} = useFetchUser();
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
-
-  const [loading, setLoading] = useState<boolean>(false)
-  const [form, setForm] = useState({
-    city: "lagos",
-    address: "",
-    phone: "+234"
-  })
 
   const cart = useSelector((state: RootState) => state.cart.cart);
   const user = useSelector((state: RootState) => state.user.profile);
@@ -45,10 +36,6 @@ const Cart = () => {
 
   const deleteCart = () => {
     dispatch(clearCart([]))
-  }
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm(prev => ({...prev, [e.target.name]: e.target.value}))
   }
 
   const getCartItemsQuantity = (): number => {
@@ -71,16 +58,13 @@ const Cart = () => {
     return cost
   }
 
-  const getDeliveryCost = () => {
-    let deliveryCost: number = 0;
-
-    if (form.city === "lagos") {
-      deliveryCost = 5000
-    } else if (form.city === "ogun") {
-      deliveryCost = 7000
+  const toCheckout = () => {
+    if (!user) {
+      router.push("/signin")
+      return
     }
 
-    return deliveryCost;
+    router.push("/checkout")
   }
 
   const formatCurrency = (num: number) => {
@@ -89,62 +73,10 @@ const Cart = () => {
 
   const itemsAmount = getCartItemsQuantity();
   const cost = getTotalCost();
-  const deliveryCost = getDeliveryCost();
-  const totalCost = cost + deliveryCost;
 
-  const purchaseCart = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!user) {
-      router.push("/signin")
-      return
-    }
-
-    if (!form.address || !form.city || form.phone.length < 13) {
-      toast.error("Details are required")
-      return
-    }
-
-    setLoading(true)
-
-    const data = {
-      email: user.email,
-      details: form,
-      cart: cart,
-      amount: totalCost
-    }
-
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/order/payment/initialize`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`
-        },
-        body: JSON.stringify(data),
-        credentials: "include"
-      });
-
-      const response = await res.json()
-
-      if (!res.ok) {
-        toast.error(response.message)
-        return
-      }
-
-      window.location.href = response.authorizationURL;
-      deleteCart();
-    } catch (error) {
-      toast.error("Something went wrong")
-    } finally {
-      setLoading(false)
-    }
-  }
-  
   return (
     <main className="bg-gray-50 pt-24 pb-30 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
-      <Toaster />
-      {loading && <Loading />}
 
       {/* heading */}
       <div className="font-jsans flex-between">
@@ -174,7 +106,7 @@ const Cart = () => {
 
       {/* checkout */}
       <form 
-        onSubmit={purchaseCart} 
+        onClick={toCheckout} 
         className="w-full sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-200 rounded-lg mt-10"
       >
         <div className="flex-start gap-2">
@@ -192,7 +124,7 @@ const Cart = () => {
           <p className="font-jsans-light">&#x20A6; {formatCurrency(cost)}</p>
         </div>
 
-        <div className="text-sm mt-4 flex-between">
+        {/* <div className="text-sm mt-4 flex-between">
           <p className="font-jsans">Your Location</p>
           <select 
             value={form.city}
@@ -245,20 +177,20 @@ const Cart = () => {
             onChange={handleInputChange}
             required
           />
-        </div>
+        </div> */}
 
         <hr className="text-gray-100 mt-6" />
 
-        <div className="flex-between mt-4 text-indigo-950">
+        {/* <div className="flex-between mt-4 text-indigo-950">
           <p className="font-jsans">Total Price</p>
           <p className="font-jsans">&#x20A6; {formatCurrency(totalCost)}</p>
-        </div>
+        </div> */}
 
         <div className="mt-6"> 
           <button
             className="btn-primary text-sm py-2 w-full rounded-md col-span-2 hover:text-indigo-950 active:text-indigo-950"
           >
-            Purchase
+            Checkout
           </button>
         </div>
       </form>

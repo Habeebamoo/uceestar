@@ -43,7 +43,7 @@ const SignIn = () => {
 
       toast.success(response.message)
       setTimeout(() => {
-        router.push("/cart")
+        router.back()
       }, 2500)
     } catch (error) {
       toast.error("Something went wrong")
