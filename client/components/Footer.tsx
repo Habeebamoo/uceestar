@@ -12,16 +12,16 @@ const Footer = () => {
         <p className="text-[12px] font-jsans-light mt-1">By PJ Star LTD.</p>
       </div>
 
-      <div className="mt-20">
+      <div className="mt-15">
         <h1 className="font-jsans text-lg">Contact Us</h1>
         <p className="underline font-jsans-light mt-4 text-sm">uceestar@gmail.com</p>
         <p className="text-sm font-jsans-light mt-4">Mobile: +234 905 7312 712</p>
         <p className="text-sm font-jsans-light mt-4">Whatsapp: +234 902 4228 180</p>
       </div>
 
-      <p className="mt-20 font-jsans-light text-sm">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
+      <p className="mt-15 font-jsans-light text-sm">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
-      <div className="mt-20">
+      <div className="mt-15">
         <h1 className="font-jsans text-lg">Quick Links</h1>
         <p className="font-jsans-light mt-4 text-sm">Search</p>
         <p 

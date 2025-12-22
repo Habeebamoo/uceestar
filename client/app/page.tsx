@@ -42,7 +42,7 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="mt-16 hero-section">
-        <div className="bg-gradient-to-l from-black/90 to-black/30 py-20 flex-center flex-col">
+        <div className="bg-gradient-to-l from-black/90 to-black/30 py-25 flex-center flex-col">
           <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-400">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
             <p className="font-jsans text-white text-[10px]">Discover Curated Collections</p>
@@ -55,9 +55,9 @@ const Home = () => {
 
           <div className="bg-gradient-to-r from-indigo-600 to-indingo-200 h-1 rounded-full mt-1 w-[200px]"></div>
 
-          <p className="font-jsans-light text-gray-200 text-sm mt-6 text-center text-[17px] leading-relaxed w-[70%] sm:w-[40%] lg:w-[20%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
+          <p className="font-jsans-light text-gray-200 text-sm mt-8 text-center text-[17px] leading-relaxed w-[70%] sm:w-[40%] lg:w-[20%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
 
-          <button onClick={toSearch} className="btn-primary py-3 px-6 flex-center gap-2 mt-8">
+          <button onClick={toSearch} className="btn-primary py-3 px-6 flex-center gap-2 mt-10">
             <span>Explore Now</span>
             <ArrowRight size={14} />
           </button>

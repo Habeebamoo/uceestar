@@ -75,18 +75,18 @@ const Cart = () => {
   const cost = getTotalCost();
 
   return (
-    <main className="bg-gray-50 pt-24 pb-30 px-4 min-h-screen">
+    <main className="bg-gray-50 pt-24 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {/* heading */}
-      <div className="font-jsans flex-between">
+      <div className="font-jsans flex-between px-4">
          <h1 className="text-xl">Shopping Cart</h1>
          <p className="font-bold">{itemsAmount} Items</p>
       </div>
       <hr className="text-gray-200 mt-6" />
 
       {/* products */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 px-4">
         {cart.map((item: CartItem, i) => {
           return (
             <CartItemDisplay key={i} item={item} />
@@ -107,7 +107,7 @@ const Cart = () => {
       {/* checkout */}
       <form 
         onClick={toCheckout} 
-        className="w-full sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-200 rounded-lg mt-10"
+        className="w-[90%] sm:w-[400px] mx-auto p-6 bg-white border-1 border-gray-200 rounded-lg mt-10"
       >
         <div className="flex-start gap-2">
           <ShoppingCart />
