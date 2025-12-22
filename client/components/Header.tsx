@@ -51,8 +51,8 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
           onClick={toHome} 
           className="cursor-pointer flex-start"
         >
-          <Image src="/logo.png" alt="logo" height={32} width={32} />
-          <span className="font-outfit text-indigo-950 mt-2">CEESTAR</span>
+          <Image src="/logo.png" alt="logo" height={35} width={35} />
+          <span className="font-outfit text-indigo-950 mt-2 font-bold">CEESTAR</span>
         </div>
 
         {/* icons */}
