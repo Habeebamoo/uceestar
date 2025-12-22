@@ -24,7 +24,7 @@ const ProductDisplay = ({ product }: Props) => {
           <p>{formatCurrency(product.price)}</p>
         </div>
 
-        <button className="btn-blue py-2 px-4 text-sm mb-2 w-full">
+        <button className="btn-blue py-2 px-4 text-sm mb-2 w-full rounded-full">
           <Link href={`/products/${product._id}`}>
             View Product
           </Link>
