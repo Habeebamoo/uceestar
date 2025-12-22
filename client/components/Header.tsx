@@ -51,7 +51,7 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
           onClick={toHome} 
           className="cursor-pointer"
         >
-          <Image src="/logo.png" alt="logo" height={35} width={35} />
+          <Image src="/logo.png" alt="logo" height={34} width={34} />
         </div>
 
         {/* icons */}

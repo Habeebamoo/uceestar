@@ -79,9 +79,9 @@ const SignIn = () => {
           />
         </div>
 
-        <p className="text-center mt-10 font-jsans-light w-[85%] text-sm text-gray-700">Want to sign in as admin, 
+        <p className="text-center mt-10 font-jsans-light w-[85%] text-[12px] text-gray-700">Want to sign in as admin, 
           <Link href="/admin">
-            <span className="text-indigo-950"> Click here</span>
+            <span className="text-indigo-950 font-bold"> Click here</span>
           </Link>
         </p>
       </div>
