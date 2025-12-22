@@ -27,10 +27,7 @@ const SearchPage = () => {
     <main className="bg-gray-50 pt-22 pb-30 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
-      {/* <h1 className="text-3xl text-indigo-950 font-outfit text-center">Search Products</h1>
-      <p className="font-outfit text-sm mt-1 text-center text-gray-700">Explore our vast collections of product raging from wears to accessories.</p> */}
-
-      <div className="relative sm:w-[400px] mx-auto">
+      <div className={`${navbarActive ? "relative sm:w-[400px] mx-auto z-[-1]" : "relative sm:w-[400px] mx-auto"}`}>
         <div className="absolute top-[15px] left-[14px]">
           <Search size={20} />
         </div>
