@@ -1,4 +1,5 @@
 import { Product } from "../models/Product.js";
+import { Review } from "../models/Review.js"
 import imageKit from "../config/imagKit.js"
 import fs from "fs"
 
@@ -195,4 +196,43 @@ export const updateProduct = async (req, res) => {
       })
     }
   } 
+}
+
+// @desc  get products reviews
+// @route   GET - /api/products/:id/reviews
+// @access public
+export const getReviews = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const reviews = await Review.find({ productId: id });
+
+    if (!reviews) {
+      return res.status(200).json({ success: true, data: reviews })
+    }
+
+    return res.status(200).json({ success: true, data: reviews })
+  } catch (error) {
+    return res.status(500).json({ success: false, message: "Internal Serve Error" })
+  }
+}
+
+// @desc  create products review
+// @route   POST - /api/products/:id/reviews
+// @access Users only
+export const createReview = async (req, res) => {
+  const { id } = req.params;
+  const { name, comment, stars } = req.body;
+
+  if (!name || !comment) {
+    return res.status(400).json({ success: false, message: "Missing Fields "})
+  }
+
+  try {
+    await Review.create({ productId: id, name: name, comment: comment, stars: stars });
+
+    return res.status(201).json({ success: true, message: "Comment Added" })
+  } catch (error) {
+    return res.status(500).json({ success: false, message: "Internal Serve Error" })
+  }
 }

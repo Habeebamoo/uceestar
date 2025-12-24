@@ -1,8 +1,12 @@
 "use client";
 
+import { useFetchUser } from "@/hooks/useFetchUser";
+import { RootState } from "@/redux/store";
 import { LoaderCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 interface Props {
   productId: string,
@@ -10,6 +14,9 @@ interface Props {
 }
 
 const ReviewModal = ({ productId, setReviewModal }: Props) => {
+  const {} = useFetchUser()
+  const router = useRouter()
+
   const [loading, setLoading] = useState<boolean>(false)
   const [form, setForm] = useState({
     name: "",
@@ -17,11 +24,18 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
     stars: 0
   })
 
+  const user = useSelector((state: RootState) => state.user.profile);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({...prev, [e.target.name]: e.target.value}))
   }
 
   const addReview = async () => {
+    if (!user) {
+      router.push("/signin")
+      return
+    }
+
     if (!form.name || !form.comment) {
       return
     }
@@ -47,7 +61,7 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
 
       toast.success(response.message)
       setTimeout(() => {
-
+        setReviewModal(false)
       }, 2500)
     } catch (error) {
       toast.error("Something went wrong.")
