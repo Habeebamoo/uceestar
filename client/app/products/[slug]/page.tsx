@@ -3,9 +3,13 @@
 import Counter from "@/components/Counter";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ReviewComment from "@/components/ReviewComment";
+import ReviewModal from "@/components/ReviewModal";
+import { useFetchReviews } from "@/hooks/useFetchReviews";
 import { addToCart } from "@/redux/reducers/cartSlice";
 import { RootState } from "@/redux/store";
 import { CartItem } from "@/types/cart";
+import { Review } from "@/types/review";
 import { Binoculars } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
@@ -16,12 +20,16 @@ const Page = () => {
   const params = useParams();
   const slug = params.slug;
   const dispatch = useDispatch()
+
+  const {} = useFetchReviews(slug)
+
   const [quantity, setQuantity] = useState<number>(1)
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
+  const [reviewModal, setReviewModal] = useState<boolean>(false)
 
   const products = useSelector((state: RootState) => state.products.products)
-
-  const cart = useSelector((state: RootState) => state.cart.cart)
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const reviews = useSelector((state: RootState) => state.products.reviews)
 
   console.log(cart)
 
@@ -57,6 +65,10 @@ const Page = () => {
     <main className="pt-20 px-4 sm:w-[500px] mx-auto">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
+
+      {/* review modal */}
+      {reviewModal && <ReviewModal productId={product._id} setReviewModal={setReviewModal} />}
+
       <div className="h-60 bg-gray-100">
         {/* image */}
         <img src={product.image} className="h-full w-full object-center object-cover" />
@@ -93,7 +105,7 @@ const Page = () => {
 
       <p className="font-jsans text-sm mt-4">Quantity</p>
 
-      <div className="mt-4 mb-60 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid grid-cols-2 gap-4">
         <Counter count={quantity} setCount={setQuantity} />
 
         <button 
@@ -104,6 +116,19 @@ const Page = () => {
         </button>
       </div>
 
+
+      {/* Reviews section */}
+      <div className="mt-20">
+        <h1 className="font-outfit text-2xl">Reviews</h1>
+        
+        <button onClick={() => setReviewModal(true)} className="btn-blue font-outfit text-sm py-3 px-5 rounded-full">
+          <span>Add a Review</span>
+        </button>
+
+        <div className="mt-8 grid grid-cols-1 gap-12">
+          {reviews.map((rv: Review, i) => <ReviewComment key={i} review={rv} />)}
+        </div>
+      </div>
       <Footer />
     </main>
   )
