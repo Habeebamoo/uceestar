@@ -10,7 +10,7 @@ import { addToCart } from "@/redux/reducers/cartSlice";
 import { RootState } from "@/redux/store";
 import { CartItem } from "@/types/cart";
 import { Review } from "@/types/review";
-import { Binoculars } from "lucide-react";
+import { Binoculars, Star, StarIcon, Stars } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -31,7 +31,7 @@ const Page = () => {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const reviews = useSelector((state: RootState) => state.products.reviews)
 
-  console.log(cart)
+  console.log(reviews)
 
   const product = products.find(prod => prod._id == slug)
 
@@ -55,11 +55,23 @@ const Page = () => {
     toast.success("Added To Cart")
   }
 
+  const getAverageStars = () => {
+    let stars = 0;
+
+    reviews.forEach(rv => {
+      stars += rv.stars
+    })
+
+    return (stars / reviews.length)
+  }
+
   const formerPrice = (product!.price) + (product!.price * 0.15)
 
   const formatCurrency = (num: number) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
+
+  const avgStarRating = getAverageStars()
 
   return (
     <main className="pt-20 px-4 sm:w-[500px] mx-auto">
@@ -118,17 +130,52 @@ const Page = () => {
 
 
       {/* Reviews section */}
-      <div className="mt-20">
+      <section className="mt-20">
         <h1 className="font-outfit text-2xl">Reviews</h1>
+
+        {/* stars and ratings */}
+        <div className="flex-start gap-6 mt-8">
+          <h1 className="font-outfit text-6xl">{avgStarRating.toFixed(1)}</h1>
+
+          {/* stars */}
+          <div>
+            <div className="flex-start gap-2">
+              <div>
+                <Star className={avgStarRating >= 1 ? "text-yellow-300" : ""} size={18} />
+              </div>
+
+              <div>
+                <Star className={avgStarRating >= 2 ? "text-yellow-300" : ""} size={18} />
+              </div>
+
+              <div>
+                <Star className={avgStarRating >= 3 ? "text-yellow-300" : ""} size={18} />
+              </div>
+
+              <div>
+                <Star className={avgStarRating >= 4 ? "text-yellow-300" : ""} size={18} />
+              </div>
+
+              <div>
+                <Star className={avgStarRating == 5 ? "text-yellow-300" : ""} size={18} />
+              </div>
+            </div>
+
+            <p className="text-sm font-jsans-light text-gray-500 mt-1">{reviews.length} ratings</p>
+          </div>
+        </div>
         
-        <button onClick={() => setReviewModal(true)} className="btn-blue font-outfit text-sm py-3 px-5 rounded-full">
+        <button onClick={() => setReviewModal(true)} className="btn-blue font-outfit text-sm py-2 px-4 mt-8 rounded-full">
           <span>Add a Review</span>
         </button>
 
-        <div className="mt-8 grid grid-cols-1 gap-12">
+        <hr className="text-gray-200 mt-10" />
+
+        <div className="mt-10 grid grid-cols-1 gap-12">
           {reviews.map((rv: Review, i) => <ReviewComment key={i} review={rv} />)}
         </div>
-      </div>
+      </section>
+
       <Footer />
     </main>
   )

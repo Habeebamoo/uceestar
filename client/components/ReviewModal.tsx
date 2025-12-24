@@ -2,7 +2,7 @@
 
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { RootState } from "@/redux/store";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Star } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
@@ -21,13 +21,17 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
   const [form, setForm] = useState({
     name: "",
     comment: "",
-    stars: 0
+    stars: 1
   })
 
   const user = useSelector((state: RootState) => state.user.profile);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({...prev, [e.target.name]: e.target.value}))
+  }
+
+  const setStar = (num: number) => {
+    setForm(prev => ({...prev, stars: num}))
   }
 
   const addReview = async () => {
@@ -100,24 +104,43 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
         </div>
 
         <div className="mt-8">
-          {loading ? 
-            <button className="py-3 w-full bg-gray-100 border-1 border-gray-200 flex-center">
-              <LoaderCircle className="animate-spin" color="gray" size={20} />
-            </button>
-          :
-            <button 
-              onClick={addReview} 
-              className="btn-blue font-outfit text-sm py-3 w-full"
-            >
-              Add
-            </button>
-          }
+          <p className="text-sm font-jsans-light">Rating</p>
 
+          <div className="flex-between mt-4 px-6">
+            <div onClick={() => setStar(1)}>
+              <Star className={form.stars >= 1 ? "text-yellow-300" : ""} />
+            </div>
+
+            <div onClick={() => setStar(2)}>
+              <Star className={form.stars >= 2 ? "text-yellow-300" : ""} />
+            </div>
+
+            <div onClick={() => setStar(3)}>
+              <Star className={form.stars >= 3 ? "text-yellow-300" : ""} />
+            </div>
+
+            <div onClick={() => setStar(4)}>
+              <Star className={form.stars >= 4 ? "text-yellow-300" : ""} />
+            </div>
+
+            <div onClick={() => setStar(5)}>
+              <Star className={form.stars == 5 ? "text-yellow-300" : ""} />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 grid grid-cols-3 gap-2">
           <button 
             onClick={() => setReviewModal(false)} 
             className="btn-blue font-outfit text-sm py-3 w-full bg-red-500 border-red-500 hover:text-red-500 active:text-red-500"
           >
             Cancel
+          </button>
+          <button 
+            onClick={addReview} 
+            className={`${loading ? "cursor-not-allowed bg-gray-200 border-gray-200" : ""} btn-blue font-outfit text-sm py-3 w-full flex-center col-span-2`}
+          >
+            {loading ? <LoaderCircle className="animate-spin" /> : "Add"}
           </button>
         </div>
       </div>
