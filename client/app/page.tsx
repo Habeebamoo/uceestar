@@ -42,7 +42,7 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="relative">
-        <img src="/hero1.jpeg" className="md:object-cover md:object-[0%_20%] h-[700px] md:h-[650px] w-full" />
+        <img src="/hero1.jpeg" className="md:object-cover md:object-[50%_80%] h-[750px] md:h-[650px] w-full" />
         
         <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent from-0% via-black/80 via-40% to-black to-80%">
           <div className="bottom-[50px] px-6 md:px-10 absolute">
