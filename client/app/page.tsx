@@ -41,7 +41,22 @@ const Home = () => {
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {/* Hero Section */}
-      <section className="mt-16 hero-section">
+      <section className="relative">
+        <img src="/hero3.jpg" className="md:object-cover md:object-[50%_80%] md:h-[650px] w-full" />
+        
+        <div className="absolute top-0 bottom-0 left-0 right-0 bg-black/70">
+          <div className="bottom-[50px] px-6 md:px-10 absolute">
+            <h1 className="text-5xl md:text-6xl font-jsans mt-20 text-white">Style Meets Innovation</h1>
+             <p className="font-jsans-light text-gray-200 text-sm mt-8 text-[17px] leading-relaxed w-[70%] sm:w-[60%] lg:w-[40%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
+
+            <button onClick={toSearch} className="btn-primary py-3 px-6 flex-center gap-2 mt-10">
+              <span>Explore Now</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* <section className="mt-16 hero-section">
         <div className="bg-gradient-to-l from-black/90 to-black/30 py-25 flex-center flex-col">
           <div className="py-2 px-4 rounded-full bg-gray-200/20 flex-center gap-2 border-1 border-gray-400">
             <div className="h-[7px] w-[7px] rounded-full bg-indigo-950"></div>
@@ -62,7 +77,7 @@ const Home = () => {
             <ArrowRight size={14} />
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* category tab */}
       <section className="mt-12">

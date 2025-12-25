@@ -39,12 +39,12 @@
   @apply bg-indigo-950 border-1 border-indigo-950 font-jsans mt-4 cursor-pointer active:bg-transparent active:text-indigo-950 hover:bg-transparent hover:text-indigo-950 text-white;
 }
 
-.hero-section {
-  background-image: url("/heroimg.jpeg");
+/* .hero-section {
+  background-image: url("/client/public/border-from-tourist-stuff.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 .footwears {
   background-image: url("/sneaker.jpeg");
