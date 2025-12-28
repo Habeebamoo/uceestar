@@ -41,7 +41,7 @@ const Home = () => {
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {/* Hero Section */}
-      <section className="relative">
+      <section className="relative z-0 mt-15">
         <img src="/hero1.jpeg" className="md:object-cover md:object-[50%_80%] h-[750px] md:h-[650px] w-full" />
         
         <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent from-0% via-black/80 via-40% to-black to-80%">

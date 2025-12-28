@@ -4,7 +4,7 @@ import { RootState } from "@/redux/store"
 import { Menu, Search, ShoppingCart} from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { useSelector } from "react-redux"
 import Navbar from "./Navbar";
 
@@ -16,6 +16,22 @@ interface Props {
 const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const router = useRouter();
+
+  // const [scrolled, setScrolled] = useState<boolean>(false)
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > 160);
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   handleScroll();
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const getCartItemsQuantity = (): number => {
     let quantity: number = 0;
@@ -42,7 +58,7 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow">
+    <header className={`bg-white fixed top-0 left-0 right-0 shadow z-10`}>
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
 
       <nav className="p-4 flex-between">
