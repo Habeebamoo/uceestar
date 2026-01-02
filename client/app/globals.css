@@ -39,13 +39,15 @@
   @apply bg-indigo-950 border-1 border-indigo-950 font-jsans mt-4 cursor-pointer active:bg-transparent active:text-indigo-950 hover:bg-transparent hover:text-indigo-950 text-white;
 }
 
-/* .hero-section {
-  background-image: url("/client/public/border-from-tourist-stuff.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
+@utility category-tab-active {
+  @apply p-6 rounded-xl bg-indigo-950 text-white border-1 border-indigo-950 cursor-pointer hover:scale-90 active:scale-90 text-center font-outfit;
+}
 
+@utility category-tab {
+  @apply p-6 rounded-xl bg-gray-100 border-1 border-gray-200 cursor-pointer hover:scale-90 active:scale-90 text-center font-outfit;
+}
+
+/* 
 .footwears {
   background-image: url("/sneaker.jpeg");
   background-size: cover;
@@ -79,7 +81,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 .no-spin::-webkit-inner-spin-button,
 .no-spin::-webkit-outer-spin-button {

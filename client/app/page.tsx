@@ -43,23 +43,6 @@ const Home = () => {
 
       <HeroDisplay />
 
-      {/* Hero Section */}
-      {/* <section className="relative z-0">
-        <img src="/hero1.jpeg" className="md:object-cover md:object-[50%_80%] h-[750px] md:h-[650px] w-full" />
-        
-        <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent from-0% via-black/80 via-40% to-black to-80%">
-          <div className="bottom-[50px] px-6 md:px-10 absolute">
-            <h1 className="text-5xl md:text-6xl font-jsans mt-20 text-white">Style Meets Innovation</h1>
-             <p className="font-jsans-light text-gray-200 text-sm mt-8 text-[17px] leading-relaxed sm:w-[80%] lg:w-[60%]">Discover curated collections of premium footwears, cutting-edge technologies and lifestyle essentials crafted for the modern world</p>
-
-            <button onClick={toSearch} className="btn-primary py-3 px-6 flex-center gap-2 mt-10">
-              <span>Explore Now</span>
-              <ArrowRight size={14} />
-            </button>
-          </div>
-        </div>
-      </section> */}
-
       {/* category tab */}
       <section className="mt-12">
         <h1 className="font-jsans text-xl text-center mb-8">Shop By Categories</h1>
@@ -71,7 +54,7 @@ const Home = () => {
       </section>
 
       {/* products */}
-      <section className="mt-10 w-[95%] mx-auto">
+      <section className="mt-15 w-[95%] mx-auto">
         {filteredProducts.length >= 1 && <ProductsSection products={filteredProducts} />}
       </section>
 

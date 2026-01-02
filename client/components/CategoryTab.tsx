@@ -1,5 +1,8 @@
 import { categories } from "@/app/page";
+import { CarFront, Footprints, Laptop, Smartphone, Watch } from "lucide-react";
 import { Dispatch, SetStateAction } from "react"
+import { FaTools } from "react-icons/fa";
+import { GiDoorWatcher } from "react-icons/gi";
 
 interface Props {
   category: categories,
@@ -12,50 +15,55 @@ const CategoryTab = ({ category ,setCategory }: Props) => {
   }
 
   return (
-    <div className="py-8 px-4 flex overflow-x-auto space-x-4">
-      <div 
+    <div className="py-8 px-4 flex overflow-x-auto space-x-8">
+      <div
         onClick={() => selectCategory("footwears")}
-        className={`${category === "footwears" && "border-8 border-indigo-900"} h-40 w-50 footwears flex-none cursor-pointer`}
+        className={category === "footwears" ? "category-tab-active" : "category-tab"}
       >
-        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
-          <p>Footwears</p>
+        <div className="p-4 bg-gray-300 rounded-xl flex-center text-gray-600">
+          <Footprints size={40} />
         </div>
+        <p className="mt-3">Footwears</p>
       </div>
 
       <div
-        onClick={() => selectCategory("watches")} 
-        className={`${category === "watches" && "border-8 border-indigo-900"} watches h-40 w-50 flex-none cursor-pointer`}
+        onClick={() => selectCategory("watches")}
+        className={category === "watches" ? "category-tab-active" : "category-tab"}
       >
-        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
-          <p>Watches</p>
+        <div className="p-4 bg-gray-300 rounded-xl flex-center text-gray-600">
+          <Watch size={40} />
         </div>
+        <p className="mt-3">Watches</p>
       </div>
 
       <div
-        onClick={() => selectCategory("phones")} 
-        className={`${category === "phones" && "border-8 border-indigo-900"} phones h-40 w-50 flex-none cursor-pointer`}
+        onClick={() => selectCategory("phones")}
+        className={category === "phones" ? "category-tab-active" : "category-tab"}
       >
-        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
-          <p>Phones</p>
+        <div className="p-4 bg-gray-300 rounded-xl flex-center text-gray-600">
+          <Smartphone size={40} />
         </div>
+        <p className="mt-3">Phones</p>
       </div>
 
       <div
-        onClick={() => selectCategory("laptops")} 
-        className={`${category === "laptops" && "border-8 border-indigo-900"} laptops h-40 w-50 flex-none cursor-pointer`}
+        onClick={() => selectCategory("laptops")}
+        className={category === "laptops" ? "category-tab-active" : "category-tab"}
       >
-        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
-          <p>Laptops</p>
+        <div className="p-4 bg-gray-300 rounded-xl flex-center text-gray-600">
+          <Laptop size={40} />
         </div>
+        <p className="mt-3">Laptops</p>
       </div>
 
       <div
-        onClick={() => selectCategory("gadgets")} 
-        className={`${category === "gadgets" && "border-8 border-indigo-900"} gadgets h-40 w-50 flex-none cursor-pointer`}
+        onClick={() => selectCategory("gadgets")}
+        className={category === "gadgets" ? "category-tab-active" : "category-tab"}
       >
-        <div className="h-full w-full bg-black/75 flex-center text-center font-jsans text-white">
-          <p>Car Gadgets</p>
+        <div className="p-6 bg-gray-300 rounded-xl flex-center text-gray-600">
+          <FaTools size={30} />
         </div>
+        <p className="mt-3">Car Gadgets</p>
       </div>
     </div>
   )

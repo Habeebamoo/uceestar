@@ -16,7 +16,10 @@ const ProductDisplay = ({ product }: Props) => {
         <img src={product.image} className="h-full w-full" />
       </div>
       <div className="py-3 px-4">
-        <p className="font-jsans-light text-[12px] mb-1">{product.category.toUpperCase()}</p>
+        <p className="font-jsans-light text-[12px] mb-1">
+          {product.category.toUpperCase()}
+        </p>
+
         <p className="font-jsans text-lg">{product.name}</p>
 
         <div className="mt-4 font-jsans-light flex-start gap-1">
