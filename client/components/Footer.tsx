@@ -16,7 +16,7 @@ const Footer = () => {
 
       <hr className="text-gray-700 mt-8" />
 
-      <p className="font-jsans-light text-gray-300 text-sm mt-8">Uceestar {year}. All right reserved</p>
+      <p className="font-jsans-light text-gray-300 text-[12px] mt-8">Uceestar &copy; {year}. All right reserved</p>
     </footer>
   )
 }
