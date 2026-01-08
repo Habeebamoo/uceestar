@@ -47,6 +47,10 @@
   @apply p-6 rounded-xl bg-gray-100 border-1 border-gray-200 cursor-pointer hover:scale-90 active:scale-90 text-center font-outfit;
 }
 
+@utility gradient-overlay {
+  @apply absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent from-0% via-black/70 via-50% to-black to-100%;
+}
+
 /* 
 .footwears {
   background-image: url("/sneaker.jpeg");

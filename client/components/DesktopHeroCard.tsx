@@ -1,12 +1,13 @@
-import { ArrowRight, ShoppingCart } from "lucide-react"
+import { ArrowRight } from "lucide-react";
 
 interface Props {
   img: string,
   name: string,
-  price: number
+  price: number,
+  height?: number
 }
 
-const HeroCard = ({ img, name, price }: Props) => {
+const DesktopHeroCard = ({ img, name, height, price }: Props) => {
   const beforePrice = price + (price * 0.15);
 
   const formatCurrency = (num: number) => {
@@ -14,12 +15,12 @@ const HeroCard = ({ img, name, price }: Props) => {
   }
 
   return (
-    <div className="relative rounded-xl overflow-hidden">
-      <img src={img} className="h-70 md:h-100 lg:h-140 w-full object-center object-cover" />
+    <div className={`h-[${height}px] rounded-xl overflow-hidden relative col-span-3`}>
+      <img src={img} className="w-full h-full object-center object-cover" />
 
-      <div className="gradient-overlay p-4 md:p-6 lg:p-8">
-        <div className="absolute bottom-5">
-          <h1 className="text-white font-outfit text-2xl md:text-4xl lg:text-6xl ">{name}</h1>
+      <div className="gradient-overlay p-8">
+        <div className="absolute bottom-[40px]">
+          <h1 className="text-white font-outfit text-2xl md:text-4xl lg:text-6xl">{name}</h1>
 
           <div className="text-white flex-start gap-4 mt-2">
             <p className="font-jsans lg:text-xl">
@@ -41,4 +42,4 @@ const HeroCard = ({ img, name, price }: Props) => {
   )
 }
 
-export default HeroCard
+export default DesktopHeroCard

@@ -58,10 +58,10 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className={`bg-white fixed top-0 left-0 right-0 shadow z-10`}>
+    <header className={`bg-white fixed top-0 left-0 right-0 border-b-1 border-gray-100 z-10`}>
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
 
-      <nav className="p-4 flex-between">
+      <nav className="p-4 lg:px-10 flex-between">
         {/* logo */}
         <div
           onClick={toHome} 

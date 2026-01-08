@@ -26,12 +26,12 @@ const Home = () => {
     dispatch(setProducts(products));
   }, [dispatch])
 
-  const storeProducts = useSelector((state: RootState) => state.products.products)
+  //const storeProducts = useSelector((state: RootState) => state.products.products)
 
-  const [category, setCategory] = useState<categories>("footwears")
+  //const [category, setCategory] = useState<categories>("footwears")
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
-  const filteredProducts = storeProducts.filter((prod) => prod.category === category).reverse();
+  //const filteredProducts = storeProducts.filter((prod) => prod.category === category).reverse();
 
   const toSearch = () => {
     router.push("/search")
@@ -44,18 +44,18 @@ const Home = () => {
       <HeroDisplay />
 
       {/* category tab */}
-      <section className="mt-12">
+      {/* <section className="mt-12">
         <h1 className="font-jsans text-xl text-center mb-8">Shop By Categories</h1>
 
         <CategoryTab 
           category={category} 
           setCategory={setCategory} 
         />
-      </section>
+      </section> */}
 
       {/* products */}
       <section className="mt-15 w-[95%] mx-auto">
-        {filteredProducts.length >= 1 && <ProductsSection products={filteredProducts} />}
+        {products.length >= 1 && <ProductsSection products={products} />}
       </section>
 
       <section className="mt-40 grid grid-cols-1 md:grid-cols-3 gap-8 md:w-[700px] mx-auto">

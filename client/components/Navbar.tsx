@@ -25,7 +25,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
   return (
     <div className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[60%] sm:w-[250px] bg-white">
+      <div className="fixed top-0 bottom-0 right-0 w-[100%] sm:w-[250px] lg:w-[300px] bg-white">
         {/* cancel btn */}
         <div 
           onClick={close}
@@ -35,7 +35,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
         </div>
 
 
-        <div className="mt-14">
+        <div className="mt-14 lg:px-2">
           <div
             onClick={toHome} 
             className="flex-start gap-2 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
