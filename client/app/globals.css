@@ -39,12 +39,8 @@
   @apply bg-indigo-950 border-1 border-indigo-950 font-jsans mt-4 cursor-pointer active:bg-transparent active:text-indigo-950 hover:bg-transparent hover:text-indigo-950 text-white;
 }
 
-@utility category-tab-active {
-  @apply p-6 rounded-xl bg-indigo-950 text-white border-1 border-indigo-950 cursor-pointer hover:scale-90 active:scale-90 text-center font-outfit;
-}
-
-@utility category-tab {
-  @apply p-6 rounded-xl bg-gray-100 border-1 border-gray-200 cursor-pointer hover:scale-90 active:scale-90 text-center font-outfit;
+@utility header-link-active {
+  @apply border-b-1;
 }
 
 @utility gradient-overlay {

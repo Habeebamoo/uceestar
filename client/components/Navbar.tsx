@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, ShoppingCart, X } from "lucide-react"
+import { Home, Phone, ShoppingCart, X } from "lucide-react"
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
 
@@ -19,13 +19,17 @@ const Navbar = ({ setNavbarActive }: Props) => {
     router.push("/orders")
   }
 
+  const toContact = () => {
+    router.push("/contact")
+  }
+
   const toHome = () => {
     router.push("/")
   }
 
   return (
-    <div className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[60%] sm:w-[250px] lg:w-[300px] bg-white">
+    <div className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 lg:hidden bg-black/70">
+      <div className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[35%] bg-white">
         {/* cancel btn */}
         <div 
           onClick={close}
@@ -35,29 +39,43 @@ const Navbar = ({ setNavbarActive }: Props) => {
         </div>
 
 
-        <div className="mt-14 lg:px-2">
+        <div className="mt-14 px-2">
           <div
             onClick={toHome} 
-            className="flex-start gap-2 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+            className="flex-start gap-4 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
-            <Home size={18} />
-            <p className="font-jsans-light">Home</p>
+            <Home size={20} />
+            <p className="font-jsans text-lg">Home</p>
           </div>
 
           <div
             onClick={toOrders} 
-            className="flex-start gap-2 px-4 mt-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+            className="flex-start gap-4 px-4 mt-6 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
-            <ShoppingCart size={18} />
-            <p className="font-jsans-light">Orders</p>
+            <ShoppingCart size={20} />
+            <p className="font-jsans text-lg">Orders</p>
+          </div>
+
+          <div
+            onClick={toContact} 
+            className="flex-start gap-4 px-4 mt-6 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+          >
+            <Phone size={20} />
+            <p className="font-jsans text-lg">Contact Us</p>
           </div>
         </div>
 
         <div 
           onClick={() => router.push("/signin")}
-          className="absolute bottom-[10px] right-0 left-0 px-2"
+          className="absolute bottom-[30px] right-0 left-0 px-5"
         >
-          <button className="btn-primary text-sm font-jsans py-2 w-full rounded-full hover:text-indigo-950 active:text-indigo-950">
+          <h1 className="font-outfit text-lg text-gray-700 mb-2">
+            Become a member to access the best products and latest gadgets.
+          </h1>
+          
+          <button 
+            className="btn-blue text-sm py-3 px-6 rounded-full"
+          >
             Sign In
           </button>
         </div>

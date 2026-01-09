@@ -2,11 +2,11 @@
 
 import { RootState } from "@/redux/store"
 import { Menu, Search, ShoppingCart} from "lucide-react"
-import Image from "next/image"
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import { useSelector } from "react-redux"
 import Navbar from "./Navbar";
+import Link from "next/link";
 
 interface Props {
   navbarActive: boolean,
@@ -16,22 +16,9 @@ interface Props {
 const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const router = useRouter();
+  const pathname = usePathname()
 
-  // const [scrolled, setScrolled] = useState<boolean>(false)
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrolled(window.scrollY > 160);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   handleScroll();
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+  const isActve = (url: string) => pathname === url;
 
   const getCartItemsQuantity = (): number => {
     let quantity: number = 0;
@@ -43,61 +30,125 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
     return quantity
   }
 
-  const toSearch = () => {
-    router.push("/search")
+  const toSignin = () => {
+    router.push("/signin")
   }
 
   const toCart = () => {
     router.push("/cart")
   }
 
-  const toHome = () => {
-    router.push("/")
-  }
-
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className={`bg-white fixed top-0 left-0 right-0 border-b-1 border-gray-100 z-10`}>
-      {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
+    // <header className={`bg-white fixed top-0 left-0 right-0 border-b-1 border-gray-100 z-10`}>
+    //   
 
-      <nav className="p-4 lg:px-10 flex-between">
-        {/* logo */}
-        <div
-          onClick={toHome} 
-          className="cursor-pointer"
-        >
-          <Image src="/logo.png" alt="logo" height={34} width={34} />
+    //   <nav className="p-4 lg:px-10 flex-between">
+    //     {/* logo */}
+    //     <div
+    //       onClick={toHome} 
+    //       className="cursor-pointer"
+    //     >
+    //       <Image src="/logo.png" alt="logo" height={34} width={34} />
+    //     </div>
+
+    //     {/* icons */}
+    //     <div className="flex-between gap-8">
+    //       {/* Search */}
+    //       <div 
+    //         onClick={toSearch}
+    //         className="cursor-pointer"
+    //       >
+    //         <Search />
+    //       </div>
+
+    //       {/* cart */}
+    //       <div 
+    //         onClick={toCart}
+    //         className="cursor-pointer relative"
+    //       >
+    //         <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
+    //           {itemsAmount}
+    //         </p>
+    //         <ShoppingCart />
+    //       </div>
+
+    //       <div 
+    //         onClick={() => setNavbarActive(true)}
+    //         className="cursor-pointer"
+    //       >
+    //         <Menu />
+    //       </div>
+    //     </div> 
+    //   </nav>
+    // </header>
+
+    <header className="fixed top-0 left-0 right-0 z-20 bg-white p-4 md:px-8 border-b-1 border-gray-200">
+      {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
+      
+      <nav className="flex-between">
+        <div>
+          <img src="/logo.png" className="w-9" />
         </div>
 
-        {/* icons */}
-        <div className="flex-between gap-8">
-          {/* Search */}
-          <div 
-            onClick={toSearch}
-            className="cursor-pointer"
-          >
-            <Search />
+        <div className="flex-between gap-10">
+          {/* navs */}
+          <div className="max-lg:hidden font-jsans flex-center mr-10 gap-6">
+
+            <Link 
+              href="/" 
+              className={isActve("/") ? "header-link-active" : ""}
+            >
+              <p>Home</p>
+            </Link>
+
+            <Link 
+              href="/orders"
+              className={isActve("/orders") ? "header-link-active" : ""}
+            >
+              <p>My Orders</p>
+            </Link>
+
+            <Link 
+              href="/contact"
+              className={isActve("/contact") ? "header-link-active" : ""}
+            >
+              <p>Contact Us</p>
+            </Link>
+
           </div>
 
-          {/* cart */}
-          <div 
-            onClick={toCart}
-            className="cursor-pointer relative"
-          >
-            <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
-              {itemsAmount}
-            </p>
-            <ShoppingCart />
+          {/* cart & menu */}
+          <div className="flex-center gap-8">
+            <div 
+              onClick={toCart}
+              className="cursor-pointer relative"
+            >
+              <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
+                {itemsAmount}
+              </p>
+              <ShoppingCart />
+            </div>
+
+            <div 
+              onClick={() => setNavbarActive(true)}
+              className="cursor-pointer lg:hidden"
+            >
+              <Menu />
+            </div>
           </div>
 
-          <div 
-            onClick={() => setNavbarActive(true)}
-            className="cursor-pointer"
-          >
-            <Menu />
+          {/* sign in */}
+          <div className="max-lg:hidden">
+            <button 
+              onClick={toSignin}
+              className="btn-blue text-sm font-jsans py-2 px-6 rounded-full mt-0"
+            >
+              Sign In
+            </button>
           </div>
-        </div> 
+        </div>
       </nav>
     </header>
   )

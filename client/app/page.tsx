@@ -38,7 +38,7 @@ const Home = () => {
   }
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    <main className="bg-gray-50 pt-5 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       <HeroDisplay />

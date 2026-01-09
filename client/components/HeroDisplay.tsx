@@ -5,7 +5,6 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css"
 import HeroCard from "./HeroCard";
 import { ArrowRight } from "lucide-react";
-import DesktopHeroCard from "./DesktopHeroCard";
 
 const HeroDisplay = () => {
   return (
@@ -45,8 +44,8 @@ const HeroDisplay = () => {
           <div className="h-[260px] rounded-xl overflow-hidden relative col-span-3">
             <img src="laptop.jpeg" className="w-full h-full object-center object-cover" />
 
-            <div className="gradient-overlay p-8">
-              <div className="absolute bottom-[40px]">
+            <div className="gradient-overlay p-6">
+              <div className="absolute bottom-[20px]">
                 <h1 className="text-white font-outfit text-4xl">
                   Apple Macbook Air
                 </h1>
@@ -72,8 +71,8 @@ const HeroDisplay = () => {
           <div className="h-[260px] rounded-xl overflow-hidden relative col-span-3">
             <img src="s-watch.jpeg" className="w-full h-full object-center object-cover" />
 
-            <div className="gradient-overlay p-8">
-              <div className="absolute bottom-[40px]">
+            <div className="gradient-overlay p-6">
+              <div className="absolute bottom-[20px]">
                 <h1 className="text-white font-outfit text-4xl">
                   Apple Watch Series 3
                 </h1>
