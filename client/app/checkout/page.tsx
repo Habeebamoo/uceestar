@@ -235,7 +235,7 @@ const CheckoutPage = () => {
 
         <div className="mt-8"> 
           <button
-            className="btn-primary text-sm py-2 w-full rounded-md col-span-2 hover:text-indigo-950 active:text-indigo-950"
+            className="btn-primary text-sm py-3 w-full rounded-md col-span-2 hover:text-indigo-950 active:text-indigo-950"
           >
             Pay
           </button>

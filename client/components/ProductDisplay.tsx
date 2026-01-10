@@ -1,37 +1,37 @@
 import { Product } from "@/types/product"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface Props {
   product: Product
 }
 
 const ProductDisplay = ({ product }: Props) => {
+  const router = useRouter()
+
   const formatCurrency = (num: number) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
+  const toProduct = () => {
+    router.push(`/products/${product._id}`)
+  }
+
   return (
-    <div className="bg-white border-1 border-gray-100 rounded-xl">
-      <div className="h-[180px] bg-gray-200 rounded-t-xl overflow-hidden">
-        <img src={product.image} className="h-full w-full" />
-      </div>
-      <div className="py-3 px-4">
-        <p className="font-jsans-light text-[12px] mb-1">
-          {product.category.toUpperCase()}
-        </p>
+    <div
+      onClick={toProduct} 
+      className="bg-white border-1 border-gray-100 rounded-2xl h-[350px] rounded-xl overflow-hidden relative"
+    >
+      <img src={product.image} className="w-full h-full" />
 
-        <p className="font-jsans text-lg">{product.name}</p>
+      <div className="product-gradient-overlay cursor-pointer">
+        <div className="absolute bottom-5 px-6 text-white">
+          <p className="font-jsans text-xl">{product.name}</p>
 
-        <div className="mt-4 font-jsans-light flex-start gap-1">
-          <span>&#x20A6;</span>
-          <p>{formatCurrency(product.price)}</p>
+          <div className="mt-4 font-jsans-light flex-start gap-1">
+            <span>&#x20A6;</span>
+            <p>{formatCurrency(product.price)}</p>
+          </div>
         </div>
-
-        <button className="btn-blue py-2 px-4 text-sm mb-2 w-full rounded-full">
-          <Link href={`/products/${product._id}`}>
-            View Product
-          </Link>
-        </button>
       </div>
     </div>
   )

@@ -49,7 +49,7 @@ const startApp = async () => {
     })
   } catch (error) {
     console.error(error)
-    process.exit(1)
+    process.exit(0)
   }
 }
 

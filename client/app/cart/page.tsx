@@ -79,14 +79,16 @@ const Cart = () => {
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {/* heading */}
-      <div className="font-jsans flex-between px-4">
-         <h1 className="text-xl">Shopping Cart</h1>
-         <p className="font-bold">{itemsAmount} Items</p>
+      <div className="px-4 sm:w-[600px] mx-auto">
+         <div className="font-jsans flex-between">
+            <h1 className="text-xl">Shopping Cart</h1>
+            <p className="font-bold">{itemsAmount} Items</p>
+         </div>
+         <hr className="text-gray-200 mt-6" />
       </div>
-      <hr className="text-gray-200 mt-6" />
 
       {/* products */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 px-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 px-4 md:px-8">
         {cart.map((item: CartItem, i) => {
           return (
             <CartItemDisplay key={i} item={item} />
@@ -124,67 +126,7 @@ const Cart = () => {
           <p className="font-jsans-light">&#x20A6; {formatCurrency(cost)}</p>
         </div>
 
-        {/* <div className="text-sm mt-4 flex-between">
-          <p className="font-jsans">Your Location</p>
-          <select 
-            value={form.city}
-            name="city"
-            onChange={handleInputChange}
-            className="bg-gray-100 py-2 px-4 font-jsans border-1 border-gray-200"
-          >
-            <option value="lagos">Lagos</option>
-            <option value="ogun">Ogun</option>
-          </select>
-        </div>
-
-        <div className="flex-between text-sm mt-4">
-          <p className="font-jsans">Delivery</p>
-          <p className="font-jsans-light">&#x20A6; {formatCurrency(deliveryCost)}</p>
-        </div>
-
-        <div className='mt-6'>
-          <label
-            className="font-jsans-light text-sm" 
-            htmlFor="address"
-          >
-            Address
-          </label>
-          <input 
-            type="text" 
-            id="address" 
-            name='address'
-            className="block p-3 border-1 border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none"
-            value={form.address}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className='mt-6'>
-          <label
-            className="font-jsans-light text-sm" 
-            htmlFor="phone"
-          >
-            Phone number
-          </label>
-          <input 
-            type="text" 
-            id="phone" 
-            name='phone'
-            className="block p-3 border-1 border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none"
-            placeholder="Nike Sneakers"
-            value={form.phone}
-            onChange={handleInputChange}
-            required
-          />
-        </div> */}
-
         <hr className="text-gray-100 mt-6" />
-
-        {/* <div className="flex-between mt-4 text-indigo-950">
-          <p className="font-jsans">Total Price</p>
-          <p className="font-jsans">&#x20A6; {formatCurrency(totalCost)}</p>
-        </div> */}
 
         <div className="mt-6"> 
           <button

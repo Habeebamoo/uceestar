@@ -40,9 +40,9 @@ const Orders = () => {
     <main className="py-20 bg-gray-50 px-4 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
-      <h1 className="font-jsans text-2xl mt-2">My Orders</h1>
+      <h1 className="font-jsans text-center text-2xl mt-2">My Orders</h1>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 sm:px-10">
         {orders.map((order: Order) => <OrderItemDisplay key={order._id} order={order} />)}
       </section>
     </main>

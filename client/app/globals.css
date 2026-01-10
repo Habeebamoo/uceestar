@@ -40,48 +40,16 @@
 }
 
 @utility header-link-active {
-  @apply border-b-1;
+  @apply border-b-2 pb-1;
 }
 
 @utility gradient-overlay {
   @apply absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent from-0% via-black/70 via-50% to-black to-100%;
 }
 
-/* 
-.footwears {
-  background-image: url("/sneaker.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+@utility product-gradient-overlay {
+  @apply absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent from-0% via-black/60 via-60% to-black to-100%;
 }
-
-.watches {
-  background-image: url("/s-watch.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.phones {
-  background-image: url("/phone.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.laptops {
-  background-image: url("/laptop.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.gadgets {
-  background-image: url("/gadgets.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
 
 .no-spin::-webkit-inner-spin-button,
 .no-spin::-webkit-outer-spin-button {

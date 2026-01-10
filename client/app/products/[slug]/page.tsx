@@ -74,106 +74,108 @@ const Page = () => {
   const avgStarRating = getAverageStars()
 
   return (
-    <main className="pt-20 px-4 sm:w-[500px] mx-auto">
+    <main className="pt-20 px-4">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
 
       {/* review modal */}
       {reviewModal && <ReviewModal productId={product._id} setReviewModal={setReviewModal} />}
 
-      <div className="h-60 bg-gray-100">
-        {/* image */}
-        <img src={product.image} className="h-full w-full object-center object-cover" />
-      </div>
-
-      {/* category */}
-      <p className="text-sm font-jsans-light mt-4 text-sm">
-        {product.category.toUpperCase()}
-      </p>
-
-      {/* name */}
-      <p className="text-2xl font-jsans mt-2">{product?.name}</p>
-
-      {/* price */}
-      <div className="mt-4 flex-between">
-        <p className="font-jsans text-lg font-bold">&#x20A6; {formatCurrency(product?.price)}</p>
-
-        <div className="flex-center gap-3">
-          <p className="font-jsans font-bold text-gray-600 line-through">&#x20A6; {formatCurrency(formerPrice)}</p>
-
-          <p className="bg-yellow-400 font-jsans py-1 px-3 rounded-full text-[12px]">-15%</p>
+      <section className="sm:w-[500px] mx-auto px-4">
+        <div className="h-60 bg-gray-100">
+          {/* image */}
+          <img src={product.image} className="h-full w-full object-center object-cover" />
         </div>
-      </div>
 
-      {/* description */}
-      {product.description &&
-        <div className="mt-8">
-          <h1 className="text-xl font-jsans">Description</h1>
-          <p className="text-sm font-jsans text-gray-500 mt-2">{product.description}</p>
-        </div>
-      }
+        {/* category */}
+        <p className="text-sm font-jsans-light mt-4 text-sm">
+          {product.category.toUpperCase()}
+        </p>
 
-      <hr className="text-gray-200 mt-6" />
+        {/* name */}
+        <p className="text-2xl font-jsans mt-2">{product?.name}</p>
 
-      <p className="font-jsans text-sm mt-4">Quantity</p>
+        {/* price */}
+        <div className="mt-4 flex-between">
+          <p className="font-jsans text-lg font-bold">&#x20A6; {formatCurrency(product?.price)}</p>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
-        <Counter count={quantity} setCount={setQuantity} />
+          <div className="flex-center gap-3">
+            <p className="font-jsans font-bold text-gray-600 line-through">&#x20A6; {formatCurrency(formerPrice)}</p>
 
-        <button 
-          onClick={addProductToCart} 
-          className="btn-primary text-sm py-3 w-full hover:text-indigo-950 active:text-indigo-950 rounded-lg"
-        >
-          Add To Cart
-        </button>
-      </div>
-
-
-      {/* Reviews section */}
-      <section className="mt-20">
-        <h1 className="font-outfit text-2xl">Reviews</h1>
-
-        {/* stars and ratings */}
-        <div className="flex-start gap-6 mt-8">
-          <h1 className="font-outfit text-6xl">{avgStarRating.toFixed(1)}</h1>
-
-          {/* stars */}
-          <div>
-            <div className="flex-start gap-2">
-              <div>
-                <Star className={avgStarRating >= 1 ? "text-yellow-300" : ""} size={18} />
-              </div>
-
-              <div>
-                <Star className={avgStarRating >= 2 ? "text-yellow-300" : ""} size={18} />
-              </div>
-
-              <div>
-                <Star className={avgStarRating >= 3 ? "text-yellow-300" : ""} size={18} />
-              </div>
-
-              <div>
-                <Star className={avgStarRating >= 4 ? "text-yellow-300" : ""} size={18} />
-              </div>
-
-              <div>
-                <Star className={avgStarRating == 5 ? "text-yellow-300" : ""} size={18} />
-              </div>
-            </div>
-
-            <p className="text-sm font-jsans-light text-gray-500 mt-1">{reviews.length} ratings</p>
+            <p className="bg-yellow-400 font-jsans py-1 px-3 rounded-full text-[12px]">-15%</p>
           </div>
         </div>
-        
-        <button onClick={() => setReviewModal(true)} className="btn-blue font-outfit text-sm py-2 px-4 mt-8 rounded-full">
-          <span>Add a Review</span>
-        </button>
 
-        <hr className="text-gray-200 mt-10" />
+        {/* description */}
+        {product.description &&
+          <div className="mt-8">
+            <h1 className="text-xl font-jsans">Description</h1>
+            <p className="text-sm font-jsans text-gray-500 mt-2">{product.description}</p>
+          </div>
+        }
 
-        <div className="mt-10 grid grid-cols-1 gap-12">
-          {reviews.map((rv: Review, i) => <ReviewComment key={i} review={rv} />)}
+        <hr className="text-gray-200 mt-6" />
+
+        <p className="font-jsans text-sm mt-4">Quantity</p>
+
+        <div className="mt-4 grid grid-cols-2 gap-4">
+          <Counter count={quantity} setCount={setQuantity} />
+
+          <button 
+            onClick={addProductToCart} 
+            className="btn-primary text-sm py-3 w-full hover:text-indigo-950 active:text-indigo-950 rounded-lg"
+          >
+            Add To Cart
+          </button>
         </div>
+
+
+        {/* Reviews section */}
+        <section className="mt-20">
+          <h1 className="font-outfit text-2xl">Reviews</h1>
+
+          {/* stars and ratings */}
+          <div className="flex-start gap-6 mt-8">
+            <h1 className="font-outfit text-6xl">{avgStarRating.toFixed(1)}</h1>
+
+            {/* stars */}
+            <div>
+              <div className="flex-start gap-2">
+                <div>
+                  <Star className={avgStarRating >= 1 ? "text-yellow-300" : ""} size={18} />
+                </div>
+
+                <div>
+                  <Star className={avgStarRating >= 2 ? "text-yellow-300" : ""} size={18} />
+                </div>
+
+                <div>
+                  <Star className={avgStarRating >= 3 ? "text-yellow-300" : ""} size={18} />
+                </div>
+
+                <div>
+                  <Star className={avgStarRating >= 4 ? "text-yellow-300" : ""} size={18} />
+                </div>
+
+                <div>
+                  <Star className={avgStarRating == 5 ? "text-yellow-300" : ""} size={18} />
+                </div>
+              </div>
+
+              <p className="text-sm font-jsans-light text-gray-500 mt-1">{reviews.length} ratings</p>
+            </div>
+          </div>
+          
+          <button onClick={() => setReviewModal(true)} className="btn-blue font-outfit text-sm py-2 px-4 mt-8 rounded-full">
+            <span>Add a Review</span>
+          </button>
+
+          <hr className="text-gray-200 mt-10" />
+
+          <div className="mt-10 grid grid-cols-1 gap-12">
+            {reviews.map((rv: Review, i) => <ReviewComment key={i} review={rv} />)}
+          </div>
+        </section>
       </section>
 
       <Footer />

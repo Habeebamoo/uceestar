@@ -1,7 +1,7 @@
 "use client";
 
 import { RootState } from "@/redux/store"
-import { Menu, Search, ShoppingCart} from "lucide-react"
+import { Menu, ShoppingCart} from "lucide-react"
 import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import { useSelector } from "react-redux"
@@ -41,60 +41,17 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    // <header className={`bg-white fixed top-0 left-0 right-0 border-b-1 border-gray-100 z-10`}>
-    //   
-
-    //   <nav className="p-4 lg:px-10 flex-between">
-    //     {/* logo */}
-    //     <div
-    //       onClick={toHome} 
-    //       className="cursor-pointer"
-    //     >
-    //       <Image src="/logo.png" alt="logo" height={34} width={34} />
-    //     </div>
-
-    //     {/* icons */}
-    //     <div className="flex-between gap-8">
-    //       {/* Search */}
-    //       <div 
-    //         onClick={toSearch}
-    //         className="cursor-pointer"
-    //       >
-    //         <Search />
-    //       </div>
-
-    //       {/* cart */}
-    //       <div 
-    //         onClick={toCart}
-    //         className="cursor-pointer relative"
-    //       >
-    //         <p className="absolute h-5 w-5 flex-center bg-indigo-900 text-white rounded-full text-[10px] font-jsans right-[-10] top-[-10]">
-    //           {itemsAmount}
-    //         </p>
-    //         <ShoppingCart />
-    //       </div>
-
-    //       <div 
-    //         onClick={() => setNavbarActive(true)}
-    //         className="cursor-pointer"
-    //       >
-    //         <Menu />
-    //       </div>
-    //     </div> 
-    //   </nav>
-    // </header>
-
     <header className="fixed top-0 left-0 right-0 z-20 bg-white p-4 md:px-8 border-b-1 border-gray-200">
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
-      
+
       <nav className="flex-between">
         <div>
-          <img src="/logo.png" className="w-9" />
+          <img src="/logo.png" className="w-8" />
         </div>
 
         <div className="flex-between gap-10">
           {/* navs */}
-          <div className="max-lg:hidden font-jsans flex-center mr-10 gap-6">
+          <div className="max-lg:hidden font-jsans flex justify-center items-start mr-10 gap-6">
 
             <Link 
               href="/" 
