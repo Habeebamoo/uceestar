@@ -31,7 +31,7 @@ const Home = () => {
 
       <HeroDisplay />
 
-      <h1 className="font-jsans-light mt-10 text-center text-xl">New Arrivals</h1>
+      <h1 className="font-outfit mt-12 lg:mt-15 text-xl md:text-2xl lg:text-3xl text-center">New Products</h1>
 
       {/* products */}
       <section className="mt-15 w-[95%] mx-auto">

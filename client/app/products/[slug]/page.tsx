@@ -31,8 +31,6 @@ const Page = () => {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const reviews = useSelector((state: RootState) => state.products.reviews)
 
-  console.log(reviews)
-
   const product = products.find(prod => prod._id == slug)
 
   if (!product) {
@@ -81,7 +79,7 @@ const Page = () => {
       {/* review modal */}
       {reviewModal && <ReviewModal productId={product._id} setReviewModal={setReviewModal} />}
 
-      <section className="sm:w-[500px] mx-auto px-4">
+      <section className="sm:w-[500px] mx-auto">
         <div className="h-60 bg-gray-100">
           {/* image */}
           <img src={product.image} className="h-full w-full object-center object-cover" />

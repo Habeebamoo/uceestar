@@ -98,7 +98,7 @@ const HeroDisplay = () => {
       </section>
 
       {/* small screens */}
-      <section className="pt-20 p-3 md:px-6 lg:px-10 lg:hidden">
+      <section className="pt-16 sm:pt-20 md:pt-16 lg:hidden">
         <Swiper
           modules={[Autoplay]}
           autoplay={{

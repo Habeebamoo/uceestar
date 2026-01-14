@@ -41,7 +41,7 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
   const itemsAmount = getCartItemsQuantity();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-20 bg-white p-4 md:px-8 border-b-1 border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-20 bg-white p-4 md:px-8 border-b-1 border-gray-100">
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
 
       <nav className="flex-between">

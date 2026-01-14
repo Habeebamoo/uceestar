@@ -1,11 +1,15 @@
+"use client";
+
 import { Product } from "@/types/product"
 import { useRouter } from "next/navigation"
+import { useState } from "react";
 
 interface Props {
   product: Product
 }
 
 const ProductDisplay = ({ product }: Props) => {
+  const [viewBtn, setViewBtn] = useState<boolean>(false)
   const router = useRouter()
 
   const formatCurrency = (num: number) => {
@@ -18,19 +22,32 @@ const ProductDisplay = ({ product }: Props) => {
 
   return (
     <div
-      onClick={toProduct} 
-      className="bg-white border-1 border-gray-100 rounded-2xl h-[350px] rounded-xl overflow-hidden relative"
+      onClick={() => setViewBtn(true)} 
+      className="bg-white rounded-t-md overflow-hidden cursor-pointer"
     >
-      <img src={product.image} className="w-full h-full" />
+      <div className="h-[250px] relative">
+        <img src={product.image} className="w-full h-full object-cover object-center" />
 
-      <div className="product-gradient-overlay cursor-pointer">
-        <div className="absolute bottom-5 px-6 text-white">
-          <p className="font-jsans text-xl">{product.name}</p>
-
-          <div className="mt-4 font-jsans-light flex-start gap-1">
-            <span>&#x20A6;</span>
-            <p>{formatCurrency(product.price)}</p>
+        {viewBtn && 
+          <div
+            onClick={toProduct} 
+            className="absolute top-0 bottom-0 left-0 right-0 rounded-t-md bg-black/40 flex-center cursor-pointer"
+          >
+            <p className="text-lg text-white font-jsans-light">Click to view</p>
           </div>
+        }
+      </div>
+
+      <div className="bg-white p-6">
+        <p className="text-[12px] font-jsans-light text-gray-600">
+          {product.category.toUpperCase()}
+        </p>
+
+        <p className="font-jsans text-xl mt-2">{product.name}</p>
+
+        <div className="mt-4 font-jsans flex-start gap-1">
+          <span>&#x20A6;</span>
+          <p>{formatCurrency(product.price)}</p>
         </div>
       </div>
     </div>

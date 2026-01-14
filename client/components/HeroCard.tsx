@@ -14,7 +14,7 @@ const HeroCard = ({ img, name, price }: Props) => {
   }
 
   return (
-    <div className="relative rounded-xl overflow-hidden">
+    <div className="relative overflow-hidden">
       <img src={img} className="h-70 md:h-100 lg:h-140 w-full object-center object-cover" />
 
       <div className="gradient-overlay p-4 md:p-6 lg:p-8">
