@@ -69,12 +69,12 @@ const Navbar = ({ setNavbarActive }: Props) => {
           onClick={() => router.push("/signin")}
           className="absolute bottom-[30px] right-0 left-0 px-5"
         >
-          <h1 className="font-outfit text-lg text-gray-800 mb-2">
+          <h1 className="font-jsans-light text-gray-700 mb-2">
             Become a member to access the best products and latest gadgets.
           </h1>
           
           <button 
-            className="btn-blue text-sm py-3 px-6 rounded-full"
+            className="btn-blue text-sm py-3 px-8 rounded-full"
           >
             Sign In
           </button>
