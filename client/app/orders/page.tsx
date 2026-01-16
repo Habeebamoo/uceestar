@@ -14,6 +14,7 @@ import { useSelector } from "react-redux"
 const Orders = () => {
   const {} = useFetchUser()
   const { isLoading } = useFetchOrders()
+  const [orderStatus, setOrderStatus] = useState<string>("Processing")
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
 
@@ -21,6 +22,7 @@ const Orders = () => {
   const ordersRaw = useSelector((state: RootState) => state.orders.orders);
 
   const orders = [...ordersRaw].reverse();
+  const filteredOrders = orders.filter(ord => ord.status === orderStatus)
 
   useEffect(() => {
     if (!user) {
@@ -42,8 +44,26 @@ const Orders = () => {
 
       <h1 className="font-jsans text-center text-2xl mt-2">My Orders</h1>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 sm:px-10">
-        {orders.map((order: Order) => <OrderItemDisplay key={order._id} order={order} />)}
+      {/* tab */}
+      <div
+        className="w-[95%] mt-10 sm:w-[500px] mx-auto flex-between p-1 gap-2 rounded-full bg-gray-100"
+      >
+        <div
+          onClick={() => setOrderStatus("Processing")} 
+          className={`${orderStatus === "Processing" ? "bg-white" : ""} p-3 rounded-full cursor-pointer text-sm text-center w-full`}
+          >
+          Processing
+        </div>
+        <div 
+          onClick={() => setOrderStatus("Delivered")}
+          className={`${orderStatus === "Delivered" ? "bg-white" : ""} p-3 rounded-full cursor-pointer text-sm text-center w-full`}
+        >
+          Delivered
+        </div>
+      </div>
+
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 sm:px-10">
+        {filteredOrders.map((order: Order) => <OrderItemDisplay key={order._id} order={order} />)}
       </section>
     </main>
   )

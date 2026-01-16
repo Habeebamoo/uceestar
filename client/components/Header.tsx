@@ -30,6 +30,10 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
     return quantity
   }
 
+  const toHome = () => {
+    router.push("/")
+  }
+
   const toSignin = () => {
     router.push("/signin")
   }
@@ -45,7 +49,7 @@ const Header = ({ navbarActive, setNavbarActive }: Props) => {
       {navbarActive && <Navbar setNavbarActive={setNavbarActive} />}
 
       <nav className="flex-between">
-        <div>
+        <div onClick={toHome} className="cursor-pointer">
           <img src="/logo.png" className="w-8" />
         </div>
 
