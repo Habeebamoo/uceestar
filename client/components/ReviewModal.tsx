@@ -75,7 +75,7 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
   }
 
   return (
-    <div className="fixed z-30 top-0 bottom-0 left-0 right-0 bg-black/70 flex-center">
+    <div className="fixed z-30 top-0 bottom-0 left-0 right-0 bg-black/80 flex-center">
       <div className="bg-white p-8 rounded-lg w-[90%] sm:w-[400px]">
         <h1 className="font-outfit text-xl text-center">Write Your Review</h1>
 

@@ -46,7 +46,7 @@ export const signIn = async (req, res) => {
   return res.status(200).json({
     status: "success",
     statusCode: 200,
-    message: "Admin Login Successfull"
+    message: "Admin Login Successful"
   })
 }
 
