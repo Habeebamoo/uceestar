@@ -5,7 +5,7 @@ import { type RootState } from "@/redux/store"
 import { CartItem } from "@/types/cart";
 import { useDispatch, useSelector } from "react-redux";
 import { Binoculars, ShoppingCart } from "lucide-react"
-import { useState } from "react";
+import React, { useState } from "react";
 import { clearCart } from "@/redux/reducers/cartSlice";
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { useRouter } from "next/navigation";
@@ -58,7 +58,9 @@ const Cart = () => {
     return cost
   }
 
-  const toCheckout = () => {
+  const toCheckout = (e: React.FormEvent) => {
+    e.preventDefault()
+    
     if (!user) {
       router.push("/signin")
       return
