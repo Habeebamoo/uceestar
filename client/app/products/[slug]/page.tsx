@@ -106,15 +106,15 @@ const Page = () => {
 
         {/* description */}
         {product.description &&
-          <div className="mt-8">
+          <div className="mt-10">
             <h1 className="text-xl font-jsans">Description</h1>
-            <p className="text-sm font-jsans text-gray-500 mt-2">{product.description}</p>
+            <p className="text-sm font-jsans text-gray-500 mt-4">{product.description}</p>
           </div>
         }
 
-        <hr className="text-gray-200 mt-6" />
+        <hr className="text-gray-200 mt-8" />
 
-        <p className="font-jsans text-sm mt-4">Quantity</p>
+        <p className="font-jsans text-sm mt-6">Quantity</p>
 
         <div className="mt-4 grid grid-cols-2 gap-4">
           <Counter count={quantity} setCount={setQuantity} />
