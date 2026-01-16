@@ -69,24 +69,24 @@ const Page = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
 
-  const avgStarRating = getAverageStars()
+  const avgStarRating = reviews.length === 0 ? 0 : getAverageStars()
 
   return (
-    <main className="pt-20 px-4">
+    <main className="pt-20">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
       <Toaster />
 
       {/* review modal */}
       {reviewModal && <ReviewModal productId={product._id} setReviewModal={setReviewModal} />}
 
-      <section className="sm:w-[500px] mx-auto">
+      <section className="sm:w-[500px] mx-auto px-4">
         <div className="h-60 bg-gray-100">
           {/* image */}
-          <img src={product.image} className="h-full w-full object-center object-cover" />
+          <img src={product.image} className="h-full rounded-sm w-full object-center object-cover" />
         </div>
 
         {/* category */}
-        <p className="text-sm font-jsans-light mt-4 text-sm">
+        <p className="text-sm font-jsans-light mt-6 text-sm">
           {product.category.toUpperCase()}
         </p>
 

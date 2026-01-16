@@ -33,7 +33,7 @@ const ProductDisplay = ({ product }: Props) => {
             onClick={toProduct} 
             className="absolute top-0 bottom-0 left-0 right-0 rounded-t-md bg-black/40 flex-center cursor-pointer"
           >
-            <p className="text-lg text-white font-jsans-light">Click to view</p>
+            <p className="text-sm text-white font-jsans-light">Click to view</p>
           </div>
         }
       </div>
