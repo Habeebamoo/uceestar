@@ -44,7 +44,7 @@ const ProductDisplay = ({ product }: Props) => {
         }
       </div>
 
-      <div className="bg-white p-6">
+      <div className="bg-white py-6 px-4">
         <p className="text-[12px] font-jsans-light text-gray-600">
           {product.category.toUpperCase()}
         </p>

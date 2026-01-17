@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
 import { motion } from "framer-motion"
 import { navVariant } from "@/utils/animations";
+import Link from "next/link";
 
 type Props = {
   setNavbarActive: Dispatch<SetStateAction<boolean>>
@@ -15,18 +16,6 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
   const close = () => {
     setNavbarActive(false)
-  }
-
-  const toOrders = () => {
-    router.push("/orders")
-  }
-
-  const toContact = () => {
-    router.push("/contact")
-  }
-
-  const toHome = () => {
-    router.push("/")
   }
 
   return (
@@ -49,29 +38,29 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
 
         <div className="mt-14 px-2">
-          <div
-            onClick={toHome} 
+          <Link
+            href={"/"}
             className="flex-start gap-4 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <Home size={20} />
             <p className="font-jsans text-lg">Home</p>
-          </div>
+          </Link>
 
-          <div
-            onClick={toOrders} 
+          <Link
+            href={"/orders"}
             className="flex-start gap-4 px-4 mt-6 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <ShoppingCart size={20} />
             <p className="font-jsans text-lg">Orders</p>
-          </div>
+          </Link>
 
-          <div
-            onClick={toContact} 
+          <Link
+            href={"/"}
             className="flex-start gap-4 px-4 mt-6 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <Phone size={20} />
             <p className="font-jsans text-lg">Contact Us</p>
-          </div>
+          </Link>
         </div>
 
         <div 
