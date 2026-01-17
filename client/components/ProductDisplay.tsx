@@ -45,13 +45,13 @@ const ProductDisplay = ({ product }: Props) => {
       </div>
 
       <div className="bg-white py-6 px-4">
-        <p className="text-[12px] font-jsans-light text-gray-600">
+        <p className="text-[10px] font-jsans-light text-gray-600">
           {product.category.toUpperCase()}
         </p>
 
-        <p className="font-jsans text-xl mt-2">{product.name}</p>
+        <p className="font-jsans mt-2">{product.name}</p>
 
-        <div className="mt-4 font-jsans flex-start gap-1">
+        <div className="mt-4 font-jsans text-[15px] flex-start gap-1">
           <span>&#x20A6;</span>
           <p>{formatCurrency(product.price)}</p>
         </div>
