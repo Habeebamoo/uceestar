@@ -1,6 +1,7 @@
 "use client";
 
 import { Product } from "@/types/product"
+import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 
@@ -25,15 +26,20 @@ const ProductDisplay = ({ product }: Props) => {
       onClick={() => setViewBtn(true)} 
       className="bg-white rounded-t-md overflow-hidden cursor-pointer"
     >
-      <div className="h-[250px] relative">
+      <div className="h-[150px] relative">
         <img src={product.image} className="w-full h-full object-cover object-center" />
 
         {viewBtn && 
           <div
             onClick={toProduct} 
-            className="absolute top-0 bottom-0 left-0 right-0 rounded-t-md bg-black/40 flex-center cursor-pointer"
+            className="absolute top-0 bottom-0 left-0 right-0 rounded-t-md bg-black/80 flex-center cursor-pointer"
           >
-            <p className="text-sm text-white font-jsans-light">Click to view</p>
+            <Link
+              href={`/products/${product._id}`} 
+              className="text-sm text-white font-jsans-light"
+            >
+              Click to view
+            </Link>
           </div>
         }
       </div>
