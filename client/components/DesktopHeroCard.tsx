@@ -42,4 +42,4 @@ const DesktopHeroCard = ({ img, name, height, price }: Props) => {
   )
 }
 
-export default DesktopHeroCard
+// export default DesktopHeroCard

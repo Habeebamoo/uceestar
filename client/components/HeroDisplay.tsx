@@ -30,11 +30,11 @@ const HeroDisplay = () => {
                     &#x20A6; 51,535
                   </p>
                 </div>
-
+{/* 
                 <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
                   <span>Shop Now</span>
                   <ArrowRight size={17} />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -60,10 +60,10 @@ const HeroDisplay = () => {
                   </p>
                 </div>
 
-                <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
+                {/* <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
                   <span>Shop Now</span>
                   <ArrowRight size={17} />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -87,10 +87,10 @@ const HeroDisplay = () => {
                   </p>
                 </div>
 
-                <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
+                {/* <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
                   <span>Shop Now</span>
                   <ArrowRight size={17} />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@ const HeroDisplay = () => {
       </section>
 
       {/* small screens */}
-      <section className="pt-16 sm:pt-20 md:pt-16 lg:hidden">
+      <section className="pt-16 sm:pt-16 md:pt-16 lg:hidden">
         <Swiper
           modules={[Autoplay]}
           autoplay={{
