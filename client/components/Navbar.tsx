@@ -3,6 +3,8 @@
 import { Home, Phone, ShoppingCart, X } from "lucide-react"
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
+import { motion } from "framer-motion"
+import { navVariant } from "@/utils/animations";
 
 type Props = {
   setNavbarActive: Dispatch<SetStateAction<boolean>>
@@ -28,8 +30,15 @@ const Navbar = ({ setNavbarActive }: Props) => {
   }
 
   return (
-    <div className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 lg:hidden bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[35%] bg-white">
+    <div
+      className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 lg:hidden bg-black/70"
+    >
+      <motion.div 
+        initial="hidden"
+        animate="show"
+        variants={navVariant} 
+        className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[35%] bg-white"
+      >
         {/* cancel btn */}
         <div 
           onClick={close}
@@ -79,7 +88,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
             Sign In
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
