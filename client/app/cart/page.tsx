@@ -98,16 +98,6 @@ const Cart = () => {
         })}
       </section>
 
-
-      <div className="flex-center mt-10">
-        <button 
-          onClick={deleteCart}
-          className="btn-primary bg-red-500 border-red-500 hover:text-red-500 active:text-red-500 py-2 px-4 text-[12px] font-jsans"
-        >
-          Empty Cart
-        </button>
-      </div>
-
       {/* checkout */}
       <form 
         onClick={toCheckout} 

@@ -80,7 +80,7 @@ const Page = () => {
       {reviewModal && <ReviewModal productId={product._id} setReviewModal={setReviewModal} />}
 
       <section className="sm:w-[500px] mx-auto px-4">
-        <div className="h-60 bg-gray-100">
+        <div className="h-60 md:h-70 bg-gray-100">
           {/* image */}
           <img src={product.image} className="h-full rounded-sm w-full object-center object-cover" />
         </div>
@@ -116,7 +116,7 @@ const Page = () => {
 
         <p className="font-jsans text-sm mt-6">Quantity</p>
 
-        <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-4 px-2">
           <Counter count={quantity} setCount={setQuantity} />
 
           <button 

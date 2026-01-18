@@ -6,6 +6,11 @@ type stateType = {
   cart: CartItem[]
 }
 
+type UpdatePayload = {
+  cartItem: CartItem,
+  quantity: number
+}
+
 const initialState: stateType = {
   cart: []
 }
@@ -30,6 +35,29 @@ const cartSlice = createSlice({
       localStorage.setItem("uceestar-cart", JSON.stringify(state.cart))
     },
 
+    removeFromCart: (state, action: PayloadAction<CartItem>) => {
+      state.cart = state.cart.filter(item => item._id != action.payload._id)
+
+      localStorage.setItem("uceestar-cart", JSON.stringify(state.cart))
+    },
+
+    incrementQuantity: (state, action: PayloadAction<CartItem>) => {
+      const item = state.cart.find(prd => prd._id === action.payload._id);
+
+      item!.quantity += 1;
+      localStorage.setItem("uceestar-cart", JSON.stringify(state.cart))
+    },
+
+    decermentQuantity: (state, action: PayloadAction<CartItem>) => {
+      const item = state.cart.find(prd => prd._id === action.payload._id);
+
+      if (item!.quantity >= 1) {
+        item!.quantity -= 1;
+      }
+
+      localStorage.setItem("uceestar-cart", JSON.stringify(state.cart))
+    },
+
     clearCart: (state, action) => {
       state.cart = [];
 
@@ -38,5 +66,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { setCart, addToCart, clearCart } = cartSlice.actions;
+export const { setCart, addToCart, removeFromCart, incrementQuantity, decermentQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
