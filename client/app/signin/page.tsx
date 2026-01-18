@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google"
@@ -57,7 +58,7 @@ const SignIn = () => {
   }
 
   return (
-    <main className="pt-50 min-h-[calc(100vh-4rem)]">
+    <main className="pt-50 bg-gray-50 min-h-[calc(100vh-4rem)]">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
@@ -68,9 +69,13 @@ const SignIn = () => {
           <img src="/logo.png" className="h-8" />
         </div>
 
-        <h1 className="font-outfit text-3xl mt-4">Welcome to Uceestar</h1>
+        <h1 className="font-outfit text-3xl lg:text-4xl mt-6">Welcome to Uceestar</h1>
 
-        <p className="text-center mt-2 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">Sign in to your account to view your profile</p>
+        <p 
+          className="text-center mt-2 font-dm w-[85%] text-sm text-gray-700 mb-6"
+        >
+          Sign in to your account to view your profile
+        </p>
 
         <div className={navbarActive ? "z-[-1] google-btn" : "google-btn"}>
           <GoogleLogin 
@@ -79,12 +84,14 @@ const SignIn = () => {
           />
         </div>
 
-        <p className="text-center mt-10 font-jsans-light w-[85%] text-[12px] text-gray-700">Want to sign in as admin, 
+        <p className="text-center mt-10 font-dm w-[85%] text-[12px] text-gray-700">Want to sign in as admin, 
           <Link href="/admin">
             <span className="text-indigo-950 font-bold"> Click here</span>
           </Link>
         </p>
       </div>
+
+      <Footer />
 
     </main>
   )

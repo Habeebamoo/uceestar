@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header"
 import Loading from "@/components/Loading";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google"
@@ -54,20 +55,20 @@ const Admin = () => {
   }
 
   return (
-    <main className="pt-50 px-4 min-h-screen">
+    <main className="pt-50 bg-gray-50 min-h-screen">
       <Header navbarActive={navbarActive} setNavbarActive={setNavbarActive} />
 
       {loading && <Loading />}
       <Toaster position="top-center" />
 
-      <div className="flex-center flex-col">
+      <div className="flex-center flex-col mb-20">
         <div className="h-18 w-18 bg-gray-100 flex-center rounded-full shadow">
           <img src="/logo.png" className="h-8" />
         </div>
 
-        <h1 className="font-outfit text-3xl mt-4 mb-2">Admin Login</h1>
+        <h1 className="font-outfit text-3xl lg:text-4xl mt-6 mb-2">Admin Login</h1>
 
-        <p className="text-center mt-3 font-jsans-light w-[85%] text-sm text-gray-700 mb-6">
+        <p className="text-center mt-3 font-dm w-[85%] text-sm text-gray-700 mb-6">
           <span className="font-jsans">Welcome Back!. </span> Sign in back to access your dashboard
         </p>
 
@@ -78,6 +79,8 @@ const Admin = () => {
           />
         </div>
       </div>
+
+      <Footer />
     </main>
   )
 }
