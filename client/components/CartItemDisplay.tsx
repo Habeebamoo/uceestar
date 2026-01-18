@@ -67,7 +67,7 @@ const CartItemDisplay = ({ item }: { item: CartItem }) => {
 
       <hr className="text-gray-200 mt-4" />
 
-      <div className="mt-2 flex-between px-2">
+      <div className="mt-2 flex-between">
         <h1 className="font-jsans-light text-sm">Quantity</h1>
 
         <div className="grid grid-cols-3 rounded-lg py-3 gap-2 px-4">
