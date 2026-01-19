@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import { useFetchProducts } from "@/hooks/useFetchProducts";
 import Footer from "@/components/Footer";
 import HeroDisplay from "@/components/HeroDisplay";
+import FlashDeals from "@/components/FlashDeals";
 
 export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
@@ -31,7 +32,9 @@ const Home = () => {
 
       <HeroDisplay />
 
-      <h1 className="font-outfit mt-12 lg:mt-15 text-xl md:text-2xl lg:text-3xl text-center">All Products</h1>
+      <h1 className="font-outfit mt-12 lg:mt-15 text-xl md:text-2xl lg:text-3xl text-center">Categories</h1>
+
+      <FlashDeals products={products} />
 
       {/* products */}
       <section className="mt-15 w-[95%] mx-auto">

@@ -30,11 +30,7 @@ const HeroDisplay = () => {
                     &#x20A6; 51,535
                   </p>
                 </div>
-{/* 
-                <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
-                  <span>Shop Now</span>
-                  <ArrowRight size={17} />
-                </button> */}
+
               </div>
             </div>
           </div>
@@ -50,20 +46,16 @@ const HeroDisplay = () => {
                   Apple Macbook Air
                 </h1>
 
-                <div className="text-white flex-start gap-4 mt-2">
-                  <p className="font-jsans lg:text-xl">
+                <div className="text-white flex-start gap-4 mt-4">
+                  <p className="font-jsans">
                     &#x20A6; 599,900
                   </p>
 
-                  <p className="text-gray-400  text-sm lg:text-md font-outfit line-through">
+                  <p className="text-gray-400 text-sm lg:text-md font-outfit line-through">
                     &#x20A6; 689,885
                   </p>
                 </div>
 
-                {/* <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
-                  <span>Shop Now</span>
-                  <ArrowRight size={17} />
-                </button> */}
               </div>
             </div>
           </div>
@@ -77,8 +69,8 @@ const HeroDisplay = () => {
                   Apple Watch Series 3
                 </h1>
 
-                <div className="text-white flex-start gap-4 mt-2">
-                  <p className="font-jsans lg:text-xl">
+                <div className="text-white flex-start gap-4 mt-4">
+                  <p className="font-jsans">
                     &#x20A6; 99,400
                   </p>
 
@@ -87,10 +79,6 @@ const HeroDisplay = () => {
                   </p>
                 </div>
 
-                {/* <button className="btn-blue font-outfit py-3 px-4 rounded-xl flex-center gap-2">
-                  <span>Shop Now</span>
-                  <ArrowRight size={17} />
-                </button> */}
               </div>
             </div>
           </div>

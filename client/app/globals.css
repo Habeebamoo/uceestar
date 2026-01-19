@@ -66,9 +66,14 @@
   -moz-appearance: textfield;
 }
 
+.dyu {
+  color: rgb(22, 22, 22);
+}
+
 @theme {
   --font-outfit: "outfit";
   --font-jsans: "jsans";
   --font-jsans-light: "jsans-light";
   --font-dm: "dm";
+  --color-dark: rgb(10,10,10);
 }

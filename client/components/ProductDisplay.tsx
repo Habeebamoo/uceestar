@@ -26,7 +26,7 @@ const ProductDisplay = ({ product }: Props) => {
       onClick={() => setViewBtn(true)} 
       className="bg-white rounded-t-md overflow-hidden cursor-pointer"
     >
-      <div className="h-[150px] relative">
+      <div className="h-37.5 w-37.5 relative">
         <img src={product.image} className="w-full h-full object-cover object-center" />
 
         {viewBtn && 
@@ -44,12 +44,8 @@ const ProductDisplay = ({ product }: Props) => {
         }
       </div>
 
-      <div className="bg-white py-6 px-4">
-        <p className="text-[10px] font-jsans-light text-gray-600">
-          {product.category.toUpperCase()}
-        </p>
-
-        <p className="font-jsans mt-2">{product.name}</p>
+      <div className="bg-white py-3 px-4">
+        <p className="font-jsans">{product.name}</p>
 
         <div className="mt-4 font-jsans text-[15px] flex-start gap-1">
           <span>&#x20A6;</span>
