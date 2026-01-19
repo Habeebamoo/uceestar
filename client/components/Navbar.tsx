@@ -20,7 +20,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
   return (
     <div
-      className="z-[9999] fixed isolate inset-0 top-0 bottom-0 left-0 right-0 lg:hidden bg-black/70"
+      className="z-9999 fixed isolate inset-0 top-0 bottom-0 left-0 right-0 lg:hidden bg-black/70"
     >
       <motion.div 
         initial="hidden"
@@ -65,7 +65,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
 
         <div 
           onClick={() => router.push("/signin")}
-          className="absolute bottom-[30px] right-0 left-0 px-5"
+          className="absolute bottom-7.5 right-0 left-0 px-5"
         >
           <h1 className="font-jsans-light text-gray-700 mb-2">
             Become a member to access the best products and latest gadgets.
