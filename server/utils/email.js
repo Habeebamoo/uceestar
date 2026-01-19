@@ -32,7 +32,8 @@ export const NotifyNewUser = () => {
 
 export const SendOrdersMail = (receiverName, receiverEmail) => {
   //read templates
-  const templatesPath = path.join(process.cwd(), "templates", "orderMail.html")
+  const templatesPath = "../templates/orderNotifier.html";
+  // const templatesPath = path.join(process.cwd(), "templates", "orderMail.html")
   let html = fs.readFileSync(templatesPath, "utf-8")
 
   //variables
@@ -60,7 +61,8 @@ export const SendOrdersMail = (receiverName, receiverEmail) => {
 
 export const NotifyNewOrders = (buyerName, prdName, quantity, price, city, location, phone) => {
 //read templates
-  const templatesPath = path.join(process.cwd(), "templates", "orderNotifier.html")
+  const templatesPath = "../templates/orderNotifier.html";
+  // const templatesPath = path.join("..", "templates", "orderNotifier.html")
   let html = fs.readFileSync(templatesPath, "utf-8")
 
   //variables
