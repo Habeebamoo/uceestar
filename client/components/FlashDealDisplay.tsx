@@ -9,7 +9,7 @@ interface Props {
   product: Product
 }
 
-const ProductDisplay = ({ product }: Props) => {
+const FlashDealDisplay = ({ product }: Props) => {
   const [viewBtn, setViewBtn] = useState<boolean>(false)
   const router = useRouter()
 
@@ -20,6 +20,8 @@ const ProductDisplay = ({ product }: Props) => {
   const toProduct = () => {
     router.push(`/products/${product._id}`)
   }
+
+  const preDiscountPrice = (product.price * 0.15) + product.price
 
   return (
     <div
@@ -47,13 +49,18 @@ const ProductDisplay = ({ product }: Props) => {
       <div className="bg-white py-3 px-4">
         <p className="font-jsans">{product.name}</p>
 
-        <div className="mt-4 font-jsans text-[15px] flex-start gap-1">
+        <div className="mt-3 font-jsans text-[15px] flex-start gap-1">
           <span>&#x20A6;</span>
           <p>{formatCurrency(product.price)}</p>
+        </div>
+
+        <div className="mt-1 line-through text-gray-500 font-jsans text-[11px] flex-start gap-1">
+          <span>&#x20A6;</span>
+          <p>{formatCurrency(preDiscountPrice)}</p>
         </div>
       </div>
     </div>
   )
 }
 
-export default ProductDisplay
+export default FlashDealDisplay

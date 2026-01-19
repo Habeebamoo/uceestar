@@ -1,24 +1,28 @@
 import { Product } from "@/types/product"
-import ProductDisplay from "./ProductDisplay"
 import { Flame } from "lucide-react"
+import FlashDealDisplay from "./FlashDealDisplay"
+import { getRandom10 } from "@/utils/products"
 
 interface Props {
   products: Product[]
 } 
 
 const FlashDeals = ({ products }: Props) => {
+  const ftws = products.filter(prd => prd.category === "footwears")
+  const footwears = getRandom10(ftws)
+
   return (
-    <div className="pt-8 mt-16 bg-dark px-4">
+    <div className="pt-8 mt-16 bg-dark px-6">
       <div className="flex-start gap-2">
         <Flame color="white" />
         <h1 className="text-white font-outfit text-xl lg:text-2xl">Flash Deals</h1>
       </div>
 
       <div className="overflow-x-auto flex whitespace-nowrap mt-8 pb-8 gap-6">
-        {products.map(prd => {
+        {footwears.map(prd => {
           return (
             <div key={prd._id} className="shrink-0">
-              <ProductDisplay product={prd} />
+              <FlashDealDisplay product={prd} />
             </div>
           )
         })}
