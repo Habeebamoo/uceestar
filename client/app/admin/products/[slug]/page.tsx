@@ -119,13 +119,13 @@ const ProductPage = () => {
       <h1 className="text-xl font-jsans text-center">Update Product</h1>
 
       <form
-        className='bg-white p-6 rounded-md border-1 border-gray-200 mt-6 sm:w-[500px] mx-auto'
+        className='bg-white p-6 rounded-md border border-gray-200 mt-6 sm:w-125 mx-auto'
       >
         <div>
           <p className='font-jsans-light text-sm mb-4'>Product Image</p>
           <label 
             htmlFor="file"
-            className='block h-60 w-full border-1 border-gray-200 border-dashed flex-center cursor-pointer'
+            className='block h-60 w-full border border-gray-200 border-dashed flex-center cursor-pointer'
           >
             {preview ? 
               <img
@@ -160,7 +160,7 @@ const ProductPage = () => {
             type="text" 
             id="name" 
             name='name'
-            className="block p-3 border-1 border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none"
+            className="block p-3 border border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none"
             placeholder="Nike Sneakers"
             value={form.name}
             onChange={handleInputChange}
@@ -194,14 +194,14 @@ const ProductPage = () => {
             Price
           </label>
           <div className='relative'>
-            <div className='absolute font-jsans-light top-[10px] left-3'>
+            <div className='absolute font-jsans-light top-2.5 left-3'>
               &#x20A6;
             </div>
             <input 
               type="number" 
               id="price" 
               name='price'
-              className="block p-3 border-1 border-gray-100 rounded-md w-full mt-2 font-jsans-light text-sm pl-7 focus:outline-none"
+              className="block p-3 border border-gray-100 rounded-md w-full mt-2 font-jsans-light text-sm pl-7 focus:outline-none"
               placeholder="45000"
               value={form.price}
               onChange={handleInputChange}
@@ -220,7 +220,7 @@ const ProductPage = () => {
           <select 
             id="category"
             name='category'
-            className="block p-3 border-1 border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none cursor-pointer"
+            className="block p-3 border border-gray-100 rounded-md w-full mt-2 font-jsans text-sm focus:outline-none cursor-pointer"
             value={form.category}
             onChange={handleInputChange}
             required
