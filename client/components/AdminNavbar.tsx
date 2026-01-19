@@ -2,8 +2,10 @@
 
 import { Home, ShoppingBag, ShoppingCart, X } from "lucide-react"
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
+import { navVariant } from "@/utils/animations";
 
 type Props = {
   setNavbarActive: Dispatch<SetStateAction<boolean>>
@@ -19,21 +21,14 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
     setNavbarActive(false)
   }
 
-  const toProducts = () => {
-    router.push("/admin/products")
-  }
-
-  const toOrders = () => {
-    router.push("/admin/orders")
-  }
-
-  const toHome = () => {
-    router.push("/admin/dashboard")
-  }
-
   return (
     <div className="z-10 fixed top-0 bottom-0 left-0 right-0 bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[25%] bg-white">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={navVariant}  
+        className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[25%] bg-white"
+      >
         {/* cancel btn */}
         <div 
           onClick={close}
@@ -68,7 +63,7 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
             <p className="font-jsans text-lg">Orders</p>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
