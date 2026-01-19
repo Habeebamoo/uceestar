@@ -26,7 +26,7 @@ const FlashDealDisplay = ({ product }: Props) => {
   return (
     <div
       onClick={() => setViewBtn(true)} 
-      className="bg-white rounded-md overflow-hidden cursor-pointer"
+      className="bg-white rounded-md overflow-hidden border-2 border-gray-200 cursor-pointer"
     >
       <div className="h-37.5 w-40 relative">
         <img src={product.image} className="w-full h-full object-cover object-center" />
