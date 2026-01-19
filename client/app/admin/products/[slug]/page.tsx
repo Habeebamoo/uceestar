@@ -111,7 +111,7 @@ const ProductPage = () => {
   }
 
   return (
-    <main className="pt-22 px-4 bg-gray-50">
+    <main className="py-22 px-4 bg-gray-50">
       <AdminHeader />
       {loading && <Loading />}
       <Toaster />

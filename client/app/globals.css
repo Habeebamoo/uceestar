@@ -56,6 +56,14 @@
   @apply absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent from-0% via-black/60 via-60% to-black to-100%;
 }
 
+@utility admin-nav-active {
+  @apply flex-start gap-4 px-4 mb-3 bg-gray-50 bg-gray-50 rounded-md py-3 cursor-pointer;
+}
+
+@utility admin-nav {
+  @apply flex-start gap-4 px-4 mb-3 hover:bg-gray-100 active:bg-gray-100 py-3 cursor-pointer;
+}
+
 .no-spin::-webkit-inner-spin-button,
 .no-spin::-webkit-outer-spin-button {
   -webkit-appearance: none;

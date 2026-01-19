@@ -1,7 +1,8 @@
 "use client";
 
 import { Home, ShoppingBag, ShoppingCart, X } from "lucide-react"
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react"
 
 type Props = {
@@ -10,6 +11,9 @@ type Props = {
 
 const AdminNavbar = ({ setNavbarActive }: Props) => {
   const router = useRouter()
+  const pathname = usePathname()
+
+  const isActive = (url: string) => url === pathname;
 
   const close = () => {
     setNavbarActive(false)
@@ -29,7 +33,7 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
 
   return (
     <div className="z-10 fixed top-0 bottom-0 left-0 right-0 bg-black/70">
-      <div className="fixed top-0 bottom-0 right-0 w-[60%] sm:w-[250px] bg-white">
+      <div className="fixed top-0 bottom-0 right-0 w-[70%] sm:w-[50%] md:w-[25%] bg-white">
         {/* cancel btn */}
         <div 
           onClick={close}
@@ -39,30 +43,30 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
         </div>
 
 
-        <div className="mt-14">
-          <div
-            onClick={toHome} 
-            className="flex-start gap-2 px-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+        <div className="mt-14 px-2">
+          <Link
+            href={"/admin/dashboard"} 
+            className={isActive("/admin/dashboard") ? "admin-nav-active" :  "admin-nav"}
           >
             <Home size={18} />
-            <p className="font-jsans-light">Dashboard</p>
-          </div>
+            <p className="font-jsans text-lg">Dashboard</p>
+          </Link>
 
-          <div
-            onClick={toProducts} 
-            className="flex-start gap-2 px-4 mt-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+          <Link
+            href={"/admin/products"} 
+            className={isActive("/admin/products") ? "admin-nav-active" :  "admin-nav"}
           >
             <ShoppingBag size={18} />
-            <p className="font-jsans-light">Products</p>
-          </div>
+            <p className="font-jsans text-lg">Products</p>
+          </Link>
 
-          <div
-            onClick={toOrders} 
-            className="flex-start gap-2 px-4 mt-4 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
+          <Link
+            href={"/admin/orders"} 
+            className={isActive("/admin/orders") ? "admin-nav-active" :  "admin-nav"}
           >
             <ShoppingCart size={18} />
-            <p className="font-jsans-light">Orders</p>
-          </div>
+            <p className="font-jsans text-lg">Orders</p>
+          </Link>
         </div>
       </div>
     </div>
