@@ -36,7 +36,7 @@ const Home = () => {
       <HeroDisplay />
 
       <section className="flex-center flex-col mt-20 md:mt-30 mb-20">
-        <h1 className="font-jsans text-center text-3xl md:text-4xl xl:text-5xl">Search Our Categories</h1>
+        <h1 className="font-jsans text-center w-[90%] text-3xl md:text-4xl xl:text-5xl">Search Our Categories</h1>
 
         <p className="mt-3 sm:mt-4 font-jsans-light text-center w-[90%] max-sm:text-sm">Explore our variety of premium footwears, gadgets and lifestyle essentials.</p>
 
