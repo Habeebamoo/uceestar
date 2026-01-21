@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, ShoppingBag, ShoppingCart, X } from "lucide-react"
+import { ArrowRight, Home, ShoppingBag, ShoppingCart, X } from "lucide-react"
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
@@ -19,6 +19,10 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
 
   const close = () => {
     setNavbarActive(false)
+  }
+
+  const toStore = () => {
+    router.push("/")
   }
 
   return (
@@ -62,6 +66,16 @@ const AdminNavbar = ({ setNavbarActive }: Props) => {
             <ShoppingCart size={18} />
             <p className="font-jsans text-lg">Orders</p>
           </Link>
+        </div>
+
+        <div className="absolute bottom-6 px-4">
+          <button 
+            onClick={toStore} 
+            className="btn-blue font-outfit py-3 flex-center gap-2 px-8 rounded-full"
+          >
+            <span>Go to store</span>
+            <ArrowRight />
+          </button>
         </div>
       </motion.div>
     </div>
