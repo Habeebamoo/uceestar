@@ -25,7 +25,10 @@ const Dashboard = () => {
   const users = useSelector((state: RootState) => state.user.users);
   const ordersRaw = useSelector((state: RootState) => state.orders.adminOrders);
 
-  const orders = [...ordersRaw].reverse()
+  const orders = [...ordersRaw].reverse();
+
+  const recentOrders = orders.slice(0, 5);
+  const recentUsers = users?.slice(0, 10);
 
   if (isLoading) return <Loading />
 
@@ -60,7 +63,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-         <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
+         <div className="bg-white border border-gray-200 p-6 rounded-xl flex-start gap-4">
           <div className="bg-indigo-900 p-4 rounded-xl text-white">
             <ShoppingBagIcon />
           </div>
@@ -70,7 +73,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-         <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
+         <div className="bg-white border border-gray-200 p-6 rounded-xl flex-start gap-4">
           <div className="bg-indigo-900 p-4 rounded-xl text-white">
             <ShoppingCart />
           </div>
@@ -81,7 +84,7 @@ const Dashboard = () => {
         </div>
 
         {dashboard && 
-          <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
+          <div className="bg-white border border-gray-200 p-6 rounded-xl flex-start gap-4">
             <div className="bg-indigo-900 p-4 rounded-xl text-white">
               <HandCoins />
             </div>
@@ -99,7 +102,7 @@ const Dashboard = () => {
         <section className="bg-white p-6 border border-gray-200 rounded-xl">
           <h1 className="text-lg font-jsans mb-6">Recent Orders</h1>
 
-          {orders.map((ord: Order) => {
+          {recentOrders.map((ord: Order) => {
             return (
               <div key={ord._id} className="flex-between mb-6">
                 <div className="font-jsans">
@@ -121,7 +124,7 @@ const Dashboard = () => {
         <section className="bg-white p-6 border-1 border-gray-200 rounded-xl">
           <h1 className="text-lg font-jsans mb-6">Users</h1>
 
-          {users?.map((usr: User) => {
+          {recentUsers?.map((usr: User) => {
             return (
               <div key={usr._id} className="flex-start gap-4 mb-6">
                 <div className="bg-indigo-400 font-jsans text-white h-9 w-9 flex-center rounded-full">

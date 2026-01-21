@@ -64,6 +64,14 @@
   @apply flex-start gap-4 px-4 mb-3 hover:bg-gray-100 active:bg-gray-100 py-3 cursor-pointer;
 }
 
+@utility admin-products-tab-active {
+  @apply bg-white p-3 rounded-full font-jsans-light cursor-pointer text-sm text-center w-full;
+}
+
+@utility admin-products-tab {
+  @apply p-3 rounded-full font-jsans-light cursor-pointer text-sm text-center w-full;
+}
+
 .no-spin::-webkit-inner-spin-button,
 .no-spin::-webkit-outer-spin-button {
   -webkit-appearance: none;

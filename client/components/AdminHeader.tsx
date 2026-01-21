@@ -9,7 +9,7 @@ const AdminHeader = () => {
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
 
   return (
-    <header className="bg-white fixed top-0 left-0 right-0 shadow">
+    <header className="bg-white fixed top-0 left-0 right-0 border-b border-gray-200">
       <nav className="p-4 flex-between">
         {navbarActive && <AdminNavbar setNavbarActive={setNavbarActive} />}
 
