@@ -26,8 +26,8 @@ const ProductDisplay = ({ product }: Props) => {
       onClick={() => setViewBtn(true)} 
       className="bg-white rounded-md overflow-hidden cursor-pointer"
     >
-      <div className="h-37.5 w-40 relative">
-        <img src={product.image} className="w-full h-full object-cover object-center" />
+      <div className="h-37.5 w-40 relative w-full">
+        <img src={product.image} className="w-full h-full object-center object-cover" />
 
         {viewBtn && 
           <div

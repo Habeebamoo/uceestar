@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { ghostVariant } from "@/utils/animations";
 
 interface Props {
   productId: string,
@@ -76,7 +78,12 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
 
   return (
     <div className="fixed z-30 top-0 bottom-0 left-0 right-0 bg-black/80 flex-center">
-      <div className="bg-white p-8 rounded-lg w-[90%] sm:w-[400px]">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={ghostVariant} 
+        className="bg-white p-8 rounded-lg w-[90%] sm:w-[400px]"
+      >
         <h1 className="font-outfit text-xl text-center">Write Your Review</h1>
 
         <div className="mt-6">
@@ -143,7 +150,7 @@ const ReviewModal = ({ productId, setReviewModal }: Props) => {
             {loading ? <LoaderCircle className="animate-spin" /> : "Add"}
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

@@ -12,4 +12,16 @@ const navVariant: Variants = {
   }
 }
 
-export { navVariant }
+const ghostVariant: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut"
+    }
+  }
+}
+
+export { navVariant, ghostVariant }

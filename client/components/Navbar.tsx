@@ -55,7 +55,7 @@ const Navbar = ({ setNavbarActive }: Props) => {
           </Link>
 
           <Link
-            href={"/"}
+            href={"/contact"}
             className="flex-start gap-4 px-4 mt-6 hover:bg-gray-100 active:bg-gray-100 py-2 cursor-pointer"
           >
             <Phone size={20} />
