@@ -1,6 +1,5 @@
 "use client";
 
-import { categories } from "@/app/page";
 import AdminHeader from "@/components/AdminHeader"
 import AdminProductDisplay from "@/components/AdminProductDisplay";
 import AdminProductsTab from "@/components/AdminProductsTab";
@@ -41,7 +40,7 @@ const Products = () => {
       <AdminHeader />
 
       <section className="flex-between mb-10 md:px-10">
-        <h1 className="font-jsans text-2xl">All Products</h1>
+        <h1 className="font-outfit text-2xl">All Products</h1>
 
         <button 
         onClick={toCreate} 

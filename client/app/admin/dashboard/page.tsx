@@ -121,7 +121,7 @@ const Dashboard = () => {
         </section>
 
         {/* users */}
-        <section className="bg-white p-6 border-1 border-gray-200 rounded-xl">
+        <section className="bg-white p-6 border border-gray-200 rounded-xl">
           <h1 className="text-lg font-jsans mb-6">Users</h1>
 
           {recentUsers?.map((usr: User) => {

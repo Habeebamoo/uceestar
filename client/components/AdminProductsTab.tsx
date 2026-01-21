@@ -46,6 +46,8 @@ const AdminProductsTab = ({ category, setCategory }: Props) => {
         >
           <option value="footwears">Footwears</option>
           <option value="watches">Watches</option>
+          <option value="phones">Phones</option>
+          <option value="laptops">Laptops</option>
         </select>
       </div>
     </section>

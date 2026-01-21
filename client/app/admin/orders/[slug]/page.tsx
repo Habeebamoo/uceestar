@@ -87,7 +87,7 @@ const OrderPage = () => {
   }
 
   return (
-   <main className="pt-20 pb-30 px-4 sm:w-[500px] mx-auto">
+   <main className="pt-20 pb-30 px-4 sm:w-125 mx-auto">
     <AdminHeader />
     {loading && <Loading />}
     <Toaster />
