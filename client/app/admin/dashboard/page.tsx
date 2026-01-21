@@ -1,6 +1,7 @@
 "use client";
 
 import AdminHeader from "@/components/AdminHeader"
+import Loading from "@/components/Loading";
 import { useFetchAdmin } from "@/hooks/useFetchAdmin"
 import { useFetchAdminDashboard } from "@/hooks/useFetchAdminDashboard";
 import { useFetchAdminOrders } from "@/hooks/useFetchAdminOrders";
@@ -10,11 +11,10 @@ import { Order } from "@/types/order";
 import { User } from "@/types/user";
 import { HandCoins, ShoppingBagIcon, ShoppingCart, Users } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const {} = useFetchAdmin();
+  const { isLoading } = useFetchAdmin();
   const {} = useFetchAdminDashboard();
   const {} = useFetchAdminOrders();
   const {} = useFetchUsers();
@@ -27,11 +27,11 @@ const Dashboard = () => {
 
   const orders = [...ordersRaw].reverse()
 
-  useEffect(() => {
-    if (!admin) {
-      router.push("/admin")
-    }
-  }, [])
+  if (isLoading) return <Loading />
+
+  if (!admin) {
+    router.replace("/admin")
+  }
 
   const formatCurrency = (num: number) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -50,7 +50,7 @@ const Dashboard = () => {
       
       {/* stats cards */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-6 gap-4">
-        <div className="bg-white border-1 border-gray-200 p-6 rounded-xl flex-start gap-4">
+        <div className="bg-white border border-gray-200 p-6 rounded-xl flex-start gap-4">
           <div className="bg-indigo-900 p-4 rounded-xl text-white">
             <Users />
           </div>
@@ -94,9 +94,9 @@ const Dashboard = () => {
       </section>
 
       {/* users & recent orders section */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-10">
+      <section className="grid grid-cols-1 items-start lg:grid-cols-2 gap-4 mt-10">
         {/* orders */}
-        <section className="bg-white p-6 border-1 border-gray-200 rounded-xl">
+        <section className="bg-white p-6 border border-gray-200 rounded-xl">
           <h1 className="text-lg font-jsans mb-6">Recent Orders</h1>
 
           {orders.map((ord: Order) => {

@@ -1,19 +1,19 @@
 "use client";
 
 import Header from "@/components/Header"
+import Loading from "@/components/Loading";
 import OrderItemDisplay from "@/components/OrderItemDisplay"
 import { useFetchOrders } from "@/hooks/useFetchOrders"
 import { useFetchUser } from "@/hooks/useFetchUser";
 import { RootState } from "@/redux/store"
 import { Order } from "@/types/order"
-import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux"
 
 const Orders = () => {
-  const {} = useFetchUser()
-  const { isLoading } = useFetchOrders()
+  const { isLoading } = useFetchUser()
+  const {} = useFetchOrders()
   const [orderStatus, setOrderStatus] = useState<string>("Processing")
   const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const router = useRouter();
@@ -22,21 +22,21 @@ const Orders = () => {
   const ordersRaw = useSelector((state: RootState) => state.orders.orders);
 
   const orders = [...ordersRaw].reverse();
-  const filteredOrders = orders.filter(ord => ord.status === orderStatus)
+  const filteredOrders = orders.filter(ord => ord.status === orderStatus);
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/signin")
-    }
-  }, [])
+  if (isLoading) return <Loading />
 
-  if (isLoading) {
-    return (
-      <div className="flex-center mt-20">
-        <LoaderCircle className="animate-spin" />
-      </div>
-    )
+  if (!user) {
+    router.push("/signin")
   }
+
+  // if (isLoading) {
+  //   return (
+  //     <div className="flex-center mt-20">
+  //       <LoaderCircle className="animate-spin" />
+  //     </div>
+  //   )
+  // }
 
   return (
     <main className="py-20 bg-gray-50 px-4 min-h-screen">

@@ -2,28 +2,28 @@
 
 import AdminHeader from "@/components/AdminHeader"
 import AdminProductDisplay from "@/components/AdminProductDisplay";
+import Loading from "@/components/Loading";
 import { useFetchAdmin } from "@/hooks/useFetchAdmin";
 import { useFetchProducts } from "@/hooks/useFetchProducts";
 import { RootState } from "@/redux/store";
 import { Product } from "@/types/product";
 import { Plus } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Products = () => {
-  const {} = useFetchAdmin();
+  const { isLoading } = useFetchAdmin();
   const {} = useFetchProducts();
   const router = useRouter();
 
   const admin = useSelector((state: RootState) => state.user.admin);
-  const products = useSelector((state: RootState) => state.products.products)
+  const products = useSelector((state: RootState) => state.products.products);
 
-  useEffect(() => {
-    if (!admin) {
-      router.push("/admin")
-    }
-  }, [])
+  if (isLoading) return <Loading/>
+
+  if (!admin) {
+    router.push("/admin")
+  }
 
   const toCreate = () => {
     router.push("/admin/products/create")

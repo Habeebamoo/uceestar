@@ -2,16 +2,16 @@
 
 import AdminHeader from "@/components/AdminHeader"
 import AdminOrderItemDisplay from "@/components/AdminOrderItemDisplay"
+import Loading from "@/components/Loading";
 import { useFetchAdmin } from "@/hooks/useFetchAdmin";
 import { useFetchAdminOrders } from "@/hooks/useFetchAdminOrders"
 import { RootState } from "@/redux/store"
 import { Order } from "@/types/order"
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { useSelector } from "react-redux"
 
 const Orders = () => {
-  const {} = useFetchAdmin()
+  const { isLoading } = useFetchAdmin()
   const {} = useFetchAdminOrders()
   const router = useRouter()
 
@@ -20,11 +20,11 @@ const Orders = () => {
 
   const orders = [...ordersRaw].reverse();
 
-  useEffect(() => {
-    if (!admin) {
-      router.push("/admin")
-    }
-  }, [])
+  if (isLoading) return <Loading />
+
+  if (!admin) {
+    router.push("/admin")
+  }
 
   return (
     <main className="py-20 px-4 min-h-screen bg-gray-50">
