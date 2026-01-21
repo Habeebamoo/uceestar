@@ -1,4 +1,6 @@
+import { Mail, MapPin, Phone } from "lucide-react"
 import { redirect } from "next/navigation"
+import { BsWhatsapp } from "react-icons/bs"
 
 const Footer = () => {
   const toDev = () => {
@@ -10,9 +12,31 @@ const Footer = () => {
   return (
     <footer className="bg-indigo-950 p-8 pb-10 text-white mt-25">
       <div>
-        <h1 className="font-jsans text-lg">UCEESTAR</h1>
-        <p className="text-[12px] font-jsans-light mt-1">By PJ Star LTD.</p>
+        <div>
+          <img src="/logo.png" className="h-10" />
+        </div>
+        <h1 className="font-jsans mt-3 text-lg">UCEESTAR</h1>
+        <p className="text-[12px] font-jsans-light mt-2">By PJ Star LTD.</p>
       </div>
+
+      <div className="mt-10">
+        <div className="flex-start gap-2 font-jsans-light">
+          <Mail className="text-gray-400" size={16} />
+          <p className="text-gray-300 text-sm">uceestar@gmail.com</p>
+        </div>
+
+        <div className="flex-start gap-2 font-jsans-light mt-2">
+          <Phone className="text-gray-400" size={16} />
+          <p className="text-gray-300 text-sm">+243 905 731 2712</p>
+        </div>
+
+        <div className="flex-start gap-2 font-jsans-light mt-2">
+          <BsWhatsapp className="text-gray-400" size={16} />
+          <p className="text-gray-300 text-sm">+243 902 422 8180</p>
+        </div>
+      </div>
+
+
 
       <hr className="text-gray-700 mt-8" />
 

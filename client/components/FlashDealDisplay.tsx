@@ -28,8 +28,8 @@ const FlashDealDisplay = ({ product }: Props) => {
       onClick={() => setViewBtn(true)} 
       className="bg-white rounded-md overflow-hidden border-2 border-gray-200 cursor-pointer"
     >
-      <div className="h-37.5 w-40 relative">
-        <img src={product.image} className="w-full h-full object-cover object-center" />
+      <div className="h-37.5 w-40 relative overflow-hidden">
+        <img src={product.image} className="w-full h-full hover:scale-110 transition-transform duration-300 object-cover object-center" />
 
         {viewBtn && 
           <div

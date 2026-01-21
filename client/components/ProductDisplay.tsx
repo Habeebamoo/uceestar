@@ -27,7 +27,7 @@ const ProductDisplay = ({ product }: Props) => {
       className="bg-white rounded-md overflow-hidden cursor-pointer"
     >
       <div className="h-37.5 w-40 relative w-full">
-        <img src={product.image} className="w-full h-full object-center object-cover" />
+        <img src={product.image} className="w-full hover:scale-110 transition-transform duration-300 h-full object-center object-cover" />
 
         {viewBtn && 
           <div
