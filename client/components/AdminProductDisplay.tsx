@@ -18,7 +18,7 @@ const AdminProductDisplay = ({ product }: { product: Product }) => {
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-200">
       <div className="flex-start gap-4">
-        <div className="h-30 w-40 flex-none">
+        <div className="h-30 w-30 flex-none">
           <img src={product.image} className="h-full w-full object-center object-cover" />
         </div>
         <div>
