@@ -49,7 +49,7 @@ const Dashboard = () => {
       <AdminHeader />
 
       <h1 className="text-2xl font-jsans">Dashboard</h1>
-      <p className="text-[14px] font-jsans text-gray-600 mt-1">View a report analysis summary of the platform</p>
+      <p className="text-[14px] font-jsans-light text-gray-600 mt-1">View a report analysis summary of the platform</p>
       
       {/* stats cards */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-6 gap-4">
