@@ -21,26 +21,24 @@ const Footer = () => {
 
       <div className="mt-10">
         <div className="flex-start gap-2 font-jsans-light">
-          <Mail className="text-gray-400" size={16} />
-          <p className="text-gray-300 text-sm">uceestar@gmail.com</p>
+          <Mail className="text-gray-500" size={16} />
+          <p className="text-gray-400 text-sm">uceestar@gmail.com</p>
         </div>
 
         <div className="flex-start gap-2 font-jsans-light mt-2">
-          <Phone className="text-gray-400" size={16} />
-          <p className="text-gray-300 text-sm">+243 905 731 2712</p>
+          <Phone className="text-gray-500" size={16} />
+          <p className="text-gray-400 text-sm">+243 905 731 2712</p>
         </div>
 
         <div className="flex-start gap-2 font-jsans-light mt-2">
-          <BsWhatsapp className="text-gray-400" size={16} />
-          <p className="text-gray-300 text-sm">+243 902 422 8180</p>
+          <BsWhatsapp className="text-gray-500" size={16} />
+          <p className="text-gray-400 text-sm">+243 902 422 8180</p>
         </div>
       </div>
 
-
-
       <hr className="text-gray-700 mt-8" />
 
-      <p className="font-jsans-light text-gray-300 text-[12px] mt-8">Uceestar &copy; {year}. All right reserved</p>
+      <p className="font-jsans-light text-gray-400 text-[12px] mt-8">Uceestar &copy; {year}. All right reserved</p>
     </footer>
   )
 }
