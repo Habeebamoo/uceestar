@@ -16,7 +16,7 @@ const Footer = () => {
           <img src="/logo.png" className="h-5" />
         </div>
         <h1 className="font-jsans mt-3 text-lg">UCEESTAR</h1>
-        <p className="text-[12px] font-jsans-light mt-2">By PJ Star LTD.</p>
+        <p className="text-[12px] text-gray-400 font-jsans-light mt-2">By PJ Star LTD.</p>
       </div>
 
       <div className="mt-10">
