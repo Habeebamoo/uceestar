@@ -12,8 +12,8 @@ const Footer = () => {
   return (
     <footer className="bg-indigo-950 p-8 pb-10 text-white mt-25">
       <div>
-        <div>
-          <img src="/logo.png" className="h-10" />
+        <div className="h-10 w-10 bg-white flex-center rounded-full">
+          <img src="/logo.png" className="h-5" />
         </div>
         <h1 className="font-jsans mt-3 text-lg">UCEESTAR</h1>
         <p className="text-[12px] font-jsans-light mt-2">By PJ Star LTD.</p>
