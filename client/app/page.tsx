@@ -10,15 +10,17 @@ import { useFetchProducts } from "@/hooks/useFetchProducts";
 import Footer from "@/components/Footer";
 import HeroDisplay from "@/components/HeroDisplay";
 import FlashDeals from "@/components/FlashDeals";
-import Category from "@/components/Category";
 import { getRandom99 } from "@/utils/products";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export type categories = "footwears" | "phones" | "laptops" | "gadgets" | "watches";
 
 const Home = () => {
+  const [navbarActive, setNavbarActive] = useState<boolean>(false)
   const dispatch = useDispatch();
   const {} = useFetchProducts();
+  const router = useRouter();
 
   const products = useSelector((state: RootState) => state.products.products);
   const randomProducts = getRandom99(products)
@@ -27,7 +29,9 @@ const Home = () => {
     dispatch(setProducts(products));
   }, [dispatch])
 
-  const [navbarActive, setNavbarActive] = useState<boolean>(false)
+  const toSearch = () => {
+    router.push("/search")
+  }
 
   return (
     <main className="bg-gray-50 min-h-screen">
@@ -35,12 +39,15 @@ const Home = () => {
 
       <HeroDisplay />
 
-      <section className="flex-center flex-col mt-20 md:mt-30 mb-20">
-        <h1 className="font-jsans text-center text-3xl md:text-4xl xl:text-5xl">Search Our Categories</h1>
+      <section className="flex-center flex-col mt-20 md:mt-30 mb-20 px-1">
+        <h1 className="font-jsans text-center text-3xl sm:text-3xl md:text-4xl xl:text-5xl">Search Our Categories</h1>
 
         <p className="mt-3 sm:mt-4 font-jsans-light text-center w-[90%] max-sm:text-sm">Explore our variety of premium footwears, gadgets and lifestyle essentials.</p>
 
-        <button className="btn-blue font-outfit py-3 px-8 mt-6 rounded-full flex-center gap-2">
+        <button 
+          onClick={toSearch} 
+          className="btn-blue font-outfit py-3 px-8 mt-6 rounded-full flex-center gap-2"
+        >
           <span>View Collections</span>
           <ArrowRight />
         </button>
