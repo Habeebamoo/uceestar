@@ -46,17 +46,23 @@ const Orders = () => {
 
       {/* tab */}
       <div
-        className="w-[95%] mt-10 sm:w-[500px] mx-auto flex-between p-1 gap-2 rounded-full bg-gray-100"
+        className="w-[95%] mt-10 sm:w-125 mx-auto max-sm:grid max-sm:grid-cols-2 sm:flex-between p-1 gap-2 max-sm:rounded-lg sm:rounded-full bg-gray-100"
       >
         <div
           onClick={() => setOrderStatus("Processing")} 
-          className={`${orderStatus === "Processing" ? "bg-white" : ""} p-3 rounded-full cursor-pointer text-sm text-center w-full`}
+          className={`${orderStatus === "Processing" ? "bg-white" : ""} p-3 max-sm:rounded-lg sm:rounded-full cursor-pointer text-sm text-center w-full`}
           >
           Processing
         </div>
+        <div
+          onClick={() => setOrderStatus("Dispatched")} 
+          className={`${orderStatus === "Dispatched" ? "bg-white" : ""} p-3 max-sm:rounded-lg sm:rounded-full cursor-pointer text-sm text-center w-full`}
+          >
+          Dispatched
+        </div>
         <div 
           onClick={() => setOrderStatus("Delivered")}
-          className={`${orderStatus === "Delivered" ? "bg-white" : ""} p-3 rounded-full cursor-pointer text-sm text-center w-full`}
+          className={`${orderStatus === "Delivered" ? "bg-white" : ""} p-3 max-sm:rounded-lg sm:rounded-full cursor-pointer text-sm text-center w-full col-span-2`}
         >
           Delivered
         </div>

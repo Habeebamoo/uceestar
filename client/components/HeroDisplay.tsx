@@ -12,11 +12,11 @@ const HeroDisplay = () => {
       {/* large screens */}
       <section className="max-lg:hidden grid grid-cols-7 gap-6 px-10 pt-22">
         <div className="col-span-4">
-          <div className="h-[537px] rounded-xl overflow-hidden relative col-span-3">
-            <img src="sneaker.jpeg" className="w-full h-full object-center object-cover" />
+          <div className="h-134.25 rounded-xl overflow-hidden relative col-span-3">
+            <img src="/sneaker.jpeg" className="w-full h-full object-center object-cover" />
 
             <div className="gradient-overlay p-8">
-              <div className="absolute bottom-[40px]">
+              <div className="absolute bottom-10">
                 <h1 className="text-white font-outfit text-5xl">
                   Nike Sneakers
                 </h1>
@@ -37,11 +37,11 @@ const HeroDisplay = () => {
         </div>
 
         <div className="col-span-3 grid grid-cols-1 gap-4">
-          <div className="h-[260px] rounded-xl overflow-hidden relative col-span-3">
-            <img src="laptop.jpeg" className="w-full h-full object-center object-cover" />
+          <div className="h-65 rounded-xl overflow-hidden relative col-span-3">
+            <img src="/laptop.jpeg" className="w-full h-full object-center object-cover" />
 
             <div className="gradient-overlay p-6">
-              <div className="absolute bottom-[20px]">
+              <div className="absolute bottom-5">
                 <h1 className="text-white font-outfit text-4xl">
                   Apple Macbook Air
                 </h1>
@@ -60,11 +60,11 @@ const HeroDisplay = () => {
             </div>
           </div>
 
-          <div className="h-[260px] rounded-xl overflow-hidden relative col-span-3">
-            <img src="s-watch.jpeg" className="w-full h-full object-center object-cover" />
+          <div className="h-65 rounded-xl overflow-hidden relative col-span-3">
+            <img src="/s-watch.jpeg" className="w-full h-full object-center object-cover" />
 
             <div className="gradient-overlay p-6">
-              <div className="absolute bottom-[20px]">
+              <div className="absolute bottom-5">
                 <h1 className="text-white font-outfit text-4xl">
                   Apple Watch Series 3
                 </h1>

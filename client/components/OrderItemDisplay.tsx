@@ -1,8 +1,18 @@
 import { Order } from "@/types/order"
 
 const OrderItemDisplay = ({ order }: { order: Order }) => {
+  const getOrderStatusStyle = (): string => {
+    if (order.status == "Processing") {
+      return "bg-yellow-200 text-yellow-950"
+    } else if (order.status === "Dispatched") {
+      return "bg-blue-200 text-blue-950"
+    } else {
+      return "bg-green-200 text-green-950"
+    }
+  }
+
   return (
-    <div className="bg-white p-6 border-1 border-gray-200 rounded-lg">
+    <div className="bg-white p-6 border border-gray-200 rounded-lg">
 
       <div className="flex-start gap-4">
         <div className="h-22 w-30 bg-gray-50">
@@ -24,7 +34,7 @@ const OrderItemDisplay = ({ order }: { order: Order }) => {
         <div>
           <p className="font-jsans-light text-[12px]">STATUS</p>
           <p 
-            className={`${order.status == "Processing" ? "bg-yellow-200 text-yellow-950" : "bg-green-200 text-green-950"} font-jsans text-[12px] py-1 px-3 mt-1 rounded-full`}
+            className={`${getOrderStatusStyle()} font-jsans text-[12px] py-1 px-3 mt-1 rounded-full`}
           >
             {order.status}
           </p>

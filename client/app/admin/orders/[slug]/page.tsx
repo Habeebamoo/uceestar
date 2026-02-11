@@ -88,17 +88,17 @@ const OrderPage = () => {
 
   return (
    <main className="pt-20 pb-30 px-4 sm:w-125 mx-auto">
-    <AdminHeader />
-    {loading && <Loading />}
-    <Toaster />
+      <AdminHeader />
+      {loading && <Loading />}
+      <Toaster />
 
-    <div className="h-60 bg-gray-100">
+      <div className="h-60 bg-gray-100">
         {/* image */}
         <img src={order.image} className="h-full w-full object-center object-cover" />
       </div>
 
       {/* category */}
-      <p className="text-sm font-jsans-light mt-4 text-sm">
+      <p className="text-sm font-jsans-light mt-4">
         {order.category.toUpperCase()}
       </p>
 
@@ -121,7 +121,7 @@ const OrderPage = () => {
       </div>
 
       {/* customer details */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-xl border-1 border-gray-100">
+      <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-100">
         <h1 className="font-jsans">Customer Address</h1>
 
         <div className="font-jsans-light mt-4 text-sm ">
@@ -131,7 +131,7 @@ const OrderPage = () => {
 
           <div 
             onClick={copyPhone} 
-            className="flex-start gap-2 bg-indigo-200 text-indigo-950 cursor-pointer w-[80px] rounded-xl py-2 px-3 text-[12px] mt-8"
+            className="flex-start gap-2 bg-indigo-200 text-indigo-950 cursor-pointer w-20 rounded-xl py-2 px-3 text-[12px] mt-8"
           >
             <Copy size={14} />
             <span>Copy</span>
@@ -143,11 +143,12 @@ const OrderPage = () => {
         <h1 className="mb-4">Update Status</h1>
         <select 
           id="status"
-          className="w-full block p-3 border-1 border-gray-100 rounded-xl font-jsans-light"
+          className="w-full block p-3 border border-gray-100 rounded-xl font-jsans-light"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
           <option value="Processing">Processing</option>
+          <option value="Dispatched">Dispatched</option>
           <option value="Delivered">Delivered</option>
         </select>
         <button className="btn-primary py-3 w-full mt-6 font-jsans rounded-xl">Update</button>
