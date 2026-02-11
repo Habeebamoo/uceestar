@@ -15,13 +15,12 @@ const OrderPage = () => {
   const slug = params.slug;
   const router = useRouter();
 
-  const [loading, setLoading] = useState<boolean>(false)
-  const [status, setStatus] = useState<string>("Processing")
-
   const admin = useSelector((state: RootState) => state.user.admin)
   const orders = useSelector((state: RootState) => state.orders.adminOrders);
-
   const order = orders.find((ord: Order) => ord._id == slug);
+
+  const [loading, setLoading] = useState<boolean>(false)
+  const [status, setStatus] = useState<string>(order?.status ||"Processing")
 
   useEffect(() => {
     if (!admin) {
