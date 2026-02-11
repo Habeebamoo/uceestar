@@ -59,12 +59,12 @@ const AdminOrderItemDisplay = ({ order }: { order: Order }) => {
       <div className="mt-6 px-2 font-jsans">
         <p className="font-jsans-light text-[12px]">CUSTOMER DETAILS</p>
 
-        <div className="mt-4 bg-gray-100 rounded-lg text-sm p-4 border-1 border-gray-200">
-          <p className="font-jsans-light text-sm break-words mt-2">City:  <span className="font-jsans">{order.location.city}</span></p>
+        <div className="mt-4 bg-gray-100 rounded-lg text-sm p-4 border border-gray-200">
+          <p className="font-jsans-light text-sm wrap-break-word mt-2">City:  <span className="font-jsans">{order.location.city}</span></p>
 
-          <p className="font-jsans-light text-sm break-words mt-2">Address:  <span className="font-jsans">{order.location.address}</span></p>
+          <p className="font-jsans-light text-sm wrap-break-word mt-2">Address:  <span className="font-jsans">{order.location.address}</span></p>
 
-          <p className="font-jsans-light text-sm break-words mt-2">Phone:  <span className="font-jsans">{order.phone}</span></p>
+          <p className="font-jsans-light text-sm wrap-break-word mt-2">Phone:  <span className="font-jsans">{order.phone}</span></p>
         </div>
       </div>
 
