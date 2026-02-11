@@ -10,6 +10,7 @@ import userRouter from "./Routes/userRouter.js"
 import productRouter from "./Routes/productRouter.js";
 import orderRouter from "./Routes/orderRouter.js";
 import adminRouter from "./Routes/adminRouter.js";
+import logger from "./middlewares/logger.js";
 
 const app = express();
 dotenv.config();
@@ -21,11 +22,12 @@ app.use(cors({
 }))
 app.use(cookieParser())
 app.use(RequireApiKey)
+app.use(logger)
 
 //health
 app.get("/api/status", (req, res) => {
   return res.status(200).json({
-    status: "success",
+    success: true,
     statusCode: 200,
     message: "System is up and running"
   })

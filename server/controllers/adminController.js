@@ -3,6 +3,7 @@ import { Order } from "../models/Order.js";
 import { Product } from "../models/Product.js";
 import { User } from "../models/User.js"
 import jwt from "jsonwebtoken";
+import { SendOrderDispatchMail } from "../utils/email.js";
 
 // @desc admin sign in
 // @route POST - /api/admin/signin
@@ -146,7 +147,15 @@ export const updateOrderStatus = async (req, res) => {
   }
 
   try {
-    await Order.findByIdAndUpdate(id, { status: status })
+    //update order
+    const order = await Order.findById(id)
+    await order.updateOne({ status: status })
+
+    //send order dispatch mail
+    if (status == "Dispatched") {
+      const user = await User.findById(order.userId)
+      SendOrderDispatchMail(user.name, user.email)
+    }
 
     return res.status(200).json({
       status: "success",
